@@ -1,0 +1,4 @@
+dataset: docvqa
+samples: data/processed/docvqa/validation.jsonl
+predictions: outputs/predictions/docvqa_validation.jsonl
+output: outputs/metrics/docvqa_validation_eval.json

@@ -1,0 +1,14 @@
+name: docvqa
+hf_dataset_name: pixparse/docvqa-wds
+hf_subset: null
+hf_train_split: train
+hf_validation_split: validation
+image_root: data/raw/docvqa/images
+raw_train: data/raw/docvqa/train.jsonl
+raw_validation: data/raw/docvqa/validation.jsonl
+processed_train: data/processed/docvqa/train.jsonl
+processed_validation: data/processed/docvqa/validation.jsonl
+stats_train: outputs/analysis/docvqa_train_preprocess.json
+stats_validation: outputs/analysis/docvqa_validation_preprocess.json
+check_image_paths: false
+drop_missing_images: false

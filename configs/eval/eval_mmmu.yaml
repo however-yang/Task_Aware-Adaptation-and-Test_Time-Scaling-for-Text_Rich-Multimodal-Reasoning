@@ -1,0 +1,4 @@
+dataset: mmmu
+samples: data/processed/mmmu/validation.jsonl
+predictions: outputs/predictions/mmmu_validation.jsonl
+output: outputs/metrics/mmmu_validation_eval.json

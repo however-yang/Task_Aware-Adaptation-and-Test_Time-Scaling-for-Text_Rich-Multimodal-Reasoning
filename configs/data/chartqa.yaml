@@ -1,0 +1,14 @@
+name: chartqa
+hf_dataset_name: HuggingFaceM4/ChartQA
+hf_subset: null
+hf_train_split: train
+hf_validation_split: val
+image_root: data/raw/chartqa/images
+raw_train: data/raw/chartqa/train.jsonl
+raw_validation: data/raw/chartqa/validation.jsonl
+processed_train: data/processed/chartqa/train.jsonl
+processed_validation: data/processed/chartqa/validation.jsonl
+stats_train: outputs/analysis/chartqa_train_preprocess.json
+stats_validation: outputs/analysis/chartqa_validation_preprocess.json
+check_image_paths: false
+drop_missing_images: false

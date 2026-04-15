@@ -1,0 +1,4 @@
+dataset: scienceqa
+samples: data/processed/scienceqa/validation.jsonl
+predictions: outputs/predictions/scienceqa_validation.jsonl
+output: outputs/metrics/scienceqa_validation_eval.json

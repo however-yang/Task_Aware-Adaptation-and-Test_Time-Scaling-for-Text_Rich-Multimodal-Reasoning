@@ -1,0 +1,41 @@
+name: mmmu
+hf_dataset_name: MMMU/MMMU
+hf_subset: null
+hf_validation_split: validation
+hf_subsets:
+  - Accounting
+  - Agriculture
+  - Architecture_and_Engineering
+  - Art
+  - Art_Theory
+  - Basic_Medical_Science
+  - Biology
+  - Chemistry
+  - Clinical_Medicine
+  - Computer_Science
+  - Design
+  - Diagnostics_and_Laboratory_Medicine
+  - Economics
+  - Electronics
+  - Energy_and_Power
+  - Finance
+  - Geography
+  - History
+  - Literature
+  - Manage
+  - Marketing
+  - Materials
+  - Math
+  - Mechanical_Engineering
+  - Music
+  - Pharmacy
+  - Physics
+  - Psychology
+  - Public_Health
+  - Sociology
+image_root: data/raw/mmmu/images
+raw_validation: data/raw/mmmu/validation.jsonl
+processed_validation: data/processed/mmmu/validation.jsonl
+stats_validation: outputs/analysis/mmmu_validation_preprocess.json
+check_image_paths: false
+drop_missing_images: false

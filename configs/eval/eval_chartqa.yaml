@@ -1,0 +1,4 @@
+dataset: chartqa
+samples: data/processed/chartqa/validation.jsonl
+predictions: outputs/predictions/chartqa_validation.jsonl
+output: outputs/metrics/chartqa_validation_eval.json
