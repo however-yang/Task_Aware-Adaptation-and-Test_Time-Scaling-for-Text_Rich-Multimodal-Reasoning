@@ -1,0 +1,30 @@
+
+################################################################################
+# STEP [eval_eval_scienceqa_structured] 开始  2026-04-20T00:28:46+08:00
+################################################################################
+
+[evaluate_model] samples=data/processed/scienceqa/validation.jsonl predictions=/root/Final/outputs/___BASELINE_FINAL_RESULTS___/run_20260419_225040/predictions/baseline_structured_scienceqa_val__20260419_225040.jsonl output_json=/root/Final/outputs/___BASELINE_FINAL_RESULTS___/run_20260419_225040/metrics/baseline_structured_scienceqa_val__20260419_225040.json
+[evaluate_model] n_samples=4242 n_predictions_file=4242 missing_ids=0
+[evaluate_model] scoring Wall time: 0.07s (64960 samples/s)
+
+============================================================================
+  EVALUATION SUMMARY — 指标摘要
+============================================================================
+  num_predictions: 4242
+  missing_prediction_count: 0
+  overall: 0.682697
+  scienceqa: 0.682697
+  --- invalid_output_rate (multiple-choice 无效格式占比) ---
+    scienceqa: 0.000707
+  --- error_type counts（自动标签） ---
+    correct: 2896
+    scientific_figure_reasoning_failure: 1343
+    output_mismatch: 3
+  --- slices: by_dataset ---
+    scienceqa: n=4242 mean_score=0.682697
+  --- slices: by_answer_type ---
+    multiple_choice: n=4242 mean_score=0.682697
+============================================================================
+
+# STEP [eval_eval_scienceqa_structured] 结束  2026-04-20T00:28:46+08:00
+

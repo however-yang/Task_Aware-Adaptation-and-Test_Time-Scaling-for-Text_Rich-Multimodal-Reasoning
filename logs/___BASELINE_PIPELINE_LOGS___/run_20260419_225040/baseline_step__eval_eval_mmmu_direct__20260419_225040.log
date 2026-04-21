@@ -1,0 +1,30 @@
+
+################################################################################
+# STEP [eval_eval_mmmu_direct] 开始  2026-04-19T23:45:59+08:00
+################################################################################
+
+[evaluate_model] samples=data/processed/mmmu/validation.jsonl predictions=/root/Final/outputs/___BASELINE_FINAL_RESULTS___/run_20260419_225040/predictions/baseline_direct_mmmu_val__20260419_225040.jsonl output_json=/root/Final/outputs/___BASELINE_FINAL_RESULTS___/run_20260419_225040/metrics/baseline_direct_mmmu_val__20260419_225040.json
+[evaluate_model] n_samples=900 n_predictions_file=900 missing_ids=0
+[evaluate_model] scoring Wall time: 0.02s (37191 samples/s)
+
+============================================================================
+  EVALUATION SUMMARY — 指标摘要
+============================================================================
+  num_predictions: 900
+  missing_prediction_count: 0
+  overall: 0.215556
+  mmmu: 0.215556
+  --- invalid_output_rate (multiple-choice 无效格式占比) ---
+    mmmu: 0.238889
+  --- error_type counts（自动标签） ---
+    scientific_figure_reasoning_failure: 491
+    output_mismatch: 215
+    correct: 194
+  --- slices: by_dataset ---
+    mmmu: n=900 mean_score=0.215556
+  --- slices: by_answer_type ---
+    multiple_choice: n=900 mean_score=0.215556
+============================================================================
+
+# STEP [eval_eval_mmmu_direct] 结束  2026-04-19T23:46:00+08:00
+

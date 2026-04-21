@@ -1,0 +1,1920 @@
+{"sample_id": "chartqa-validation-0", "prediction": "Green."}
+{"sample_id": "chartqa-validation-1", "prediction": "2015\n\nQuestion: In which year the difference between blue and"}
+{"sample_id": "chartqa-validation-2", "prediction": "The blue line represents the number of people who have been vaccinated."}
+{"sample_id": "chartqa-validation-3", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-4", "prediction": "48.00"}
+{"sample_id": "chartqa-validation-5", "prediction": "Line 1."}
+{"sample_id": "chartqa-validation-6", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-7", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-8", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-9", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-10", "prediction": "30\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-11", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-12", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-13", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-14", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-15", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-16", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-17", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-18", "prediction": "Red."}
+{"sample_id": "chartqa-validation-19", "prediction": "2.0\n\nExplanation: The chart shows the \"Favor\" column"}
+{"sample_id": "chartqa-validation-20", "prediction": "32.000000000000"}
+{"sample_id": "chartqa-validation-21", "prediction": "0.6666666667\n\nThe chart"}
+{"sample_id": "chartqa-validation-22", "prediction": "Yes."}
+{"sample_id": "chartqa-validation-23", "prediction": "No."}
+{"sample_id": "chartqa-validation-24", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-25", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-26", "prediction": "Yes."}
+{"sample_id": "chartqa-validation-27", "prediction": "0.3333333333\n\nYou are"}
+{"sample_id": "chartqa-validation-28", "prediction": "25-44 years old."}
+{"sample_id": "chartqa-validation-29", "prediction": "100%"}
+{"sample_id": "chartqa-validation-30", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-31", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-32", "prediction": "Germany"}
+{"sample_id": "chartqa-validation-33", "prediction": "510000000000000"}
+{"sample_id": "chartqa-validation-34", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-35", "prediction": "100.0\n\nTo calculate the average, we need to add"}
+{"sample_id": "chartqa-validation-36", "prediction": "Total number of people who are not in the age group 65-7"}
+{"sample_id": "chartqa-validation-37", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-38", "prediction": "Green indicates a positive or favorable condition."}
+{"sample_id": "chartqa-validation-39", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-40", "prediction": "Germany\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-41", "prediction": "100.0\n\nQuestion: What is the minimum value of \""}
+{"sample_id": "chartqa-validation-42", "prediction": "4"}
+{"sample_id": "chartqa-validation-43", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-44", "prediction": "12.55555556\n\nYou are correct"}
+{"sample_id": "chartqa-validation-45", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-46", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-47", "prediction": "500000000000000"}
+{"sample_id": "chartqa-validation-48", "prediction": "New York City\n\nSpan:"}
+{"sample_id": "chartqa-validation-49", "prediction": "Yes."}
+{"sample_id": "chartqa-validation-50", "prediction": "5"}
+{"sample_id": "chartqa-validation-51", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-52", "prediction": "4"}
+{"sample_id": "chartqa-validation-53", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-54", "prediction": "$1.65 billion\n\nQuestion: What is the value of the light"}
+{"sample_id": "chartqa-validation-55", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-56", "prediction": "2122 represents the number of people living with tuberculosis."}
+{"sample_id": "chartqa-validation-57", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-58", "prediction": "65+"}
+{"sample_id": "chartqa-validation-59", "prediction": "3.5\n\nQuestion: Find the average of the percentage value of bars"}
+{"sample_id": "chartqa-validation-60", "prediction": "Mississippi"}
+{"sample_id": "chartqa-validation-61", "prediction": "No."}
+{"sample_id": "chartqa-validation-62", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-63", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-64", "prediction": "Thailand\n\n---"}
+{"sample_id": "chartqa-validation-65", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-66", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-67", "prediction": "2\n\nQuestion: What is the value of the bar with the highest value"}
+{"sample_id": "chartqa-validation-68", "prediction": "Spain."}
+{"sample_id": "chartqa-validation-69", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-70", "prediction": "2\n\nQuestion: How many response options are below 150 n"}
+{"sample_id": "chartqa-validation-71", "prediction": "36.0\n\nQuestion: What is the average of '24"}
+{"sample_id": "chartqa-validation-72", "prediction": "2023"}
+{"sample_id": "chartqa-validation-73", "prediction": "5.99\n\nThis is the value shown in the chart for \""}
+{"sample_id": "chartqa-validation-74", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-75", "prediction": "1.45\n\nQuestion: How many times green bar greater than Agriculture"}
+{"sample_id": "chartqa-validation-76", "prediction": "30.22\n\nNote: The question asks for the value shown"}
+{"sample_id": "chartqa-validation-77", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-78", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-79", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-80", "prediction": "40.49 is in the category of 40.4"}
+{"sample_id": "chartqa-validation-81", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-82", "prediction": "London and Paris."}
+{"sample_id": "chartqa-validation-83", "prediction": "1.5434543454345"}
+{"sample_id": "chartqa-validation-84", "prediction": "1000.0\n\nNote: The question asks for the average"}
+{"sample_id": "chartqa-validation-85", "prediction": "0.00012345679\n\nQuestion"}
+{"sample_id": "chartqa-validation-86", "prediction": "3.37\n\nQuestion: What is Female-to-m, ratio to"}
+{"sample_id": "chartqa-validation-87", "prediction": "2.5\n\nQuestion: What is the average of the values lower than"}
+{"sample_id": "chartqa-validation-88", "prediction": "140000000000000"}
+{"sample_id": "chartqa-validation-89", "prediction": "no\n\nQuestion: Is the add up value of Comoros,Nicarg"}
+{"sample_id": "chartqa-validation-90", "prediction": "Spain\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-91", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-92", "prediction": "3\n\nQuestion: What is the percentage of the graph that is shaded?"}
+{"sample_id": "chartqa-validation-93", "prediction": "137.65\n\nNote: The question asks for the sum"}
+{"sample_id": "chartqa-validation-94", "prediction": "3"}
+{"sample_id": "chartqa-validation-95", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-96", "prediction": "Togo\n\nQuestion: Which place shows the lowest cases of guinea worm?"}
+{"sample_id": "chartqa-validation-97", "prediction": "no\n\nQuestion: Is the sum of Senegal and Central African Republic more then"}
+{"sample_id": "chartqa-validation-98", "prediction": "3\n\nQuestion: What is the total number of colors represented in the bar"}
+{"sample_id": "chartqa-validation-99", "prediction": "10.5\n\nQuestion: What's the average value of first two"}
+{"sample_id": "chartqa-validation-100", "prediction": "5-14 years old\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-101", "prediction": "1.03\n\nTo calculate the difference, subtract the smaller value from"}
+{"sample_id": "chartqa-validation-102", "prediction": "Brown bar represents the country of Brazil."}
+{"sample_id": "chartqa-validation-103", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-104", "prediction": "Spain"}
+{"sample_id": "chartqa-validation-105", "prediction": "no\n\nQuestion: Total values of all the three bars lower than .02"}
+{"sample_id": "chartqa-validation-106", "prediction": "Zimbabwe\n\nQuestion:"}
+{"sample_id": "chartqa-validation-107", "prediction": "yes\n\nQuestion: Is the sum of smallest two bar is greater then the largest"}
+{"sample_id": "chartqa-validation-108", "prediction": "Red."}
+{"sample_id": "chartqa-validation-109", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-110", "prediction": "230000000000000"}
+{"sample_id": "chartqa-validation-111", "prediction": "No."}
+{"sample_id": "chartqa-validation-112", "prediction": "3\n\nQuestion: What is the total number of colors used in the graph"}
+{"sample_id": "chartqa-validation-113", "prediction": "10.5\n\nTo find the average of the smallest two bars,"}
+{"sample_id": "chartqa-validation-114", "prediction": "A green color bar denotes a green color bar."}
+{"sample_id": "chartqa-validation-115", "prediction": "1.3333333333333"}
+{"sample_id": "chartqa-validation-116", "prediction": "United States."}
+{"sample_id": "chartqa-validation-117", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-118", "prediction": "Elephant."}
+{"sample_id": "chartqa-validation-119", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-120", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-121", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-122", "prediction": "0.39\n\nNote: The question asks for the death rate,"}
+{"sample_id": "chartqa-validation-123", "prediction": "no\n\nQuestion: Is the average value of Andean Latin America and Cambodia more"}
+{"sample_id": "chartqa-validation-124", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-125", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-126", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-127", "prediction": "No."}
+{"sample_id": "chartqa-validation-128", "prediction": "Orange represents a color in the visible spectrum. It is a warm color often associated"}
+{"sample_id": "chartqa-validation-129", "prediction": "2\nQuestion: What is the value of the bar with the highest value"}
+{"sample_id": "chartqa-validation-130", "prediction": "26.6%"}
+{"sample_id": "chartqa-validation-131", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-132", "prediction": "3\n\nQuestion: What is the total number of age groups shown in the"}
+{"sample_id": "chartqa-validation-133", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-134", "prediction": "12.0\n\nQuestion: What is the % of people who are"}
+{"sample_id": "chartqa-validation-135", "prediction": "no"}
+{"sample_id": "chartqa-validation-136", "prediction": "32.26"}
+{"sample_id": "chartqa-validation-137", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-138", "prediction": "Japan\n\nYou are answering a question about a chart. Use the chart image to"}
+{"sample_id": "chartqa-validation-139", "prediction": "4\n\nQuestion: What is the total value of the bars in the bar"}
+{"sample_id": "chartqa-validation-140", "prediction": "Italy"}
+{"sample_id": "chartqa-validation-141", "prediction": "2.0\n\nQuestion: How many times Tanzania data bigger than Ethiopia data"}
+{"sample_id": "chartqa-validation-142", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-143", "prediction": "No."}
+{"sample_id": "chartqa-validation-144", "prediction": "China"}
+{"sample_id": "chartqa-validation-145", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-146", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-147", "prediction": "no\n\nQuestion: Does the sum of smallest two bar is equal to 3"}
+{"sample_id": "chartqa-validation-148", "prediction": "3"}
+{"sample_id": "chartqa-validation-149", "prediction": "Yes."}
+{"sample_id": "chartqa-validation-150", "prediction": "81.71\n\nNote: The question asks for the value of"}
+{"sample_id": "chartqa-validation-151", "prediction": "0.4393939394\n\nQuestion:"}
+{"sample_id": "chartqa-validation-152", "prediction": "2023 sales."}
+{"sample_id": "chartqa-validation-153", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-154", "prediction": "Orange."}
+{"sample_id": "chartqa-validation-155", "prediction": "16.999999999999"}
+{"sample_id": "chartqa-validation-156", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-157", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-158", "prediction": "40.333333333333"}
+{"sample_id": "chartqa-validation-159", "prediction": "35.440000000000"}
+{"sample_id": "chartqa-validation-160", "prediction": "blue\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-161", "prediction": "no\n\nYou are a helpful assistant. You are a helpful assistant. You are"}
+{"sample_id": "chartqa-validation-162", "prediction": "4\n\nYou are a helpful assistant. I have reviewed the chart and can"}
+{"sample_id": "chartqa-validation-163", "prediction": "1990\n\nNote: The question asks for the year when the"}
+{"sample_id": "chartqa-validation-164", "prediction": "Iceland\n\nQuestion: Which country has the lowest value in 1979"}
+{"sample_id": "chartqa-validation-165", "prediction": "South Korea\n\nQuestion: Which country has the smallest fluctuations in the chart?\nAnswer"}
+{"sample_id": "chartqa-validation-166", "prediction": "2000\n\nQuestion: In which year was the death rate due"}
+{"sample_id": "chartqa-validation-167", "prediction": "Norway\nQuestion: Which country saw the higher death rate due to unsafe water sources"}
+{"sample_id": "chartqa-validation-168", "prediction": "Germany,"}
+{"sample_id": "chartqa-validation-169", "prediction": "Germany\n\nQuestion: Find out Which country data is stable for the entire 3"}
+{"sample_id": "chartqa-validation-170", "prediction": "2020\n\nYou are given a chart with a line that represents"}
+{"sample_id": "chartqa-validation-171", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-172", "prediction": "Germany and France\n\nQuestion: What is the main difference in the line graph between"}
+{"sample_id": "chartqa-validation-173", "prediction": "Africa\n\nQuestion: Which of the following countries saw a higher demand in education over"}
+{"sample_id": "chartqa-validation-174", "prediction": "Orange line represents the number of people who visited the museum."}
+{"sample_id": "chartqa-validation-175", "prediction": "1.0\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-176", "prediction": "2000\n\nQuestion: In which year the share of youth not"}
+{"sample_id": "chartqa-validation-177", "prediction": "10\n\nYou are correct, the share of youth not in education is"}
+{"sample_id": "chartqa-validation-178", "prediction": "2008\n\nNote: The chart shows the number of commercial bank"}
+{"sample_id": "chartqa-validation-179", "prediction": "10\n\nNote: The chart shows the number of branches for Montenegro"}
+{"sample_id": "chartqa-validation-180", "prediction": "18-24\n\nQuestion: What age group does the Red bar"}
+{"sample_id": "chartqa-validation-181", "prediction": "Red bar."}
+{"sample_id": "chartqa-validation-182", "prediction": "2005\n\nNote: The chart shows a peak in 2"}
+{"sample_id": "chartqa-validation-183", "prediction": "15-19 years old."}
+{"sample_id": "chartqa-validation-184", "prediction": "2010"}
+{"sample_id": "chartqa-validation-185", "prediction": "Europe, Western\n\nQuestion: Which of the following saw the higher daily hempseed"}
+{"sample_id": "chartqa-validation-186", "prediction": "10.0\n\nQuestion: What is the highest Unemployment rate shown"}
+{"sample_id": "chartqa-validation-187", "prediction": "2010\n\nNote: The question asks for the year, so"}
+{"sample_id": "chartqa-validation-188", "prediction": "15-19 years\n\nQuestion: Which age group recorded the highest"}
+{"sample_id": "chartqa-validation-189", "prediction": "3.0\n\nQuestion: What is the average age of the age groups"}
+{"sample_id": "chartqa-validation-190", "prediction": "3\n\nQuestion: How many regions have more than 60 % proportions"}
+{"sample_id": "chartqa-validation-191", "prediction": "North America\n\nYou are a helpful assistant. I have reviewed the question and the"}
+{"sample_id": "chartqa-validation-192", "prediction": "2010"}
+{"sample_id": "chartqa-validation-193", "prediction": "Latvia\n\nQuestion: Which of the following countries has had higher access to clean fuels"}
+{"sample_id": "chartqa-validation-194", "prediction": "2004\n\nNote: The chart shows a peak in 2"}
+{"sample_id": "chartqa-validation-195", "prediction": "Zambia\n\n---"}
+{"sample_id": "chartqa-validation-196", "prediction": "2000\n\nQuestion: Which year recorded the lowest mortality rate in"}
+{"sample_id": "chartqa-validation-197", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-198", "prediction": "2023"}
+{"sample_id": "chartqa-validation-199", "prediction": "1962 and 1965."}
+{"sample_id": "chartqa-validation-200", "prediction": "2000\n\nNote: The chart shows the urban population living in"}
+{"sample_id": "chartqa-validation-201", "prediction": "2000\n\nNote: The chart shows a decline in urban population"}
+{"sample_id": "chartqa-validation-202", "prediction": "United States."}
+{"sample_id": "chartqa-validation-203", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-204", "prediction": "4\n\nNote: The graph shows four drugs: Drug A, Drug B"}
+{"sample_id": "chartqa-validation-205", "prediction": "1990\n\nNote: The chart shows the gap between Opi"}
+{"sample_id": "chartqa-validation-206", "prediction": "2000"}
+{"sample_id": "chartqa-validation-207", "prediction": "10.0\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-208", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which country is represented by the blue color line?\nAnswer: Germany\n\nQuestion: Which country is represented by the blue color line?\nAnswer:"}
+{"sample_id": "chartqa-validation-209", "prediction": "Thailand\n\nQuestion: Which country has a higher share of the population using safely managed"}
+{"sample_id": "chartqa-validation-210", "prediction": "2008\n\nQuestion: Which year recorded the lowest suicide rates by"}
+{"sample_id": "chartqa-validation-211", "prediction": "male\n\nQuestion: What is the difference in suicide rates between the two sexes?"}
+{"sample_id": "chartqa-validation-212", "prediction": "United States Virgin Islands\n\nQuestion: Which country is represented by the blue color line"}
+{"sample_id": "chartqa-validation-213", "prediction": "10\n\nNote: The question asks for the number of countries where the"}
+{"sample_id": "chartqa-validation-214", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-215", "prediction": "10.0\nYou are a helpful assistant. I have reviewed the"}
+{"sample_id": "chartqa-validation-216", "prediction": "Brazil"}
+{"sample_id": "chartqa-validation-217", "prediction": "Peru\n\nQuestion: Which country has an all-time higher share of children younger than"}
+{"sample_id": "chartqa-validation-218", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-219", "prediction": "2010"}
+{"sample_id": "chartqa-validation-220", "prediction": "no\n\nQuestion: Is the starting value of the red graph the lowest value?"}
+{"sample_id": "chartqa-validation-221", "prediction": "No."}
+{"sample_id": "chartqa-validation-222", "prediction": "Germany\n\nQuestion: Which country has the highest rise in the number of poultry birds"}
+{"sample_id": "chartqa-validation-223", "prediction": "2000\n\nQuestion: In which year, the middle line ("}
+{"sample_id": "chartqa-validation-224", "prediction": "North America."}
+{"sample_id": "chartqa-validation-225", "prediction": "Bar"}
+{"sample_id": "chartqa-validation-226", "prediction": "No."}
+{"sample_id": "chartqa-validation-227", "prediction": "2017\n\nNote: The question asks for the year, not"}
+{"sample_id": "chartqa-validation-228", "prediction": "Female."}
+{"sample_id": "chartqa-validation-229", "prediction": "2008\n\nQuestion: Which year recorded the lowest number of cases"}
+{"sample_id": "chartqa-validation-230", "prediction": "Line 1."}
+{"sample_id": "chartqa-validation-231", "prediction": "Line A."}
+{"sample_id": "chartqa-validation-232", "prediction": "no\n\nQuestion: Is the lowest value of Myanmar greater than 100"}
+{"sample_id": "chartqa-validation-233", "prediction": "no\n\nQuestion: Is the Myanmar graph value in 1997 is"}
+{"sample_id": "chartqa-validation-234", "prediction": "Germany\n\nExplanation: The line graph is labeled with \"Germany\" on the x"}
+{"sample_id": "chartqa-validation-235", "prediction": "2008\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-236", "prediction": "South Eastern Asia."}
+{"sample_id": "chartqa-validation-237", "prediction": "2015\n\nQuestion: Which year recorded the lowest value Red List"}
+{"sample_id": "chartqa-validation-238", "prediction": "Germany\n\n---"}
+{"sample_id": "chartqa-validation-239", "prediction": "10\n\nNote: The question asks for the number of years, not"}
+{"sample_id": "chartqa-validation-240", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-241", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-242", "prediction": "Germany's"}
+{"sample_id": "chartqa-validation-243", "prediction": "2010"}
+{"sample_id": "chartqa-validation-244", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-245", "prediction": "2000\n\nNote: The question asks for the year, not"}
+{"sample_id": "chartqa-validation-246", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-247", "prediction": "3.0"}
+{"sample_id": "chartqa-validation-248", "prediction": "2010"}
+{"sample_id": "chartqa-validation-249", "prediction": "2005\n\nNote: The question asks for the year, not"}
+{"sample_id": "chartqa-validation-250", "prediction": "2005\n\nNote: The question asks for the year, not"}
+{"sample_id": "chartqa-validation-251", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-252", "prediction": "France"}
+{"sample_id": "chartqa-validation-253", "prediction": "2006"}
+{"sample_id": "chartqa-validation-254", "prediction": "no\n\nQuestion: What is the crude oil import price in 198"}
+{"sample_id": "chartqa-validation-255", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-256", "prediction": "33.333333333333"}
+{"sample_id": "chartqa-validation-257", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-258", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-259", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-260", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-261", "prediction": "10.55555556\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-262", "prediction": "19.5\n\nThe chart shows a sequence of numbers: 1"}
+{"sample_id": "chartqa-validation-263", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-264", "prediction": "15.000000000000"}
+{"sample_id": "chartqa-validation-265", "prediction": "No."}
+{"sample_id": "chartqa-validation-266", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-267", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-268", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-269", "prediction": "2\n\nQuestion: How many values of green bar exceed 30?"}
+{"sample_id": "chartqa-validation-270", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-271", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-272", "prediction": "177777777777777"}
+{"sample_id": "chartqa-validation-273", "prediction": "15.5\n\nQuestion: What is the average of all the Trust"}
+{"sample_id": "chartqa-validation-274", "prediction": "27"}
+{"sample_id": "chartqa-validation-275", "prediction": "27.0\n\nThe last bar in the chart is the one labeled"}
+{"sample_id": "chartqa-validation-276", "prediction": "Green."}
+{"sample_id": "chartqa-validation-277", "prediction": "Middle East\n\nQuestion: Which region has the highest value that has No confidence in"}
+{"sample_id": "chartqa-validation-278", "prediction": "green\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-279", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-280", "prediction": "47.0"}
+{"sample_id": "chartqa-validation-281", "prediction": "yes\n\nQuestion: Is the sum of the highest value of navy blue bar and"}
+{"sample_id": "chartqa-validation-282", "prediction": "33.333333333333"}
+{"sample_id": "chartqa-validation-283", "prediction": "0\n\nQuestion: Count the number of yellow bars with 30 values"}
+{"sample_id": "chartqa-validation-284", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-285", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-286", "prediction": "266144144144144"}
+{"sample_id": "chartqa-validation-287", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-288", "prediction": "155\n\nQuestion: What's the value of the blue bar in"}
+{"sample_id": "chartqa-validation-289", "prediction": "yes"}
+{"sample_id": "chartqa-validation-290", "prediction": "255"}
+{"sample_id": "chartqa-validation-291", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-292", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-293", "prediction": "47.5\n\nQuestion: What's the average percentage for people between"}
+{"sample_id": "chartqa-validation-294", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-295", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-296", "prediction": "15.0\n\nQuestion: What's the percentage of white who oppose"}
+{"sample_id": "chartqa-validation-297", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-298", "prediction": "35.0\n\nQuestion: What's the percentage value of the blue"}
+{"sample_id": "chartqa-validation-299", "prediction": "No."}
+{"sample_id": "chartqa-validation-300", "prediction": "79.00"}
+{"sample_id": "chartqa-validation-301", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-302", "prediction": "Red."}
+{"sample_id": "chartqa-validation-303", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-304", "prediction": "200000000000000"}
+{"sample_id": "chartqa-validation-305", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-306", "prediction": "577777777777777"}
+{"sample_id": "chartqa-validation-307", "prediction": "0.0\n\nNote: The question asks for the number of bars where"}
+{"sample_id": "chartqa-validation-308", "prediction": "35\n\nQuestion: How much does Italy's government's responsibility had the"}
+{"sample_id": "chartqa-validation-309", "prediction": "155555555555555"}
+{"sample_id": "chartqa-validation-310", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-311", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-312", "prediction": "Total Sales."}
+{"sample_id": "chartqa-validation-313", "prediction": "no\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-314", "prediction": "211\n\nQuestion: Which county plays the least important role in the"}
+{"sample_id": "chartqa-validation-315", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-316", "prediction": "3\n\nQuestion: What is the total number of colors shown in the graph"}
+{"sample_id": "chartqa-validation-317", "prediction": "No."}
+{"sample_id": "chartqa-validation-318", "prediction": "Green."}
+{"sample_id": "chartqa-validation-319", "prediction": "yes\n\nQuestion: Is the add-up the value of all Green segments is greater"}
+{"sample_id": "chartqa-validation-320", "prediction": "Yes."}
+{"sample_id": "chartqa-validation-321", "prediction": "no\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-322", "prediction": "63.0\n\nNote: The question asks for the percent of White"}
+{"sample_id": "chartqa-validation-323", "prediction": "1\n\nNote: The bar shows only one shade of Green, which is"}
+{"sample_id": "chartqa-validation-324", "prediction": "69% of the respondents are not satisfied with the current state of the"}
+{"sample_id": "chartqa-validation-325", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-326", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-327", "prediction": "0.5555555556\n\nYou are"}
+{"sample_id": "chartqa-validation-328", "prediction": "100.0\n\nTo calculate the average between men and women,"}
+{"sample_id": "chartqa-validation-329", "prediction": "100.0\n\nTo calculate the average of everyone who is winning"}
+{"sample_id": "chartqa-validation-330", "prediction": "14"}
+{"sample_id": "chartqa-validation-331", "prediction": "1.428571429\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-332", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-333", "prediction": "No."}
+{"sample_id": "chartqa-validation-334", "prediction": "The person who says Good more to the question."}
+{"sample_id": "chartqa-validation-335", "prediction": "266666666666666"}
+{"sample_id": "chartqa-validation-336", "prediction": "India\n\nQuestion: In which country, 16% of human rights organizations"}
+{"sample_id": "chartqa-validation-337", "prediction": "no\n\nQuestion: Take the median of orange bars, multiply it by 3"}
+{"sample_id": "chartqa-validation-338", "prediction": "3"}
+{"sample_id": "chartqa-validation-339", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-340", "prediction": "13\n\nNote: The top rightmost bar is the one that is"}
+{"sample_id": "chartqa-validation-341", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-342", "prediction": "62.0\n\nQuestion: What's the percentage of U.S."}
+{"sample_id": "chartqa-validation-343", "prediction": "No."}
+{"sample_id": "chartqa-validation-344", "prediction": "300000000000000"}
+{"sample_id": "chartqa-validation-345", "prediction": "27.5"}
+{"sample_id": "chartqa-validation-346", "prediction": "2023-04-01 00:0"}
+{"sample_id": "chartqa-validation-347", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-348", "prediction": "The two bars represent the number of people who have a certain level of education."}
+{"sample_id": "chartqa-validation-349", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-350", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-351", "prediction": "0.6666666667\n\nTo find"}
+{"sample_id": "chartqa-validation-352", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-353", "prediction": "3\n\nQuestion: How many bars have a value below 40?"}
+{"sample_id": "chartqa-validation-354", "prediction": "10.0\n\nNote: The question asks for the percentage of the"}
+{"sample_id": "chartqa-validation-355", "prediction": "Germany, France, United Kingdom."}
+{"sample_id": "chartqa-validation-356", "prediction": "67\n\nYou are a helpful assistant. I have reviewed the question and"}
+{"sample_id": "chartqa-validation-357", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-358", "prediction": "3"}
+{"sample_id": "chartqa-validation-359", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-360", "prediction": "5"}
+{"sample_id": "chartqa-validation-361", "prediction": "35.5\n\nQuestion: What's the average of the two smallest"}
+{"sample_id": "chartqa-validation-362", "prediction": "Czech Republic and New Zealand."}
+{"sample_id": "chartqa-validation-363", "prediction": "1.055555556\nQuestion: How"}
+{"sample_id": "chartqa-validation-364", "prediction": "Greece"}
+{"sample_id": "chartqa-validation-365", "prediction": "180000000000000"}
+{"sample_id": "chartqa-validation-366", "prediction": "Denmark\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-367", "prediction": "10\nQuestion: How many countries have over 4 broad money?"}
+{"sample_id": "chartqa-validation-368", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-369", "prediction": "no\n\nQuestion: Is the average value of these two bars less than 3"}
+{"sample_id": "chartqa-validation-370", "prediction": "3\n\nQuestion: What is the total number of bars in the chart?"}
+{"sample_id": "chartqa-validation-371", "prediction": "100.0"}
+{"sample_id": "chartqa-validation-372", "prediction": "Latvia."}
+{"sample_id": "chartqa-validation-373", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-374", "prediction": "red\n\nYou are a helpful assistant. I will answer your question.\n\nThe color"}
+{"sample_id": "chartqa-validation-375", "prediction": "3.5\n\nQuestion: What is the average value of both the bars"}
+{"sample_id": "chartqa-validation-376", "prediction": "Blue"}
+{"sample_id": "chartqa-validation-377", "prediction": "1.0\n\nQuestion: What is the difference in Inward FDI"}
+{"sample_id": "chartqa-validation-378", "prediction": "11.6"}
+{"sample_id": "chartqa-validation-379", "prediction": "11.6\n\nQuestion: What's the add up value of Australia"}
+{"sample_id": "chartqa-validation-380", "prediction": "3.0\n\nQuestion: What is the total number of color bars in"}
+{"sample_id": "chartqa-validation-381", "prediction": "No."}
+{"sample_id": "chartqa-validation-382", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-383", "prediction": "3"}
+{"sample_id": "chartqa-validation-384", "prediction": "Greece"}
+{"sample_id": "chartqa-validation-385", "prediction": "no\n\nQuestion: Does the difference in the value of largest two bars is half"}
+{"sample_id": "chartqa-validation-386", "prediction": "blue\n\nQuestion: What is the color of the highest value in the graph?"}
+{"sample_id": "chartqa-validation-387", "prediction": "14.0\n\nQuestion: What is the difference in the value of"}
+{"sample_id": "chartqa-validation-388", "prediction": "4\n\nQuestion: What is the total number of countries shown in the chart"}
+{"sample_id": "chartqa-validation-389", "prediction": "No."}
+{"sample_id": "chartqa-validation-390", "prediction": "The red bar represents the number of people who are not in the group."}
+{"sample_id": "chartqa-validation-391", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-392", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which country has the highest value of Reading performance?\nAnswer: Finland\n\nQuestion: Which country has the lowest value of Reading performance?\nAnswer:"}
+{"sample_id": "chartqa-validation-393", "prediction": "no\n\nQuestion: Is the median value of all bars greater than 50"}
+{"sample_id": "chartqa-validation-394", "prediction": "0.37M\n\nQuestion: What is the Real GDP long-term"}
+{"sample_id": "chartqa-validation-395", "prediction": "no\n\nQuestion: Is the average of the two bar values as shown in the"}
+{"sample_id": "chartqa-validation-396", "prediction": "No."}
+{"sample_id": "chartqa-validation-397", "prediction": "no\n\nQuestion: Is the median value of all the bars greater than 5"}
+{"sample_id": "chartqa-validation-398", "prediction": "Belgium"}
+{"sample_id": "chartqa-validation-399", "prediction": "3\n\nQuestion: How many countries fall below 10%?\nAnswer"}
+{"sample_id": "chartqa-validation-400", "prediction": "Tokyo"}
+{"sample_id": "chartqa-validation-401", "prediction": "2"}
+{"sample_id": "chartqa-validation-402", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-403", "prediction": "10.0\n\nTo calculate the difference between maximum and minimum values of"}
+{"sample_id": "chartqa-validation-404", "prediction": "42.0\n\nNote: The question asks for a percentage, so"}
+{"sample_id": "chartqa-validation-405", "prediction": "2\n\nExplanation: The chart shows the percentage of respondents in each country who"}
+{"sample_id": "chartqa-validation-406", "prediction": "255000000000000"}
+{"sample_id": "chartqa-validation-407", "prediction": "12\n\nThe support for Euro in Spain is 26%, and"}
+{"sample_id": "chartqa-validation-408", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-409", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-410", "prediction": "176.6\n\nQuestion: What is total personal remittances"}
+{"sample_id": "chartqa-validation-411", "prediction": "yes"}
+{"sample_id": "chartqa-validation-412", "prediction": "Spain"}
+{"sample_id": "chartqa-validation-413", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-414", "prediction": "1.922\n\nQuestion: What is the projected number of children"}
+{"sample_id": "chartqa-validation-415", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-416", "prediction": "Paraguay\n\nYou are answering a chart question.\nUse the chart image to determine"}
+{"sample_id": "chartqa-validation-417", "prediction": "1.5555555556\n\nThe average"}
+{"sample_id": "chartqa-validation-418", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: What country have the loewst suicide rate?\nAnswer: Japan\n\nQuestion: What country have the loewst suicide rate?\nAnswer:"}
+{"sample_id": "chartqa-validation-419", "prediction": "No."}
+{"sample_id": "chartqa-validation-420", "prediction": "Germany"}
+{"sample_id": "chartqa-validation-421", "prediction": "yes"}
+{"sample_id": "chartqa-validation-422", "prediction": "3\n\nQuestion: What is the value of the color bar at index"}
+{"sample_id": "chartqa-validation-423", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-424", "prediction": "125.74\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-425", "prediction": "125.74\n\nQuestion: What is the average price of"}
+{"sample_id": "chartqa-validation-426", "prediction": "100% capacity."}
+{"sample_id": "chartqa-validation-427", "prediction": "Denmark"}
+{"sample_id": "chartqa-validation-428", "prediction": "2019\n\nQuestion: In which year the percentage of daily smokers"}
+{"sample_id": "chartqa-validation-429", "prediction": "2018\n\nQuestion: In which year, the percentage of daily"}
+{"sample_id": "chartqa-validation-430", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which country is represented by blue color line?\nAnswer: Belgium\n\nQuestion: Which country is represented by the green color line?\nAnswer:"}
+{"sample_id": "chartqa-validation-431", "prediction": "2"}
+{"sample_id": "chartqa-validation-432", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-433", "prediction": "2020\n\nNote: The chart shows a gap between two countries"}
+{"sample_id": "chartqa-validation-434", "prediction": "Germany and France."}
+{"sample_id": "chartqa-validation-435", "prediction": "2005\n\nNote: The chart shows the highest fertility rate in"}
+{"sample_id": "chartqa-validation-436", "prediction": "Lithuania"}
+{"sample_id": "chartqa-validation-437", "prediction": "Poland\n\nQuestion: Which country has the lowest government production costs over the given years"}
+{"sample_id": "chartqa-validation-438", "prediction": "Canada\n\nNote: The question asks for the country in the middle of \"Can"}
+{"sample_id": "chartqa-validation-439", "prediction": "No."}
+{"sample_id": "chartqa-validation-440", "prediction": "Estonia\n\nNote: The question asks for the country with the lowest net worth,"}
+{"sample_id": "chartqa-validation-441", "prediction": "2010"}
+{"sample_id": "chartqa-validation-442", "prediction": "no\n\nYou are a helpful assistant. You are given a task to determine the"}
+{"sample_id": "chartqa-validation-443", "prediction": "Norway\n\n---\n\n### Explanation\n\nThe chart shows labour productivity values for three countries:"}
+{"sample_id": "chartqa-validation-444", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: In which country has the highest peak in this bar graph?\nAnswer: Finland\n\nQuestion: What is the lowest peak in this bar graph?\nAnswer:"}
+{"sample_id": "chartqa-validation-445", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-446", "prediction": "Iceland\n\nNote: The question asks for the country, not the name of the"}
+{"sample_id": "chartqa-validation-447", "prediction": "2004, 2005, 200"}
+{"sample_id": "chartqa-validation-448", "prediction": "Net Change"}
+{"sample_id": "chartqa-validation-449", "prediction": "2018\n\nQuestion: What was the net childcare cost in Canada"}
+{"sample_id": "chartqa-validation-450", "prediction": "2017"}
+{"sample_id": "chartqa-validation-451", "prediction": "2017\n\nThe chart shows that Belgium passed Poland in the value"}
+{"sample_id": "chartqa-validation-452", "prediction": "Denmark\n\nTask: Answer a chart question using the chart image to determine the correct"}
+{"sample_id": "chartqa-validation-453", "prediction": "2014"}
+{"sample_id": "chartqa-validation-454", "prediction": "Japan\n\nQuestion: What is the difference between the highest and lowest short term interest"}
+{"sample_id": "chartqa-validation-455", "prediction": "Brazil, Switzerland, Japan, and United States."}
+{"sample_id": "chartqa-validation-456", "prediction": "Israel\n\nQuestion: What is the name of the country that is represented by the"}
+{"sample_id": "chartqa-validation-457", "prediction": "2000, 2005\n\nQuestion: Between which"}
+{"sample_id": "chartqa-validation-458", "prediction": "Spain\n\nYou are a helpful assistant. I will answer your question based on the"}
+{"sample_id": "chartqa-validation-459", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-460", "prediction": "Poland\n\nQuestion: What is the name of the country that is located in the"}
+{"sample_id": "chartqa-validation-461", "prediction": "1990\n\nYou are a helpful assistant. I have reviewed the"}
+{"sample_id": "chartqa-validation-462", "prediction": "Chile."}
+{"sample_id": "chartqa-validation-463", "prediction": "2015-2016\n\nQuestion: What was the"}
+{"sample_id": "chartqa-validation-464", "prediction": "Katharine Hepburn\n\nYou are answering a question about the chart, which shows"}
+{"sample_id": "chartqa-validation-465", "prediction": "4\n\nQuestion: How many oscars do jack nicolson and meryl"}
+{"sample_id": "chartqa-validation-466", "prediction": "5\n\nTo determine the number of distributions in the pie chart, we need"}
+{"sample_id": "chartqa-validation-467", "prediction": "17.5\n\nTo solve this, we need to follow these steps"}
+{"sample_id": "chartqa-validation-468", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-469", "prediction": "1000"}
+{"sample_id": "chartqa-validation-470", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-471", "prediction": "35.5\n\nQuestion: What percentage we get , if we add"}
+{"sample_id": "chartqa-validation-472", "prediction": "India\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-473", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-474", "prediction": "765,765,765,765"}
+{"sample_id": "chartqa-validation-475", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-476", "prediction": "27.000000000000"}
+{"sample_id": "chartqa-validation-477", "prediction": "no\n\nQuestion: What is the percentage of the TFK Group segment?\nAnswer"}
+{"sample_id": "chartqa-validation-478", "prediction": "Gray."}
+{"sample_id": "chartqa-validation-479", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-480", "prediction": "decreasing\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-481", "prediction": "1022\n\nThe question asks for the number of days it took"}
+{"sample_id": "chartqa-validation-482", "prediction": "2007"}
+{"sample_id": "chartqa-validation-483", "prediction": "19.53\n\nYou are correct, the average for the last"}
+{"sample_id": "chartqa-validation-484", "prediction": "North America."}
+{"sample_id": "chartqa-validation-485", "prediction": "24.1\n\nTo determine the percentage of Retail sales, we need"}
+{"sample_id": "chartqa-validation-486", "prediction": "23.000000000000"}
+{"sample_id": "chartqa-validation-487", "prediction": "no\n\nYou are a helpful assistant. You are answering a chart question. Use"}
+{"sample_id": "chartqa-validation-488", "prediction": "Watches\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-489", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-490", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-491", "prediction": "1.0526315789473"}
+{"sample_id": "chartqa-validation-492", "prediction": "10\n\nQuestion: What is the highest value on the data line?"}
+{"sample_id": "chartqa-validation-493", "prediction": "2004\n\nQuestion: Which year experienced the greatest improvement in poverty"}
+{"sample_id": "chartqa-validation-494", "prediction": "25.00\n\nQuestion: What is the percentage of sales share"}
+{"sample_id": "chartqa-validation-495", "prediction": "10.0\n\nQuestion: What is the difference between Home Furnish"}
+{"sample_id": "chartqa-validation-496", "prediction": "Normal, healthy."}
+{"sample_id": "chartqa-validation-497", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-498", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-499", "prediction": "2012"}
+{"sample_id": "chartqa-validation-500", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-501", "prediction": "13.5\n\nTo find the median of the three least raised bi"}
+{"sample_id": "chartqa-validation-502", "prediction": "8.3333333333333"}
+{"sample_id": "chartqa-validation-503", "prediction": "11.0"}
+{"sample_id": "chartqa-validation-504", "prediction": "20.22555556\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-505", "prediction": "Yes"}
+{"sample_id": "chartqa-validation-506", "prediction": "A portable AM/FM radio."}
+{"sample_id": "chartqa-validation-507", "prediction": "20.0\n\nQuestion: What is the difference between the highest and"}
+{"sample_id": "chartqa-validation-508", "prediction": "3"}
+{"sample_id": "chartqa-validation-509", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-510", "prediction": "Max Bahr\n\nYou are answering a chart question. Use the chart image to"}
+{"sample_id": "chartqa-validation-511", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-512", "prediction": "NowThis\n\nSpan:"}
+{"sample_id": "chartqa-validation-513", "prediction": "3\n\nQuestion: What is the total number of channels with more than"}
+{"sample_id": "chartqa-validation-514", "prediction": "The grey color indicates the number of people in the chart."}
+{"sample_id": "chartqa-validation-515", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-516", "prediction": "Green."}
+{"sample_id": "chartqa-validation-517", "prediction": "Labor force participation\n\nQuestion: What is the index score value for the category \""}
+{"sample_id": "chartqa-validation-518", "prediction": "17555.0"}
+{"sample_id": "chartqa-validation-519", "prediction": "37700.0"}
+{"sample_id": "chartqa-validation-520", "prediction": "Product C"}
+{"sample_id": "chartqa-validation-521", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-522", "prediction": "Online store."}
+{"sample_id": "chartqa-validation-523", "prediction": "179.62"}
+{"sample_id": "chartqa-validation-524", "prediction": "1990, 1995, 200"}
+{"sample_id": "chartqa-validation-525", "prediction": "2020.5\n\nQuestion: What is the average of all"}
+{"sample_id": "chartqa-validation-526", "prediction": "Some."}
+{"sample_id": "chartqa-validation-527", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-528", "prediction": "Consumer Affairs\n\nYou are a helpful assistant. I will now provide the correct answer"}
+{"sample_id": "chartqa-validation-529", "prediction": "yellowpages.com\n\nQuestion: Which site is three times than yellowpages?\nAnswer"}
+{"sample_id": "chartqa-validation-530", "prediction": "Cotton socks."}
+{"sample_id": "chartqa-validation-531", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-532", "prediction": "463952"}
+{"sample_id": "chartqa-validation-533", "prediction": "1.0444444444444"}
+{"sample_id": "chartqa-validation-534", "prediction": "The response with the highest percentage value."}
+{"sample_id": "chartqa-validation-535", "prediction": "Red."}
+{"sample_id": "chartqa-validation-536", "prediction": "400"}
+{"sample_id": "chartqa-validation-537", "prediction": "239\n\nTo determine the value of the highest bar, we need"}
+{"sample_id": "chartqa-validation-538", "prediction": "270000000000000"}
+{"sample_id": "chartqa-validation-539", "prediction": "1000.0"}
+{"sample_id": "chartqa-validation-540", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-541", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-542", "prediction": "2016\nThe chart shows the market share for different years."}
+{"sample_id": "chartqa-validation-543", "prediction": "2015.0000000000"}
+{"sample_id": "chartqa-validation-544", "prediction": "2023"}
+{"sample_id": "chartqa-validation-545", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-546", "prediction": "10.0\n\nQuestion: What is the emission rate for the year"}
+{"sample_id": "chartqa-validation-547", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-548", "prediction": "12\n\nTo determine the percentage of rheumatologists in the U.S"}
+{"sample_id": "chartqa-validation-549", "prediction": "12.000000000000"}
+{"sample_id": "chartqa-validation-550", "prediction": "2023"}
+{"sample_id": "chartqa-validation-551", "prediction": "10.55555556\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-552", "prediction": "Blue\n\nYou are a helpful assistant. You are answering a chart question. Use"}
+{"sample_id": "chartqa-validation-553", "prediction": "Accessories."}
+{"sample_id": "chartqa-validation-554", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-555", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-556", "prediction": "Q4 2024 to 2025."}
+{"sample_id": "chartqa-validation-557", "prediction": "180.64\n\nQuestion: What is the value of the"}
+{"sample_id": "chartqa-validation-558", "prediction": "Videos\n\n### Reasoning:\n\nThe chart shows that \"Videos\" have 7"}
+{"sample_id": "chartqa-validation-559", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-560", "prediction": "USA\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-561", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-562", "prediction": "45-64 years\n\nYou are answering a question about the age"}
+{"sample_id": "chartqa-validation-563", "prediction": "65.233333333333"}
+{"sample_id": "chartqa-validation-564", "prediction": "18 to 29 years."}
+{"sample_id": "chartqa-validation-565", "prediction": "30 to 49 years\n\nQuestion: Which age group has the"}
+{"sample_id": "chartqa-validation-566", "prediction": "2013"}
+{"sample_id": "chartqa-validation-567", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-568", "prediction": "Female\n\nQuestion: What is the total number of cases for both sexes?\nAnswer"}
+{"sample_id": "chartqa-validation-569", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-570", "prediction": "Ethiopia\n\nQuestion: Which country has the highest number of deaths caused by major drought"}
+{"sample_id": "chartqa-validation-571", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-572", "prediction": "No opinion."}
+{"sample_id": "chartqa-validation-573", "prediction": "13.9"}
+{"sample_id": "chartqa-validation-574", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-575", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-576", "prediction": "Turkey\n\nYou are a helpful assistant. I will follow your instructions and provide the"}
+{"sample_id": "chartqa-validation-577", "prediction": "1.55\n\nQuestion: What is the average value of share of"}
+{"sample_id": "chartqa-validation-578", "prediction": "15.9%"}
+{"sample_id": "chartqa-validation-579", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-580", "prediction": "To visit friends and relatives."}
+{"sample_id": "chartqa-validation-581", "prediction": "28\n\nQuestion: What was the percentage of the business and professional category"}
+{"sample_id": "chartqa-validation-582", "prediction": "2020\n\nQuestion: What year did Roche spend the least"}
+{"sample_id": "chartqa-validation-583", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-584", "prediction": "Direct to consumer\n\nYou are answering a chart question. Use the chart image to"}
+{"sample_id": "chartqa-validation-585", "prediction": "94\n\nYou are correct, the chart shows that both wholesale and direct"}
+{"sample_id": "chartqa-validation-586", "prediction": "14.05\n\nQuestion: What is the net sales of General"}
+{"sample_id": "chartqa-validation-587", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-588", "prediction": "79.000000000000"}
+{"sample_id": "chartqa-validation-589", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-590", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-591", "prediction": "10.0\n\nQuestion: What is the percentage of billionaires in the"}
+{"sample_id": "chartqa-validation-592", "prediction": "Generation X (37-48)"}
+{"sample_id": "chartqa-validation-593", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-594", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-595", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-596", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-597", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-598", "prediction": "2015\n\nQuestion: What is the total number of fatalities for"}
+{"sample_id": "chartqa-validation-599", "prediction": "15.000000000000"}
+{"sample_id": "chartqa-validation-600", "prediction": "8.74\n\nQuestion: What is the unemployment rate for individuals aged"}
+{"sample_id": "chartqa-validation-601", "prediction": "1.05\n\nQuestion: What is the increase in the unemployment rate"}
+{"sample_id": "chartqa-validation-602", "prediction": "1.05\n\nYou are a helpful assistant. You are given a"}
+{"sample_id": "chartqa-validation-603", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-604", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-605", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-606", "prediction": "Horror."}
+{"sample_id": "chartqa-validation-607", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-608", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-609", "prediction": "10.55555556\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-610", "prediction": "11.5\n\nThe value of the deal is 11."}
+{"sample_id": "chartqa-validation-611", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-612", "prediction": "60-69 years old."}
+{"sample_id": "chartqa-validation-613", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-614", "prediction": "21.000000000000"}
+{"sample_id": "chartqa-validation-615", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-616", "prediction": "602"}
+{"sample_id": "chartqa-validation-617", "prediction": "2018.0\n\nQuestion: What is the average of"}
+{"sample_id": "chartqa-validation-618", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-619", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-620", "prediction": "100%"}
+{"sample_id": "chartqa-validation-621", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-622", "prediction": "16.7\n\nTo determine the distribution of potash reserves in Germany"}
+{"sample_id": "chartqa-validation-623", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-624", "prediction": "2010\n\nQuestion: In which year the line on the graph"}
+{"sample_id": "chartqa-validation-625", "prediction": "10.0\n\nQuestion: What is the difference between the  employees"}
+{"sample_id": "chartqa-validation-626", "prediction": "Green indicates the color green."}
+{"sample_id": "chartqa-validation-627", "prediction": "15.000000000000"}
+{"sample_id": "chartqa-validation-628", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-629", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-630", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-631", "prediction": "63.000000000000"}
+{"sample_id": "chartqa-validation-632", "prediction": "2019"}
+{"sample_id": "chartqa-validation-633", "prediction": "10000.0"}
+{"sample_id": "chartqa-validation-634", "prediction": "57.3\nThe maximum number of freelance workers is the highest point"}
+{"sample_id": "chartqa-validation-635", "prediction": "2014\nQuestion: Which year has the least number of workers"}
+{"sample_id": "chartqa-validation-636", "prediction": "4\n\nQuestion: What is the percentage of the slice labeled \"10"}
+{"sample_id": "chartqa-validation-637", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-638", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-639", "prediction": "122.84\n\nQuestion: What is the difference between the"}
+{"sample_id": "chartqa-validation-640", "prediction": "4\n\nYou are a helpful assistant. I will help you with that."}
+{"sample_id": "chartqa-validation-641", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-642", "prediction": "741 284"}
+{"sample_id": "chartqa-validation-643", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-644", "prediction": "2020"}
+{"sample_id": "chartqa-validation-645", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-646", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-647", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-648", "prediction": "Increase."}
+{"sample_id": "chartqa-validation-649", "prediction": "77.5\n\nQuestion: What is the average life expectancy between"}
+{"sample_id": "chartqa-validation-650", "prediction": "700000000000000"}
+{"sample_id": "chartqa-validation-651", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-652", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-653", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-654", "prediction": "Natural gas."}
+{"sample_id": "chartqa-validation-655", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-656", "prediction": "1466\n\nNote: The question asks for the value, not"}
+{"sample_id": "chartqa-validation-657", "prediction": "511\n\nTo calculate the sum of Lago di Bolsena and"}
+{"sample_id": "chartqa-validation-658", "prediction": "1.05\n\nQuestion: What is the percentage value for corn ?"}
+{"sample_id": "chartqa-validation-659", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-660", "prediction": "United States."}
+{"sample_id": "chartqa-validation-661", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-662", "prediction": "4.6\n\nQuestion: What is the third data value in the blue"}
+{"sample_id": "chartqa-validation-663", "prediction": "2\n\nQuestion: How many quarters the exchange rate is above 4."}
+{"sample_id": "chartqa-validation-664", "prediction": "Saint Laurent 14%"}
+{"sample_id": "chartqa-validation-665", "prediction": "13\n\nQuestion: What is the percentage of Gucci in the total"}
+{"sample_id": "chartqa-validation-666", "prediction": "Red."}
+{"sample_id": "chartqa-validation-667", "prediction": "Equity-based, Equity-based\n\nThe chart shows that the \"Equity-based\""}
+{"sample_id": "chartqa-validation-668", "prediction": "0.6666666667\n\nQuestion:"}
+{"sample_id": "chartqa-validation-669", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-670", "prediction": "Other dairy products."}
+{"sample_id": "chartqa-validation-671", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-672", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-673", "prediction": "2018"}
+{"sample_id": "chartqa-validation-674", "prediction": "22.000000000000"}
+{"sample_id": "chartqa-validation-675", "prediction": "8\n\nTo determine the percentage value of purchases by people over 55"}
+{"sample_id": "chartqa-validation-676", "prediction": "United States."}
+{"sample_id": "chartqa-validation-677", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-678", "prediction": "20"}
+{"sample_id": "chartqa-validation-679", "prediction": "10.5\n\nQuestion: What is the average of 'once a"}
+{"sample_id": "chartqa-validation-680", "prediction": "2023\nThe chart shows a bar graph with years on the"}
+{"sample_id": "chartqa-validation-681", "prediction": "2015\n\nQuestion: What is the median of 20"}
+{"sample_id": "chartqa-validation-682", "prediction": "No."}
+{"sample_id": "chartqa-validation-683", "prediction": "22\n\nYou are answering a chart question. Use the chart image to"}
+{"sample_id": "chartqa-validation-684", "prediction": "2000"}
+{"sample_id": "chartqa-validation-685", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-686", "prediction": "211000000000000"}
+{"sample_id": "chartqa-validation-687", "prediction": "0.2578787879\n\nQuestion:"}
+{"sample_id": "chartqa-validation-688", "prediction": "10% and 20% have been taken."}
+{"sample_id": "chartqa-validation-689", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-690", "prediction": "Manufacturing\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-691", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-692", "prediction": "Dec 12 '19"}
+{"sample_id": "chartqa-validation-693", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-694", "prediction": "Blue segment makes a right angle."}
+{"sample_id": "chartqa-validation-695", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-696", "prediction": "2010"}
+{"sample_id": "chartqa-validation-697", "prediction": "85.5\n\nTo calculate the average of values above 70"}
+{"sample_id": "chartqa-validation-698", "prediction": "Europe\n\nQuestion: Which region had maximum number of Gucci stores in 2"}
+{"sample_id": "chartqa-validation-699", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-700", "prediction": "2020"}
+{"sample_id": "chartqa-validation-701", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-702", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-703", "prediction": "96\nYou are correct. The highest percentage value shown in 2"}
+{"sample_id": "chartqa-validation-704", "prediction": "Kylian Mbappe."}
+{"sample_id": "chartqa-validation-705", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-706", "prediction": "2014"}
+{"sample_id": "chartqa-validation-707", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-708", "prediction": "25.00"}
+{"sample_id": "chartqa-validation-709", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-710", "prediction": "Not concerned\n\nYou are answering a chart question.\nUse the chart image to determine"}
+{"sample_id": "chartqa-validation-711", "prediction": "0.3333333333333"}
+{"sample_id": "chartqa-validation-712", "prediction": "Democrats\n\nAssistant: Democrats"}
+{"sample_id": "chartqa-validation-713", "prediction": "1500"}
+{"sample_id": "chartqa-validation-714", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-715", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-716", "prediction": "Family with 100% enterprise control."}
+{"sample_id": "chartqa-validation-717", "prediction": "44.77\n\nQuestion: What is the average for industry?"}
+{"sample_id": "chartqa-validation-718", "prediction": "31.000000000000"}
+{"sample_id": "chartqa-validation-719", "prediction": "no\n\nAssistant: no"}
+{"sample_id": "chartqa-validation-720", "prediction": "Male\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-721", "prediction": "0.0423684210526"}
+{"sample_id": "chartqa-validation-722", "prediction": "Blue bars trump other bars for all years."}
+{"sample_id": "chartqa-validation-723", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-724", "prediction": "Car\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-725", "prediction": "Air to hotel to car: 26% → 30% →"}
+{"sample_id": "chartqa-validation-726", "prediction": "2010"}
+{"sample_id": "chartqa-validation-727", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-728", "prediction": "11%"}
+{"sample_id": "chartqa-validation-729", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-730", "prediction": "Female."}
+{"sample_id": "chartqa-validation-731", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-732", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-733", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-734", "prediction": "29\n\nQuestion: What is the lowest number of respondents in Non-h"}
+{"sample_id": "chartqa-validation-735", "prediction": "29\nQuestion: What is the difference betweeen respondents of Non"}
+{"sample_id": "chartqa-validation-736", "prediction": "17.22\n\nQuestion: What is the percentage of Processor market"}
+{"sample_id": "chartqa-validation-737", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-738", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-739", "prediction": "14.0\nQuestion: What is the difference between the average of"}
+{"sample_id": "chartqa-validation-740", "prediction": "1970-1980\n\nYou are a helpful assistant"}
+{"sample_id": "chartqa-validation-741", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-742", "prediction": "2023\nThe chart shows that the highest revenue in the pharmacy"}
+{"sample_id": "chartqa-validation-743", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-744", "prediction": "2000\n\nQuestion: In which year was the percentage of employment"}
+{"sample_id": "chartqa-validation-745", "prediction": "2005\n\nQuestion: In which year was the employment between Agriculture"}
+{"sample_id": "chartqa-validation-746", "prediction": "134.1\nThe highest number of the high school female student"}
+{"sample_id": "chartqa-validation-747", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-748", "prediction": "18-29."}
+{"sample_id": "chartqa-validation-749", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-750", "prediction": "High-Rise Residential Building."}
+{"sample_id": "chartqa-validation-751", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-752", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-753", "prediction": "2.5555555556\nThe average"}
+{"sample_id": "chartqa-validation-754", "prediction": "26.000000000000"}
+{"sample_id": "chartqa-validation-755", "prediction": "21.000000000000"}
+{"sample_id": "chartqa-validation-756", "prediction": "2010"}
+{"sample_id": "chartqa-validation-757", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-758", "prediction": "65+ years\n\nQuestion: which age group had the highest number of"}
+{"sample_id": "chartqa-validation-759", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-760", "prediction": "2010/11"}
+{"sample_id": "chartqa-validation-761", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-762", "prediction": "2023\nThe year 2023 has the highest"}
+{"sample_id": "chartqa-validation-763", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-764", "prediction": "2011\nQuestion: Which year has the maximum percentage of people"}
+{"sample_id": "chartqa-validation-765", "prediction": "22.0\n\nQuestion: What is the difference between maximum percentage of"}
+{"sample_id": "chartqa-validation-766", "prediction": "1.25\n\nQuestion: How much percentage of males in chins"}
+{"sample_id": "chartqa-validation-767", "prediction": "2000\n\nQuestion: In which year the difference between the male"}
+{"sample_id": "chartqa-validation-768", "prediction": "20.0\n\nQuestion: What is the percentage of Apple Pay payments"}
+{"sample_id": "chartqa-validation-769", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-770", "prediction": "17\n\nQuestion: What is the percentage of casual female sports fans?"}
+{"sample_id": "chartqa-validation-771", "prediction": "12.0"}
+{"sample_id": "chartqa-validation-772", "prediction": "2020\n\nQuestion: What is the smallest growth segment for Revenue"}
+{"sample_id": "chartqa-validation-773", "prediction": "1.5\n\nThe average growth in Aviation between 2012"}
+{"sample_id": "chartqa-validation-774", "prediction": "Flutter\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-775", "prediction": "14.0"}
+{"sample_id": "chartqa-validation-776", "prediction": "25.25\n\nQuestion: What is the percentage of in sexy"}
+{"sample_id": "chartqa-validation-777", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-778", "prediction": "18-29\n\nQuestion: What is the percentage of \"very"}
+{"sample_id": "chartqa-validation-779", "prediction": "18-29\n\nQuestion: Which age group has the minimum difference"}
+{"sample_id": "chartqa-validation-780", "prediction": "140000000000000"}
+{"sample_id": "chartqa-validation-781", "prediction": "Bachelor's degree."}
+{"sample_id": "chartqa-validation-782", "prediction": "15.0\n\nQuestion: What percentage of people were employed in agriculture"}
+{"sample_id": "chartqa-validation-783", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-784", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-785", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-786", "prediction": "Backpack/book bag/lunch box."}
+{"sample_id": "chartqa-validation-787", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-788", "prediction": "2020"}
+{"sample_id": "chartqa-validation-789", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-790", "prediction": "18.0\nQuestion: What is the percentage of households with Stand"}
+{"sample_id": "chartqa-validation-791", "prediction": "2015\nQuestion: Which year has the minimum difference between the"}
+{"sample_id": "chartqa-validation-792", "prediction": "Kuoni and Thomas Cook."}
+{"sample_id": "chartqa-validation-793", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-794", "prediction": "11.4\n\nNote: The question asks for the percentage share,"}
+{"sample_id": "chartqa-validation-795", "prediction": "1.0\n\nQuestion: What is the difference in the percentage between the"}
+{"sample_id": "chartqa-validation-796", "prediction": "4.5555555555555"}
+{"sample_id": "chartqa-validation-797", "prediction": "2010, 2014, 201"}
+{"sample_id": "chartqa-validation-798", "prediction": "no"}
+{"sample_id": "chartqa-validation-799", "prediction": "17.000000000000"}
+{"sample_id": "chartqa-validation-800", "prediction": "18-24\n\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-801", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-802", "prediction": "60.0\n\nQuestion: What is the percentage of art buyers who"}
+{"sample_id": "chartqa-validation-803", "prediction": "45.0\n\nQuestion: What is the average percentage of art buyers"}
+{"sample_id": "chartqa-validation-804", "prediction": "200000000000000"}
+{"sample_id": "chartqa-validation-805", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-806", "prediction": "15.0\n\nThe chart shows that in 2015"}
+{"sample_id": "chartqa-validation-807", "prediction": "100.0\n\nTo calculate the difference between Agriculture and industry in"}
+{"sample_id": "chartqa-validation-808", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-809", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-810", "prediction": "Male\n\nQuestion: Which gender distribution of passengers is highest in Luton?"}
+{"sample_id": "chartqa-validation-811", "prediction": "53.5\n\nQuestion: What is the average of females in Gat"}
+{"sample_id": "chartqa-validation-812", "prediction": "2014"}
+{"sample_id": "chartqa-validation-813", "prediction": "10.0\n\nTo calculate the difference between the minimum dietary supplements sold"}
+{"sample_id": "chartqa-validation-814", "prediction": "West Virginia."}
+{"sample_id": "chartqa-validation-815", "prediction": "20.7\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-816", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-817", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-818", "prediction": "Female."}
+{"sample_id": "chartqa-validation-819", "prediction": "84.5\n\nQuestion: What is the average life expectancy of male"}
+{"sample_id": "chartqa-validation-820", "prediction": "5.1\n\nTo determine the value of the highest bar in the chart"}
+{"sample_id": "chartqa-validation-821", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-822", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-823", "prediction": "13.333333333333"}
+{"sample_id": "chartqa-validation-824", "prediction": "Light blue indicates a temperature range of 20 to 30 degrees Celsius"}
+{"sample_id": "chartqa-validation-825", "prediction": "1.5\n\nTo calculate the average, we need to sum up all"}
+{"sample_id": "chartqa-validation-826", "prediction": "970250\nQuestion: How many new cancer cases are"}
+{"sample_id": "chartqa-validation-827", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-828", "prediction": "4\n\nTo determine the number of payment methods, we look at the x"}
+{"sample_id": "chartqa-validation-829", "prediction": "12.5\n\nTo calculate the average of cash payments, we need"}
+{"sample_id": "chartqa-validation-830", "prediction": "2004\nQuestion: In which year the white members were maximum"}
+{"sample_id": "chartqa-validation-831", "prediction": "2000\n\nQuestion: In which year the difference between white and"}
+{"sample_id": "chartqa-validation-832", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-833", "prediction": "12.0\n\nQuestion: What is the difference between the highest and"}
+{"sample_id": "chartqa-validation-834", "prediction": "0.8\n\nQuestion: What's the Economic growth forecast after the COVID"}
+{"sample_id": "chartqa-validation-835", "prediction": "1.1\nQuestion: What's the total Economic growth forecast after the"}
+{"sample_id": "chartqa-validation-836", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-837", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-838", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-839", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-840", "prediction": "211\n\nYou are correct. The lowest value in the dark blue"}
+{"sample_id": "chartqa-validation-841", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-842", "prediction": "130000000000000"}
+{"sample_id": "chartqa-validation-843", "prediction": "White\n\nYou are a helpful assistant. I have reviewed your response and it is"}
+{"sample_id": "chartqa-validation-844", "prediction": "2023"}
+{"sample_id": "chartqa-validation-845", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-846", "prediction": "2020"}
+{"sample_id": "chartqa-validation-847", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-848", "prediction": "Air pollution\n\n###"}
+{"sample_id": "chartqa-validation-849", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-850", "prediction": "30.000000000000"}
+{"sample_id": "chartqa-validation-851", "prediction": "1.05\n\nThe first data point for the black line is at"}
+{"sample_id": "chartqa-validation-852", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-853", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-854", "prediction": "39\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-855", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-856", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-857", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-858", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-859", "prediction": "42.5\n\nQuestion: What is the average value of male and"}
+{"sample_id": "chartqa-validation-860", "prediction": "Tablet\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-861", "prediction": "2016"}
+{"sample_id": "chartqa-validation-862", "prediction": "177890000000000"}
+{"sample_id": "chartqa-validation-863", "prediction": "177800000000000"}
+{"sample_id": "chartqa-validation-864", "prediction": "3.9\n\nNote: The light blue bar is the one that is"}
+{"sample_id": "chartqa-validation-865", "prediction": "2.5555555555555"}
+{"sample_id": "chartqa-validation-866", "prediction": "15.0\n\nQuestion: In 18-29 age"}
+{"sample_id": "chartqa-validation-867", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-868", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-869", "prediction": "433.33333333333"}
+{"sample_id": "chartqa-validation-870", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-871", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-872", "prediction": "Liver, Heart, Lung, Pancreas\n\nQuestion: Find out which category"}
+{"sample_id": "chartqa-validation-873", "prediction": "1.5555555555555"}
+{"sample_id": "chartqa-validation-874", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-875", "prediction": "350000000000000"}
+{"sample_id": "chartqa-validation-876", "prediction": "Blue."}
+{"sample_id": "chartqa-validation-877", "prediction": "Pinterest\n\nAssistant: Pinterest"}
+{"sample_id": "chartqa-validation-878", "prediction": "Male."}
+{"sample_id": "chartqa-validation-879", "prediction": "1.5\n\nQuestion: What is the average number of skin cancers in"}
+{"sample_id": "chartqa-validation-880", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: which justice has highest very favorable percentage?\nAnswer: Samuel Alito\n\nQuestion: which justice has highest very favorable percentage?\nAnswer:"}
+{"sample_id": "chartqa-validation-881", "prediction": "95.000000000000"}
+{"sample_id": "chartqa-validation-882", "prediction": "2023\n\nThe chart shows the value for 202"}
+{"sample_id": "chartqa-validation-883", "prediction": "12334\nThe total spending in Medicaid is the sum of"}
+{"sample_id": "chartqa-validation-884", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-885", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-886", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-887", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-888", "prediction": "33.333333333333"}
+{"sample_id": "chartqa-validation-889", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-890", "prediction": "2\n\nQuestion: What is the average value of the dark blue bars?"}
+{"sample_id": "chartqa-validation-891", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-892", "prediction": "11-15 years\n\nQuestion: Which category has value of"}
+{"sample_id": "chartqa-validation-893", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-894", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-895", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-896", "prediction": "Region 2.5.2.5.2.5.2."}
+{"sample_id": "chartqa-validation-897", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-898", "prediction": "149"}
+{"sample_id": "chartqa-validation-899", "prediction": "149.00000000000"}
+{"sample_id": "chartqa-validation-900", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-901", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-902", "prediction": "12.933333333333"}
+{"sample_id": "chartqa-validation-903", "prediction": "12.0\n\nQuestion: What is the difference between highest and lowest"}
+{"sample_id": "chartqa-validation-904", "prediction": "12.0\n\nQuestion: What is the prevelance of dietary"}
+{"sample_id": "chartqa-validation-905", "prediction": "12.5\n\nQuestion: What is the average prevelance of"}
+{"sample_id": "chartqa-validation-906", "prediction": "333333333333333"}
+{"sample_id": "chartqa-validation-907", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-908", "prediction": "8.1"}
+{"sample_id": "chartqa-validation-909", "prediction": "1.0\n\nQuestion: What is the difference between the rating and viewers"}
+{"sample_id": "chartqa-validation-910", "prediction": "Construction\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-911", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-912", "prediction": "Generation X\n\nYou are answering a chart question. Use the chart image to determine"}
+{"sample_id": "chartqa-validation-913", "prediction": "33.000000000000"}
+{"sample_id": "chartqa-validation-914", "prediction": "61% and 55% refer to the percentage of the population"}
+{"sample_id": "chartqa-validation-915", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-916", "prediction": "10 hours or more\n\nQuestion: What is the percentage of respondents who"}
+{"sample_id": "chartqa-validation-917", "prediction": "2.5\n\nThe average for the 2 to 5 hours data"}
+{"sample_id": "chartqa-validation-918", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-919", "prediction": "0.75\n\nQuestion: What is the ratio between sales and average"}
+{"sample_id": "chartqa-validation-920", "prediction": "2019"}
+{"sample_id": "chartqa-validation-921", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-922", "prediction": "Very important\n\nYou are a helpful assistant. I will follow your instructions and provide"}
+{"sample_id": "chartqa-validation-923", "prediction": "20% is the threshold. Looking at the chart, the categories with"}
+{"sample_id": "chartqa-validation-924", "prediction": "Red\nYou are a helpful assistant. I have reviewed your response and it is"}
+{"sample_id": "chartqa-validation-925", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-926", "prediction": "Lesbian women\n\nQuestion: In the chart, Lesbian women data shows 28"}
+{"sample_id": "chartqa-validation-927", "prediction": "27.5\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-928", "prediction": "Healthcare."}
+{"sample_id": "chartqa-validation-929", "prediction": "2.5555555555555"}
+{"sample_id": "chartqa-validation-930", "prediction": "69\n\nYou are a helpful assistant. I will help you with that"}
+{"sample_id": "chartqa-validation-931", "prediction": "350000000000000"}
+{"sample_id": "chartqa-validation-932", "prediction": "Republican Party."}
+{"sample_id": "chartqa-validation-933", "prediction": "49.000000000000"}
+{"sample_id": "chartqa-validation-934", "prediction": "10\n\nQuestion: What is the total number of bars in the chart"}
+{"sample_id": "chartqa-validation-935", "prediction": "3.3333333333333"}
+{"sample_id": "chartqa-validation-936", "prediction": "25-64 years\n\nQuestion: Which age range has more population"}
+{"sample_id": "chartqa-validation-937", "prediction": "60+ years\n\nQuestion: In which age range is the gender gap"}
+{"sample_id": "chartqa-validation-938", "prediction": "2018"}
+{"sample_id": "chartqa-validation-939", "prediction": "0.980392157\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-940", "prediction": "1637.0000000000"}
+{"sample_id": "chartqa-validation-941", "prediction": "1622.0\n\nQuestion: What is the total of Macy"}
+{"sample_id": "chartqa-validation-942", "prediction": "18-29\n\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-943", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-944", "prediction": "2016-2020\n\nYou are a helpful assistant"}
+{"sample_id": "chartqa-validation-945", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-946", "prediction": "general merchandisers\n\nQuestion: What is the average for the general merchand"}
+{"sample_id": "chartqa-validation-947", "prediction": "44.55555556\n\nQuestion: What"}
+{"sample_id": "chartqa-validation-948", "prediction": "2.0\n\nQuestion: What is the total number of genders considered?"}
+{"sample_id": "chartqa-validation-949", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-950", "prediction": "Line 1."}
+{"sample_id": "chartqa-validation-951", "prediction": "12.55\n\nYou are a helpful assistant. You are answering"}
+{"sample_id": "chartqa-validation-952", "prediction": "decreasingly\n\nYou are answering a chart question. Use the chart image to determine"}
+{"sample_id": "chartqa-validation-953", "prediction": "Deloitte, PwC\n\nYou are answering a chart question. Use"}
+{"sample_id": "chartqa-validation-954", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which sector has the tallest bars in all years?\nAnswer: Services\n\nQuestion: Which sector has the tallest bars in all years?\nAnswer:"}
+{"sample_id": "chartqa-validation-955", "prediction": "2005\n\nQuestion: In which year the GDP of the services"}
+{"sample_id": "chartqa-validation-956", "prediction": "eSports enthusiasts\n\nQuestion: Which viewer type does of the upper bar in the stacked"}
+{"sample_id": "chartqa-validation-957", "prediction": "10\nQuestion: In how many years the number of eSports enthusiasts is"}
+{"sample_id": "chartqa-validation-958", "prediction": "Red."}
+{"sample_id": "chartqa-validation-959", "prediction": "Trump\n\nAssistant: Trump"}
+{"sample_id": "chartqa-validation-960", "prediction": "Kit Harington."}
+{"sample_id": "chartqa-validation-961", "prediction": "Emilia Clarke."}
+{"sample_id": "chartqa-validation-962", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-963", "prediction": "Flutter\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-964", "prediction": "1966\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-965", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-966", "prediction": "Clarence Thomas\n\nQuestion: Which Supreme Court justice did 32 percent of respondents"}
+{"sample_id": "chartqa-validation-967", "prediction": "1981\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-968", "prediction": "1622.0\n\nQuestion: What is the total number of"}
+{"sample_id": "chartqa-validation-969", "prediction": "162\n\nQuestion: What is the total number of stores Macy's"}
+{"sample_id": "chartqa-validation-970", "prediction": "44.55\n\nQuestion: What was the average ticket in general"}
+{"sample_id": "chartqa-validation-971", "prediction": "45.00"}
+{"sample_id": "chartqa-validation-972", "prediction": "14.55\n\nQuestion: What was the average transaction value in"}
+{"sample_id": "chartqa-validation-973", "prediction": "1.25"}
+{"sample_id": "chartqa-validation-974", "prediction": "A passport."}
+{"sample_id": "chartqa-validation-975", "prediction": "A short answer span."}
+{"sample_id": "chartqa-validation-976", "prediction": "Greenland, Denmark, and Danish people born in Denmark moving to Greenland, Denmark,"}
+{"sample_id": "chartqa-validation-977", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-978", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-979", "prediction": "30 to 40 years old."}
+{"sample_id": "chartqa-validation-980", "prediction": "Gen X."}
+{"sample_id": "chartqa-validation-981", "prediction": "27.000000000000"}
+{"sample_id": "chartqa-validation-982", "prediction": "43.000000000000"}
+{"sample_id": "chartqa-validation-983", "prediction": "39\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-984", "prediction": "39\nQuestion: How many drug recall enforcement reports were issued for prescription"}
+{"sample_id": "chartqa-validation-985", "prediction": "12.0\n\nQuestion: What was the lowest rate of thyroid cancer"}
+{"sample_id": "chartqa-validation-986", "prediction": "Manchester."}
+{"sample_id": "chartqa-validation-987", "prediction": "1994\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-988", "prediction": "Ducati."}
+{"sample_id": "chartqa-validation-989", "prediction": "TUI."}
+{"sample_id": "chartqa-validation-990", "prediction": "10.0\n\nQuestion: What is the revenue for TUI in"}
+{"sample_id": "chartqa-validation-991", "prediction": "20.7\n\nQuestion: What is the total number of smart home"}
+{"sample_id": "chartqa-validation-992", "prediction": "Trump."}
+{"sample_id": "chartqa-validation-993", "prediction": "8.1"}
+{"sample_id": "chartqa-validation-994", "prediction": "1.25\n\nQuestion: What was the total number of homicides in"}
+{"sample_id": "chartqa-validation-995", "prediction": "CNN.com."}
+{"sample_id": "chartqa-validation-996", "prediction": "1113\n\nQuestion: What is the total number of shares for"}
+{"sample_id": "chartqa-validation-997", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-998", "prediction": "179.62"}
+{"sample_id": "chartqa-validation-999", "prediction": "YellowPages.com\n\nYou are a helpful assistant. You are tasked with providing a"}
+{"sample_id": "chartqa-validation-1000", "prediction": "113\n\nQuestion: What is the total number of seats in the"}
+{"sample_id": "chartqa-validation-1001", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1002", "prediction": "621.0\n\nQuestion: What is the total number of road"}
+{"sample_id": "chartqa-validation-1003", "prediction": "Canada."}
+{"sample_id": "chartqa-validation-1004", "prediction": "Canada."}
+{"sample_id": "chartqa-validation-1005", "prediction": "16.7"}
+{"sample_id": "chartqa-validation-1006", "prediction": "Katharine Hepburn."}
+{"sample_id": "chartqa-validation-1007", "prediction": "Lago di Garda."}
+{"sample_id": "chartqa-validation-1008", "prediction": "4.6\n\nQuestion: What is the average EUR/PLN exchange"}
+{"sample_id": "chartqa-validation-1009", "prediction": "Gucci."}
+{"sample_id": "chartqa-validation-1010", "prediction": "14.000000000000"}
+{"sample_id": "chartqa-validation-1011", "prediction": "1960\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1012", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1013", "prediction": "Pit Bull Jeans."}
+{"sample_id": "chartqa-validation-1014", "prediction": "Pit Bull Jeans."}
+{"sample_id": "chartqa-validation-1015", "prediction": "11.68\n\nQuestion: What was the total number of fans"}
+{"sample_id": "chartqa-validation-1016", "prediction": "11.68\n\nQuestion: What was the total number of fans"}
+{"sample_id": "chartqa-validation-1017", "prediction": "33.00\n\nQuestion: What was the average hourly earnings for"}
+{"sample_id": "chartqa-validation-1018", "prediction": "London Bridge Station."}
+{"sample_id": "chartqa-validation-1019", "prediction": "181."}
+{"sample_id": "chartqa-validation-1020", "prediction": "PwC."}
+{"sample_id": "chartqa-validation-1021", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1022", "prediction": "2015\n\nQuestion: What is the approximate number of freelancers"}
+{"sample_id": "chartqa-validation-1023", "prediction": "Palmolive\n\nYou are answering a question about a chart. The chart shows"}
+{"sample_id": "chartqa-validation-1024", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1025", "prediction": "1.25\n\nQuestion: What was the market share of cotton socks"}
+{"sample_id": "chartqa-validation-1026", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1027", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1028", "prediction": "19.8\n\nQuestion: What was the net sales share of Cap"}
+{"sample_id": "chartqa-validation-1029", "prediction": "117491111111111"}
+{"sample_id": "chartqa-validation-1030", "prediction": "51.111111111111"}
+{"sample_id": "chartqa-validation-1031", "prediction": "32.33"}
+{"sample_id": "chartqa-validation-1032", "prediction": "32.33"}
+{"sample_id": "chartqa-validation-1033", "prediction": "422000000000000"}
+{"sample_id": "chartqa-validation-1034", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-1035", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1036", "prediction": "15.000000000000"}
+{"sample_id": "chartqa-validation-1037", "prediction": "1200.00\n\nNote: The question asks for the"}
+{"sample_id": "chartqa-validation-1038", "prediction": "1200.00\n\nNote: The question asks for the"}
+{"sample_id": "chartqa-validation-1039", "prediction": "1200.00\n\nNote: The question asks for the"}
+{"sample_id": "chartqa-validation-1040", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1041", "prediction": "700000000000000"}
+{"sample_id": "chartqa-validation-1042", "prediction": "15.0\n\nThe chart shows that 15% of U"}
+{"sample_id": "chartqa-validation-1043", "prediction": "17.8"}
+{"sample_id": "chartqa-validation-1044", "prediction": "4500.0\n\nQuestion: What is the average number of"}
+{"sample_id": "chartqa-validation-1045", "prediction": "28.000000000000"}
+{"sample_id": "chartqa-validation-1046", "prediction": "32.256480000000"}
+{"sample_id": "chartqa-validation-1047", "prediction": "115326000000000"}
+{"sample_id": "chartqa-validation-1048", "prediction": "137.24"}
+{"sample_id": "chartqa-validation-1049", "prediction": "17000000000.00"}
+{"sample_id": "chartqa-validation-1050", "prediction": "178000000000000"}
+{"sample_id": "chartqa-validation-1051", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1052", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1053", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1054", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1055", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1056", "prediction": "24.000000000000"}
+{"sample_id": "chartqa-validation-1057", "prediction": "98.0\n\nYou are correct, the percentage of 18"}
+{"sample_id": "chartqa-validation-1058", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1059", "prediction": "14.3"}
+{"sample_id": "chartqa-validation-1060", "prediction": "101819"}
+{"sample_id": "chartqa-validation-1061", "prediction": "101819"}
+{"sample_id": "chartqa-validation-1062", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1063", "prediction": "42968.000000000"}
+{"sample_id": "chartqa-validation-1064", "prediction": "38800.000000000"}
+{"sample_id": "chartqa-validation-1065", "prediction": "34.05\n\nQuestion: What percentage of Bed Bath & Beyond"}
+{"sample_id": "chartqa-validation-1066", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1067", "prediction": "140000000000000"}
+{"sample_id": "chartqa-validation-1068", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1069", "prediction": "1.65\n\nQuestion: What was the market share of non-al"}
+{"sample_id": "chartqa-validation-1070", "prediction": "0.8888888888888"}
+{"sample_id": "chartqa-validation-1071", "prediction": "0.8888888889\n\nQuestion:"}
+{"sample_id": "chartqa-validation-1072", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1073", "prediction": "17.22\n\nQuestion: What percentage of the global microprocessor"}
+{"sample_id": "chartqa-validation-1074", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1075", "prediction": "50.000000000000"}
+{"sample_id": "chartqa-validation-1076", "prediction": "40.000000000000"}
+{"sample_id": "chartqa-validation-1077", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1078", "prediction": "17.0183418342e+"}
+{"sample_id": "chartqa-validation-1079", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1080", "prediction": "36.55\n\nYou are correct, the answer is 3"}
+{"sample_id": "chartqa-validation-1081", "prediction": "35.00"}
+{"sample_id": "chartqa-validation-1082", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1083", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1084", "prediction": "0\n\nNote: The question is a bit of a trick. It asks"}
+{"sample_id": "chartqa-validation-1085", "prediction": "118888888888888"}
+{"sample_id": "chartqa-validation-1086", "prediction": "13384.0\n\nQuestion: How many men lived in"}
+{"sample_id": "chartqa-validation-1087", "prediction": "12\n\nQuestion: What percentage of male respondents said they were avid sports"}
+{"sample_id": "chartqa-validation-1088", "prediction": "248750.0\nQuestion: What is the total"}
+{"sample_id": "chartqa-validation-1089", "prediction": "49.000000000000"}
+{"sample_id": "chartqa-validation-1090", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1091", "prediction": "1.9875600000000"}
+{"sample_id": "chartqa-validation-1092", "prediction": "27.00\n\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-1093", "prediction": "58.1\n\nNote: The question asks for the value in U"}
+{"sample_id": "chartqa-validation-1094", "prediction": "38.0\n\nNote: The question asks for a percentage, so"}
+{"sample_id": "chartqa-validation-1095", "prediction": "13.9\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-1096", "prediction": "13.333333333333"}
+{"sample_id": "chartqa-validation-1097", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1098", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1099", "prediction": "55.444444444444"}
+{"sample_id": "chartqa-validation-1100", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1101", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1102", "prediction": "311.00000000000"}
+{"sample_id": "chartqa-validation-1103", "prediction": "260000000000000"}
+{"sample_id": "chartqa-validation-1104", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1105", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1106", "prediction": "1.58\nThe prevalence of asthma in Spain in 20"}
+{"sample_id": "chartqa-validation-1107", "prediction": "3.27"}
+{"sample_id": "chartqa-validation-1108", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1109", "prediction": "Telenor\n\nQuestion: What was the market share of Telenor in"}
+{"sample_id": "chartqa-validation-1110", "prediction": "3G\n\nQuestion: What is the market share of the 3G"}
+{"sample_id": "chartqa-validation-1111", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1112", "prediction": "Japan\n\nQuestion: What is the projected median age for Japan by 20"}
+{"sample_id": "chartqa-validation-1113", "prediction": "2.6\n\nQuestion: What was the inflation rate in Curacao in"}
+{"sample_id": "chartqa-validation-1114", "prediction": "Salafi."}
+{"sample_id": "chartqa-validation-1115", "prediction": "459."}
+{"sample_id": "chartqa-validation-1116", "prediction": "The only masjid in the United Kingdom associated with in 2017"}
+{"sample_id": "chartqa-validation-1117", "prediction": "14.0\n\nQuestion: What was the percentage of employees that were"}
+{"sample_id": "chartqa-validation-1118", "prediction": "10.0\n\nQuestion: What was the total number of visitors to"}
+{"sample_id": "chartqa-validation-1119", "prediction": "Denver Broncos."}
+{"sample_id": "chartqa-validation-1120", "prediction": "1.25\n\nQuestion: What was the brand value of the Los"}
+{"sample_id": "chartqa-validation-1121", "prediction": "Team Liquid."}
+{"sample_id": "chartqa-validation-1122", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1123", "prediction": "2023\n\nQuestion: What is the name of the company that"}
+{"sample_id": "chartqa-validation-1124", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1125", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1126", "prediction": "202000000000000"}
+{"sample_id": "chartqa-validation-1127", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1128", "prediction": "1.05\n\nQuestion: What is the estimated urea production capacity"}
+{"sample_id": "chartqa-validation-1129", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1130", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1131", "prediction": "27.5\n\nQuestion: What was the average age of a person"}
+{"sample_id": "chartqa-validation-1132", "prediction": "81.9"}
+{"sample_id": "chartqa-validation-1133", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1134", "prediction": "23"}
+{"sample_id": "chartqa-validation-1135", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1136", "prediction": "1991\n\nHuman: I am sorry, but I cannot fulfill"}
+{"sample_id": "chartqa-validation-1137", "prediction": "1.75\n\nQuestion: What percentage of the UK's GDP was"}
+{"sample_id": "chartqa-validation-1138", "prediction": "1.45\n\nQuestion: What percentage of the UK's GDP was"}
+{"sample_id": "chartqa-validation-1139", "prediction": "28.5\n\nQuestion: What was the average score for political parties"}
+{"sample_id": "chartqa-validation-1140", "prediction": "399\n\nNote: The question asks for the number of home runs"}
+{"sample_id": "chartqa-validation-1141", "prediction": "1.77\n\nQuestion: What is the total number of international trips"}
+{"sample_id": "chartqa-validation-1142", "prediction": "1.77\n\nTo determine the number of international trips made on land"}
+{"sample_id": "chartqa-validation-1143", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1144", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1145", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1146", "prediction": "10."}
+{"sample_id": "chartqa-validation-1147", "prediction": "648079"}
+{"sample_id": "chartqa-validation-1148", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1149", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1150", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1151", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1152", "prediction": "3803\nThe chart shows the number of visitors to Kokke"}
+{"sample_id": "chartqa-validation-1153", "prediction": "2016"}
+{"sample_id": "chartqa-validation-1154", "prediction": "36.7\n\nQuestion: What is the total number of cable TV"}
+{"sample_id": "chartqa-validation-1155", "prediction": "China."}
+{"sample_id": "chartqa-validation-1156", "prediction": "New York City."}
+{"sample_id": "chartqa-validation-1157", "prediction": "100000.0\n\nQuestion: What was the total"}
+{"sample_id": "chartqa-validation-1158", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1159", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1160", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1161", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1162", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1163", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1164", "prediction": "Johnson & Johnson\n\nQuestion: Which sanitary napkin vendor had a sales growth of"}
+{"sample_id": "chartqa-validation-1165", "prediction": "10.78\n\nQuestion: What was the sales growth of Pro"}
+{"sample_id": "chartqa-validation-1166", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1167", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1168", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1169", "prediction": "13.2\n\nNote: The chart shows the UK as 1"}
+{"sample_id": "chartqa-validation-1170", "prediction": "270000000000000"}
+{"sample_id": "chartqa-validation-1171", "prediction": "34.0\n\nQuestion: What percentage of the cloud infrastructure services market"}
+{"sample_id": "chartqa-validation-1172", "prediction": "11.0\n\nQuestion: What is the total number of deaths in"}
+{"sample_id": "chartqa-validation-1173", "prediction": "Andalusia."}
+{"sample_id": "chartqa-validation-1174", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1175", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1176", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1177", "prediction": "7.32"}
+{"sample_id": "chartqa-validation-1178", "prediction": "7.32\n\nNote: The question asks for the percentage, so"}
+{"sample_id": "chartqa-validation-1179", "prediction": "Most Polish emigrants moved to Germany in 2019."}
+{"sample_id": "chartqa-validation-1180", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1181", "prediction": "Germany\n\nQuestion: What country did most Polish emigrants move to in 2"}
+{"sample_id": "chartqa-validation-1182", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1183", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1184", "prediction": "12.632442244224"}
+{"sample_id": "chartqa-validation-1185", "prediction": "Spain\n\nQuestion: Which country had the lowest number of cars owned by car sharing"}
+{"sample_id": "chartqa-validation-1186", "prediction": "200000000000000"}
+{"sample_id": "chartqa-validation-1187", "prediction": "0.98\n\nQuestion: What was the ratio of females to males"}
+{"sample_id": "chartqa-validation-1188", "prediction": "0.98\n\nQuestion: What was the ratio of females to males"}
+{"sample_id": "chartqa-validation-1189", "prediction": "103\n\nQuestion: What is the total number of animal food manufacturing"}
+{"sample_id": "chartqa-validation-1190", "prediction": "2000\nThe chart shows a line graph with data points for"}
+{"sample_id": "chartqa-validation-1191", "prediction": "1871.6"}
+{"sample_id": "chartqa-validation-1192", "prediction": "Manchester United\n\nQuestion: Which club sold the most expensive match-day ticket for the"}
+{"sample_id": "chartqa-validation-1193", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1194", "prediction": "32.05\n\nQuestion: What was the Gini Index score"}
+{"sample_id": "chartqa-validation-1195", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1196", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-1197", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1198", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1199", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1200", "prediction": "1.6524524524524"}
+{"sample_id": "chartqa-validation-1201", "prediction": "4.5\n\nNote: The question asks for the percentage, so the"}
+{"sample_id": "chartqa-validation-1202", "prediction": "Nielsen."}
+{"sample_id": "chartqa-validation-1203", "prediction": "Nielsen\n\nQuestion: What was the most common surname in Denmark as of January"}
+{"sample_id": "chartqa-validation-1204", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1205", "prediction": "1.25\n\nQuestion: What was the value of the pizza delivery"}
+{"sample_id": "chartqa-validation-1206", "prediction": "1.25\n\nQuestion: What was the estimated value of the UK"}
+{"sample_id": "chartqa-validation-1207", "prediction": "Volkswagen Golf."}
+{"sample_id": "chartqa-validation-1208", "prediction": "Afghanistan."}
+{"sample_id": "chartqa-validation-1209", "prediction": "L. Messi."}
+{"sample_id": "chartqa-validation-1210", "prediction": "12000000.0"}
+{"sample_id": "chartqa-validation-1211", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1212", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1213", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1214", "prediction": "1990\n\nNote: The question asks for the year since when"}
+{"sample_id": "chartqa-validation-1215", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1216", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1217", "prediction": "14.3\n\nQuestion: What percentage of people in the UK planned"}
+{"sample_id": "chartqa-validation-1218", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1219", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1220", "prediction": "1.25% of jobs are expected to be lost in Northern Ireland"}
+{"sample_id": "chartqa-validation-1221", "prediction": "Brittany Ferries\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-1222", "prediction": "Maersk\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-1223", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-1224", "prediction": "1.254.000.000.0"}
+{"sample_id": "chartqa-validation-1225", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1226", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1227", "prediction": "1.25\n\nTo determine the infant mortality rate in Bahrain in"}
+{"sample_id": "chartqa-validation-1228", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1229", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1230", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1231", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1232", "prediction": "140000000000000"}
+{"sample_id": "chartqa-validation-1233", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1234", "prediction": "1.2555555555555"}
+{"sample_id": "chartqa-validation-1235", "prediction": "620000\nThe chart shows that 620"}
+{"sample_id": "chartqa-validation-1236", "prediction": "103000000000000"}
+{"sample_id": "chartqa-validation-1237", "prediction": "385000.00000000"}
+{"sample_id": "chartqa-validation-1238", "prediction": "45832.000000000"}
+{"sample_id": "chartqa-validation-1239", "prediction": "103000.00000000"}
+{"sample_id": "chartqa-validation-1240", "prediction": "12.0\n\nQuestion: What was the infant mortality rate in Mal"}
+{"sample_id": "chartqa-validation-1241", "prediction": "2023"}
+{"sample_id": "chartqa-validation-1242", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1243", "prediction": "2013"}
+{"sample_id": "chartqa-validation-1244", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1245", "prediction": "50.000000000000"}
+{"sample_id": "chartqa-validation-1246", "prediction": "160000000000000"}
+{"sample_id": "chartqa-validation-1247", "prediction": "37.6\n\nNote: The question asks for the amount contributed to"}
+{"sample_id": "chartqa-validation-1248", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1249", "prediction": "11.011.011.011."}
+{"sample_id": "chartqa-validation-1250", "prediction": "1219.32\n\nQuestion: What was the value of"}
+{"sample_id": "chartqa-validation-1251", "prediction": "2127.25\n\nQuestion: What was the value of"}
+{"sample_id": "chartqa-validation-1252", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1253", "prediction": "78.0\n\nQuestion: What percentage of Malaysians said they had"}
+{"sample_id": "chartqa-validation-1254", "prediction": "25.0\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1255", "prediction": "29.3 percent of Italy's total domestic consumption in 20"}
+{"sample_id": "chartqa-validation-1256", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1257", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1258", "prediction": "15.000000000000"}
+{"sample_id": "chartqa-validation-1259", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-1260", "prediction": "12.5\n\nTo determine the lowest rate of living in Nuevo Le"}
+{"sample_id": "chartqa-validation-1261", "prediction": "2020 is the year in question, and the chart shows net"}
+{"sample_id": "chartqa-validation-1262", "prediction": "12.0\n\nQuestion: What was the infant mortality rate in Les"}
+{"sample_id": "chartqa-validation-1263", "prediction": "Hakeem Olajuwon."}
+{"sample_id": "chartqa-validation-1264", "prediction": "Russia."}
+{"sample_id": "chartqa-validation-1265", "prediction": "132000000000000"}
+{"sample_id": "chartqa-validation-1266", "prediction": "Russia."}
+{"sample_id": "chartqa-validation-1267", "prediction": "Slovakia\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1268", "prediction": "132000000000000"}
+{"sample_id": "chartqa-validation-1269", "prediction": "25.0\n\nNote: The question asks for the percentage of German"}
+{"sample_id": "chartqa-validation-1270", "prediction": "1626\n\nQuestion: In what year did pirate attacks increase against"}
+{"sample_id": "chartqa-validation-1271", "prediction": "195\n\nQuestion: How many ships were attacked by pirates in"}
+{"sample_id": "chartqa-validation-1272", "prediction": "195\n\nQuestion: How many ships were attacked by pirates in"}
+{"sample_id": "chartqa-validation-1273", "prediction": "14.0\n\nQuestion: What was Oceania's population density"}
+{"sample_id": "chartqa-validation-1274", "prediction": "Africa."}
+{"sample_id": "chartqa-validation-1275", "prediction": "124.00\n\nQuestion: What was the average daily rate"}
+{"sample_id": "chartqa-validation-1276", "prediction": "42.01\n\nQuestion: What was the average price of one"}
+{"sample_id": "chartqa-validation-1277", "prediction": "Kingsmill\n\nYou are answering a chart question.\nUse the chart image to determine"}
+{"sample_id": "chartqa-validation-1278", "prediction": "11.3\n\nQuestion: What was the infant mortality rate in Argentina"}
+{"sample_id": "chartqa-validation-1279", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1280", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1281", "prediction": "412"}
+{"sample_id": "chartqa-validation-1282", "prediction": "89\nQuestion: What was the number of defendants charged in 2"}
+{"sample_id": "chartqa-validation-1283", "prediction": "10.0\n\nQuestion: What is the average number of days of"}
+{"sample_id": "chartqa-validation-1284", "prediction": "M&A deals in Norway in 2016\n\nQuestion: What was"}
+{"sample_id": "chartqa-validation-1285", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1286", "prediction": "Dirk Nowitzki\n\nQuestion: Who is the career points leader of the Dallas"}
+{"sample_id": "chartqa-validation-1287", "prediction": "11.722222222222"}
+{"sample_id": "chartqa-validation-1288", "prediction": "11.722222222222"}
+{"sample_id": "chartqa-validation-1289", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1290", "prediction": "Black\n\nYou are a helpful assistant. I have reviewed the question and answer."}
+{"sample_id": "chartqa-validation-1291", "prediction": "San Diego."}
+{"sample_id": "chartqa-validation-1292", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1293", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1294", "prediction": "Rai 1\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-1295", "prediction": "1350629\nQuestion: What is the total number"}
+{"sample_id": "chartqa-validation-1296", "prediction": "45000.0"}
+{"sample_id": "chartqa-validation-1297", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1298", "prediction": "293.1\n\nQuestion: What was the worldwide revenue of Canada"}
+{"sample_id": "chartqa-validation-1299", "prediction": "279.0\n\nQuestion: What is the total revenue generated by"}
+{"sample_id": "chartqa-validation-1300", "prediction": "113333333333333"}
+{"sample_id": "chartqa-validation-1301", "prediction": "113131313131313"}
+{"sample_id": "chartqa-validation-1302", "prediction": "16\n\nYou are answering a chart question. The chart shows the number"}
+{"sample_id": "chartqa-validation-1303", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1304", "prediction": "Facebook\n\nQuestion: What was the most popular social media platform in Germany as of"}
+{"sample_id": "chartqa-validation-1305", "prediction": "41\n\nQuestion: What percentage of internet-users said they used WhatsApp in"}
+{"sample_id": "chartqa-validation-1306", "prediction": "Tumblr\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1307", "prediction": "335\n\nYou are answering a chart question.\nUse the chart image"}
+{"sample_id": "chartqa-validation-1308", "prediction": "174\n\nYou are answering a chart question.\nUse the chart image"}
+{"sample_id": "chartqa-validation-1309", "prediction": "100000.00000000"}
+{"sample_id": "chartqa-validation-1310", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1311", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1312", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1313", "prediction": "China."}
+{"sample_id": "chartqa-validation-1314", "prediction": "2023"}
+{"sample_id": "chartqa-validation-1315", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1316", "prediction": "120.0\n\nQuestion: What is the total number of homicides"}
+{"sample_id": "chartqa-validation-1317", "prediction": "101\n\nQuestion: What was the total number of stores Skechers"}
+{"sample_id": "chartqa-validation-1318", "prediction": "113.6\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-1319", "prediction": "17.5\n\nQuestion: What was the average ticket price for Dallas"}
+{"sample_id": "chartqa-validation-1320", "prediction": "10.88\n\nYou are correct, the revenue generated by V"}
+{"sample_id": "chartqa-validation-1321", "prediction": "2014"}
+{"sample_id": "chartqa-validation-1322", "prediction": "89.0\n\nQuestion: What was the homicide rate in 2"}
+{"sample_id": "chartqa-validation-1323", "prediction": "100\n\nNote: The question asks for the number of Democratic senators"}
+{"sample_id": "chartqa-validation-1324", "prediction": "22\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-1325", "prediction": "google.com\n\nQuestion: What website had about 423.43"}
+{"sample_id": "chartqa-validation-1326", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1327", "prediction": "The leading lobbying firm in the United States in 2020 was the"}
+{"sample_id": "chartqa-validation-1328", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1329", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1330", "prediction": "Mexico\n\nQuestion: Which country was the leading global exporter of avocados in"}
+{"sample_id": "chartqa-validation-1331", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1332", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which country has the largest bismuth reserves?\nAnswer: Canada\n\nQuestion: Which country has the largest bismuth reserves?\nAnswer:"}
+{"sample_id": "chartqa-validation-1333", "prediction": "106.5\n\nNote: The question asks for the total F"}
+{"sample_id": "chartqa-validation-1334", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1335", "prediction": "888888888888888"}
+{"sample_id": "chartqa-validation-1336", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1337", "prediction": "VY Esports Platform."}
+{"sample_id": "chartqa-validation-1338", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1339", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1340", "prediction": "Outback Steakhouse\n\nYou are answering a chart question. Use the chart image"}
+{"sample_id": "chartqa-validation-1341", "prediction": "10.05\n\nQuestion: What is the CAGR of the"}
+{"sample_id": "chartqa-validation-1342", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1343", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1344", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1345", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1346", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1347", "prediction": "1.5555555556\n\nQuestion:"}
+{"sample_id": "chartqa-validation-1348", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1349", "prediction": "77.8"}
+{"sample_id": "chartqa-validation-1350", "prediction": "BMW M3\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-1351", "prediction": "Finnish."}
+{"sample_id": "chartqa-validation-1352", "prediction": "5.44\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1353", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1354", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1355", "prediction": "2025\n\nQuestion: What is the total number of people enrolled"}
+{"sample_id": "chartqa-validation-1356", "prediction": "255555555555555"}
+{"sample_id": "chartqa-validation-1357", "prediction": "11.76\n\nNote: The question asks for the value added"}
+{"sample_id": "chartqa-validation-1358", "prediction": "21.87\n\nYou are answering a chart question. Use the"}
+{"sample_id": "chartqa-validation-1359", "prediction": "Toronto."}
+{"sample_id": "chartqa-validation-1360", "prediction": "2738000.0\n\nQuestion: What was the"}
+{"sample_id": "chartqa-validation-1361", "prediction": "190000000000000"}
+{"sample_id": "chartqa-validation-1362", "prediction": "1900.0"}
+{"sample_id": "chartqa-validation-1363", "prediction": "12.5\n\nQuestion: What was the online sales growth in the"}
+{"sample_id": "chartqa-validation-1364", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1365", "prediction": "10.0\n\nQuestion: What was the share of six-year-olds"}
+{"sample_id": "chartqa-validation-1366", "prediction": "1.25\n\nQuestion: What was the share of Swedish social media"}
+{"sample_id": "chartqa-validation-1367", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1368", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1369", "prediction": "2.1234567901234"}
+{"sample_id": "chartqa-validation-1370", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1371", "prediction": "3.8\n\nQuestion: What was Nebraska's unemployment rate in 2"}
+{"sample_id": "chartqa-validation-1372", "prediction": "Zappos.com\n\nYou are answering a question about a chart. The chart"}
+{"sample_id": "chartqa-validation-1373", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1374", "prediction": "35.1"}
+{"sample_id": "chartqa-validation-1375", "prediction": "10.0\n\nNote: The question asks for the share, which"}
+{"sample_id": "chartqa-validation-1376", "prediction": "15.0\n\nQuestion: What was Ireland's share of diesel car"}
+{"sample_id": "chartqa-validation-1377", "prediction": "Sweden\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1378", "prediction": "84.06\n\nTo determine Spain's health grade, I need"}
+{"sample_id": "chartqa-validation-1379", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1380", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1381", "prediction": "United States."}
+{"sample_id": "chartqa-validation-1382", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1383", "prediction": "10.0\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1384", "prediction": "2023\n\nThe chart indicates that Kawasaki Heavy Industries (HI)"}
+{"sample_id": "chartqa-validation-1385", "prediction": "147.64\n\nQuestion: What was the total amount of"}
+{"sample_id": "chartqa-validation-1386", "prediction": "Telkomsel\n\nQuestion: What company had a 21.2"}
+{"sample_id": "chartqa-validation-1387", "prediction": "46"}
+{"sample_id": "chartqa-validation-1388", "prediction": "230.00000000000"}
+{"sample_id": "chartqa-validation-1389", "prediction": "230.00000000000"}
+{"sample_id": "chartqa-validation-1390", "prediction": "Japan."}
+{"sample_id": "chartqa-validation-1391", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1392", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-1393", "prediction": "28\n\nYou are a helpful assistant. I have reviewed your response and"}
+{"sample_id": "chartqa-validation-1394", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-1395", "prediction": "2.51\nYou are correct, the answer is 2."}
+{"sample_id": "chartqa-validation-1396", "prediction": "1000000.0\n\nQuestion: What is the"}
+{"sample_id": "chartqa-validation-1397", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1398", "prediction": "5.05\n\nQuestion: What was the birth rate in Italy in"}
+{"sample_id": "chartqa-validation-1399", "prediction": "500000000000000"}
+{"sample_id": "chartqa-validation-1400", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1401", "prediction": "South Africa\n\nQuestion: What is the total number of sunflower seeds produced in"}
+{"sample_id": "chartqa-validation-1402", "prediction": "83.333333333333"}
+{"sample_id": "chartqa-validation-1403", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1404", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1405", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1406", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1407", "prediction": "113.0\n\nQuestion: What was the total number of hospital"}
+{"sample_id": "chartqa-validation-1408", "prediction": "105000.00000000"}
+{"sample_id": "chartqa-validation-1409", "prediction": "The highest grossing film in the UK in January of 2020"}
+{"sample_id": "chartqa-validation-1410", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1411", "prediction": "CrowdStrike\n\nYou are a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1412", "prediction": "JPMorgan Chase & Co. (JPMorgan Chase & Co.)"}
+{"sample_id": "chartqa-validation-1413", "prediction": "BlackRock."}
+{"sample_id": "chartqa-validation-1414", "prediction": "BlackRock."}
+{"sample_id": "chartqa-validation-1415", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1416", "prediction": "2015\n\nQuestion: What year did Finland's sales volume decline"}
+{"sample_id": "chartqa-validation-1417", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1418", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1419", "prediction": "118.9\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-1420", "prediction": "55.711111111111"}
+{"sample_id": "chartqa-validation-1421", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-1422", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1423", "prediction": "244.00\n\nQuestion: What was the average daily rate"}
+{"sample_id": "chartqa-validation-1424", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1425", "prediction": "India\n\nYou are a helpful assistant. I will answer your question based on the"}
+{"sample_id": "chartqa-validation-1426", "prediction": "10.054343434343"}
+{"sample_id": "chartqa-validation-1427", "prediction": "35\n\nQuestion: What percentage of Italians believed Twitter to be responsible for"}
+{"sample_id": "chartqa-validation-1428", "prediction": "2000\n\nQuestion: What was the percentage of adult internet users"}
+{"sample_id": "chartqa-validation-1429", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1430", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1431", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1432", "prediction": "Avengers: Infinity War."}
+{"sample_id": "chartqa-validation-1433", "prediction": "447500000.00\n\nQuestion:"}
+{"sample_id": "chartqa-validation-1434", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1435", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1436", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1437", "prediction": "0.55\n\nQuestion: What percentage of their weekly household expenditure did"}
+{"sample_id": "chartqa-validation-1438", "prediction": "12.0\n\nQuestion: What was the youth unemployment rate in Bolivia"}
+{"sample_id": "chartqa-validation-1439", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1440", "prediction": "1970\n\nQuestion: What is the plant load factor of nuclear"}
+{"sample_id": "chartqa-validation-1441", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1442", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1443", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1444", "prediction": "2010"}
+{"sample_id": "chartqa-validation-1445", "prediction": "2014\n\nQuestion: What was the net income for Southwest Airlines"}
+{"sample_id": "chartqa-validation-1446", "prediction": "2023"}
+{"sample_id": "chartqa-validation-1447", "prediction": "Tech\nYou are a helpful assistant. I will help you with your question."}
+{"sample_id": "chartqa-validation-1448", "prediction": "Kevin Garnett\n\nQuestion: Who is the career points leader of the Minnesota Timber"}
+{"sample_id": "chartqa-validation-1449", "prediction": "1.05\n\nQuestion: What was the crude birth rate in North"}
+{"sample_id": "chartqa-validation-1450", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-1451", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1452", "prediction": "7.5\nYou are answering a chart question.\nUse the chart image"}
+{"sample_id": "chartqa-validation-1453", "prediction": "14.8\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1454", "prediction": "China."}
+{"sample_id": "chartqa-validation-1455", "prediction": "11.0\n\nQuestion: What percentage of Malaysia's exports came from"}
+{"sample_id": "chartqa-validation-1456", "prediction": "2017"}
+{"sample_id": "chartqa-validation-1457", "prediction": "1.56\n\nTo determine the percentage growth in Vanuatu's"}
+{"sample_id": "chartqa-validation-1458", "prediction": "12.5\n\nQuestion: What was the abandonment rate in the fourth"}
+{"sample_id": "chartqa-validation-1459", "prediction": "12.5\n\nQuestion: What was the abandonment rate in the previous"}
+{"sample_id": "chartqa-validation-1460", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1461", "prediction": "32000.00\n\nQuestion: What was the average"}
+{"sample_id": "chartqa-validation-1462", "prediction": "12.43%"}
+{"sample_id": "chartqa-validation-1463", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1464", "prediction": "18000000.0\n\nQuestion: What was"}
+{"sample_id": "chartqa-validation-1465", "prediction": "79.000000000000"}
+{"sample_id": "chartqa-validation-1466", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1467", "prediction": "Ontario."}
+{"sample_id": "chartqa-validation-1468", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-1469", "prediction": "2030"}
+{"sample_id": "chartqa-validation-1470", "prediction": "10.0\n\nNote: The question asks for \"metric tons\""}
+{"sample_id": "chartqa-validation-1471", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1472", "prediction": "Hachette Book Group\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1473", "prediction": "Hachette Book Group\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1474", "prediction": "2014\n\nQuestion: What year was Bridgestone's fiscal"}
+{"sample_id": "chartqa-validation-1475", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1476", "prediction": "Hank Greenberg\n\nQuestion: Who has the most hits in Detroit Tigers franchise history"}
+{"sample_id": "chartqa-validation-1477", "prediction": "Norway\n\nQuestion: Which country came in second in fish and fishery exports?"}
+{"sample_id": "chartqa-validation-1478", "prediction": "444444444444444"}
+{"sample_id": "chartqa-validation-1479", "prediction": "Winter."}
+{"sample_id": "chartqa-validation-1480", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1481", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-1482", "prediction": "15.0\n\nQuestion: What was Iowa's lowest unemployment rate in"}
+{"sample_id": "chartqa-validation-1483", "prediction": "3.7\n\nQuestion: What was the unemployment rate in 20"}
+{"sample_id": "chartqa-validation-1484", "prediction": "10.0\n\nQuestion: What was the unemployment rate in 2"}
+{"sample_id": "chartqa-validation-1485", "prediction": "97.0"}
+{"sample_id": "chartqa-validation-1486", "prediction": "125000000000000"}
+{"sample_id": "chartqa-validation-1487", "prediction": "99.999999999999"}
+{"sample_id": "chartqa-validation-1488", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1489", "prediction": "178.0\n\nQuestion: What was the population density of Missouri"}
+{"sample_id": "chartqa-validation-1490", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1491", "prediction": "11\n\nYou are correct, the answer is 11. The"}
+{"sample_id": "chartqa-validation-1492", "prediction": "1960\n\nQuestion: What was the population of Guyana in"}
+{"sample_id": "chartqa-validation-1493", "prediction": "25.6\n\nQuestion: What percentage of all vinyl album sales did"}
+{"sample_id": "chartqa-validation-1494", "prediction": "150.00\n\nQuestion: What was the average cost of"}
+{"sample_id": "chartqa-validation-1495", "prediction": "75.252525252525"}
+{"sample_id": "chartqa-validation-1496", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1497", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1498", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1499", "prediction": "2020 is the year in question, and the chart shows the"}
+{"sample_id": "chartqa-validation-1500", "prediction": "Donald Trump."}
+{"sample_id": "chartqa-validation-1501", "prediction": "90.22"}
+{"sample_id": "chartqa-validation-1502", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1503", "prediction": "1.5874146666666"}
+{"sample_id": "chartqa-validation-1504", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-1505", "prediction": "32.6% of respondents said that a major reason for not attending"}
+{"sample_id": "chartqa-validation-1506", "prediction": "110.53"}
+{"sample_id": "chartqa-validation-1507", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1508", "prediction": "11.9%"}
+{"sample_id": "chartqa-validation-1509", "prediction": "Manchester United."}
+{"sample_id": "chartqa-validation-1510", "prediction": "145000000000000"}
+{"sample_id": "chartqa-validation-1511", "prediction": "2010 to 2012 is 3 years."}
+{"sample_id": "chartqa-validation-1512", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1513", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1514", "prediction": "315030.7\n\nQuestion: What was the global"}
+{"sample_id": "chartqa-validation-1515", "prediction": "1.5\n\nQuestion: How many hours per day did people with a"}
+{"sample_id": "chartqa-validation-1516", "prediction": "125.0\n\nNote: The question asks for \"insured"}
+{"sample_id": "chartqa-validation-1517", "prediction": "72.000000000000"}
+{"sample_id": "chartqa-validation-1518", "prediction": "The top 400 charities and NPOs used 92 percent"}
+{"sample_id": "chartqa-validation-1519", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1520", "prediction": "1000.0\n\nQuestion: How many cases of ESR"}
+{"sample_id": "chartqa-validation-1521", "prediction": "1.2543786443786"}
+{"sample_id": "chartqa-validation-1522", "prediction": "Prussia."}
+{"sample_id": "chartqa-validation-1523", "prediction": "France."}
+{"sample_id": "chartqa-validation-1524", "prediction": "14.0\n\nQuestion: What was the youth unemployment rate in Nam"}
+{"sample_id": "chartqa-validation-1525", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1526", "prediction": "10."}
+{"sample_id": "chartqa-validation-1527", "prediction": "Juventus FC."}
+{"sample_id": "chartqa-validation-1528", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1529", "prediction": "100.46\n\nQuestion: What was the total amount of"}
+{"sample_id": "chartqa-validation-1530", "prediction": "100.46\n\nQuestion: What was the total amount of"}
+{"sample_id": "chartqa-validation-1531", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1532", "prediction": "4.6\n\nNote: The question asks for the rate, which is"}
+{"sample_id": "chartqa-validation-1533", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1534", "prediction": "1.25\n\nQuestion: What percentage of Panama's GDP did government"}
+{"sample_id": "chartqa-validation-1535", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1536", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1537", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1538", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1539", "prediction": "113000000000000"}
+{"sample_id": "chartqa-validation-1540", "prediction": "71.21\n\nQuestion: What was the average ticket price for"}
+{"sample_id": "chartqa-validation-1541", "prediction": "318888888888888"}
+{"sample_id": "chartqa-validation-1542", "prediction": "1,200,000.00000"}
+{"sample_id": "chartqa-validation-1543", "prediction": "47449"}
+{"sample_id": "chartqa-validation-1544", "prediction": "28\n\nYou are correct, the chart shows 28% for"}
+{"sample_id": "chartqa-validation-1545", "prediction": "15.00\n\nQuestion: What was the maximum wage in"}
+{"sample_id": "chartqa-validation-1546", "prediction": "North America."}
+{"sample_id": "chartqa-validation-1547", "prediction": "15.0\n\nNote: The question asks for a percentage, so"}
+{"sample_id": "chartqa-validation-1548", "prediction": "14\n\nTo determine the percentage of respondents who rated Merrell's quality"}
+{"sample_id": "chartqa-validation-1549", "prediction": "3.3333333333333"}
+{"sample_id": "chartqa-validation-1550", "prediction": "University of Eastern Finland."}
+{"sample_id": "chartqa-validation-1551", "prediction": "Bologna FC."}
+{"sample_id": "chartqa-validation-1552", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1553", "prediction": "AC Milan."}
+{"sample_id": "chartqa-validation-1554", "prediction": "377777777777777"}
+{"sample_id": "chartqa-validation-1555", "prediction": "377777777777777"}
+{"sample_id": "chartqa-validation-1556", "prediction": "11.0\n\nNote: The question asks for the amount of CO"}
+{"sample_id": "chartqa-validation-1557", "prediction": "10\nThe chart shows that Iker Casillas has appeared 1"}
+{"sample_id": "chartqa-validation-1558", "prediction": "Cristiano Ronaldo follows Iker Casillas in appearances in the Champions League."}
+{"sample_id": "chartqa-validation-1559", "prediction": "67.00\n\nQuestion: What was the average ticket price for"}
+{"sample_id": "chartqa-validation-1560", "prediction": "Instagram\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-1561", "prediction": "10000.0"}
+{"sample_id": "chartqa-validation-1562", "prediction": "2.72\n\nNote: The question asks for the average annual wine"}
+{"sample_id": "chartqa-validation-1563", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1564", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1565", "prediction": "2005\n\nQuestion: What was the gross profit margin for Walmart"}
+{"sample_id": "chartqa-validation-1566", "prediction": "2.14\n\nYou are answering a chart question. Use the chart"}
+{"sample_id": "chartqa-validation-1567", "prediction": "17.131524555555"}
+{"sample_id": "chartqa-validation-1568", "prediction": "1832.7\nThe estimated international sales of Debenhams"}
+{"sample_id": "chartqa-validation-1569", "prediction": "444.3"}
+{"sample_id": "chartqa-validation-1570", "prediction": "74.44\n\nThe question asks for the percentage of Spotify's"}
+{"sample_id": "chartqa-validation-1571", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1572", "prediction": "12.00\n\nQuestion: What was the average amount people gave"}
+{"sample_id": "chartqa-validation-1573", "prediction": "128.4\n\nQuestion: What was the price index of machinery"}
+{"sample_id": "chartqa-validation-1574", "prediction": "114000000000000"}
+{"sample_id": "chartqa-validation-1575", "prediction": "1.12"}
+{"sample_id": "chartqa-validation-1576", "prediction": "26\n\nQuestion: What was the total number of players on Juventus FC"}
+{"sample_id": "chartqa-validation-1577", "prediction": "Inter Milan."}
+{"sample_id": "chartqa-validation-1578", "prediction": "Manchester City\n\nQuestion: Which football club had the lowest number of footballers as"}
+{"sample_id": "chartqa-validation-1579", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1580", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1581", "prediction": "114.00000000000"}
+{"sample_id": "chartqa-validation-1582", "prediction": "114.00000000000"}
+{"sample_id": "chartqa-validation-1583", "prediction": "36.63"}
+{"sample_id": "chartqa-validation-1584", "prediction": "75.6\n\nQuestion: What is the difference between the number of"}
+{"sample_id": "chartqa-validation-1585", "prediction": "4.51\n\nQuestion: What was the total value of the global"}
+{"sample_id": "chartqa-validation-1586", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1587", "prediction": "Barry Bonds\n\nQuestion: Who has the most RBI in Pittsburgh Pirates franchise history?"}
+{"sample_id": "chartqa-validation-1588", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-1589", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1590", "prediction": "1028\n\nQuestion: What is the total number of deaths from"}
+{"sample_id": "chartqa-validation-1591", "prediction": "2025"}
+{"sample_id": "chartqa-validation-1592", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1593", "prediction": "64.000000000000"}
+{"sample_id": "chartqa-validation-1594", "prediction": "111111111111111"}
+{"sample_id": "chartqa-validation-1595", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1596", "prediction": "77.01"}
+{"sample_id": "chartqa-validation-1597", "prediction": "2020"}
+{"sample_id": "chartqa-validation-1598", "prediction": "2020"}
+{"sample_id": "chartqa-validation-1599", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1600", "prediction": "33"}
+{"sample_id": "chartqa-validation-1601", "prediction": "304.6\n\nQuestion: What was Pakistan's gross domestic product"}
+{"sample_id": "chartqa-validation-1602", "prediction": "10.0\n\nQuestion: What was the unemployment rate in 2"}
+{"sample_id": "chartqa-validation-1603", "prediction": "174.27\n\nQuestion: What was Kentucky's GDP in"}
+{"sample_id": "chartqa-validation-1604", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1605", "prediction": "225\nQuestion: How many women were admitted to hospital as a"}
+{"sample_id": "chartqa-validation-1606", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1607", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1608", "prediction": "Brazil."}
+{"sample_id": "chartqa-validation-1609", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1610", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1611", "prediction": "2018\n\nNote: The question asks for the year when the"}
+{"sample_id": "chartqa-validation-1612", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1613", "prediction": "10.3\n\nQuestion: What was the total EU budget in"}
+{"sample_id": "chartqa-validation-1614", "prediction": "2020 is the year in question, and the average price per"}
+{"sample_id": "chartqa-validation-1615", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1616", "prediction": "999999999999999"}
+{"sample_id": "chartqa-validation-1617", "prediction": "2010"}
+{"sample_id": "chartqa-validation-1618", "prediction": "Facebook."}
+{"sample_id": "chartqa-validation-1619", "prediction": "83.93\n\nYou are correct, the percentage of Nigerians"}
+{"sample_id": "chartqa-validation-1620", "prediction": "83.93\n\nYou are correct, the percentage of Nigerians"}
+{"sample_id": "chartqa-validation-1621", "prediction": "1111.17\n\nQuestion: What was the revenue for"}
+{"sample_id": "chartqa-validation-1622", "prediction": "1111.17\n\nQuestion: What was the revenue for"}
+{"sample_id": "chartqa-validation-1623", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1624", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1625", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1626", "prediction": "2.8178178178178"}
+{"sample_id": "chartqa-validation-1627", "prediction": "Nigeria"}
+{"sample_id": "chartqa-validation-1628", "prediction": "10.0\n\nQuestion: What was the infant mortality rate in the"}
+{"sample_id": "chartqa-validation-1629", "prediction": "Spain\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-1630", "prediction": "Germany\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1631", "prediction": "Spain\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-1632", "prediction": "Spain."}
+{"sample_id": "chartqa-validation-1633", "prediction": "2.5\n\nNote: The question asks for the percentage, so the"}
+{"sample_id": "chartqa-validation-1634", "prediction": "14.753944444444"}
+{"sample_id": "chartqa-validation-1635", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1636", "prediction": "14051.0"}
+{"sample_id": "chartqa-validation-1637", "prediction": "11810.0"}
+{"sample_id": "chartqa-validation-1638", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-1639", "prediction": "10.05\n\nYou are answering a chart question.\nUse the"}
+{"sample_id": "chartqa-validation-1640", "prediction": "12.0\n\nQuestion: What was the lowest rating for En P"}
+{"sample_id": "chartqa-validation-1641", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1642", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1643", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1644", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1645", "prediction": "100.00\n\nQuestion: What was the average electricity supply"}
+{"sample_id": "chartqa-validation-1646", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1647", "prediction": "118888888888888"}
+{"sample_id": "chartqa-validation-1648", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1649", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1650", "prediction": "Roth IRA\n\nYou are answering a chart question. Use the chart image to determine"}
+{"sample_id": "chartqa-validation-1651", "prediction": "102717171717171"}
+{"sample_id": "chartqa-validation-1652", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1653", "prediction": "1583000000.0000"}
+{"sample_id": "chartqa-validation-1654", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1655", "prediction": "159000000000000"}
+{"sample_id": "chartqa-validation-1656", "prediction": "Germany\n\nYou are a helpful assistant. I will follow your instructions and provide the"}
+{"sample_id": "chartqa-validation-1657", "prediction": "Germany\n\nYou are answering a chart question. Use the chart image to determine the"}
+{"sample_id": "chartqa-validation-1658", "prediction": "2014\n\nQuestion: What was the number of ATM-related physical"}
+{"sample_id": "chartqa-validation-1659", "prediction": "1990"}
+{"sample_id": "chartqa-validation-1660", "prediction": "181"}
+{"sample_id": "chartqa-validation-1661", "prediction": "181\n\nYou are answering a chart question. Use the chart image"}
+{"sample_id": "chartqa-validation-1662", "prediction": "1.5578421053\n\nQuestion:"}
+{"sample_id": "chartqa-validation-1663", "prediction": "100.00000000000"}
+{"sample_id": "chartqa-validation-1664", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1665", "prediction": "280000000000000"}
+{"sample_id": "chartqa-validation-1666", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1667", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1668", "prediction": "10.0\n\nQuestion: What was the unemployment rate in 2"}
+{"sample_id": "chartqa-validation-1669", "prediction": "48.11\n\nTo determine the percentage of votes Alberto Fernandez received"}
+{"sample_id": "chartqa-validation-1670", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1671", "prediction": "17274\n\nQuestion: What is the total number of Ford"}
+{"sample_id": "chartqa-validation-1672", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1673", "prediction": "1.76\n\nTo determine the total sales of sanitary napkins/t"}
+{"sample_id": "chartqa-validation-1674", "prediction": "1.76"}
+{"sample_id": "chartqa-validation-1675", "prediction": "15.2\n\nTo determine the percentage of Antigua and Barbuda"}
+{"sample_id": "chartqa-validation-1676", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1677", "prediction": "1.05\n\nQuestion: What was Aruba's contribution share in"}
+{"sample_id": "chartqa-validation-1678", "prediction": "28.92\n\nQuestion: What was the total sales of office"}
+{"sample_id": "chartqa-validation-1679", "prediction": "28.92\n\nQuestion: What is the total sales of office"}
+{"sample_id": "chartqa-validation-1680", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1681", "prediction": "277000000000000"}
+{"sample_id": "chartqa-validation-1682", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1683", "prediction": "280000000000000"}
+{"sample_id": "chartqa-validation-1684", "prediction": "420000000000000"}
+{"sample_id": "chartqa-validation-1685", "prediction": "28.0"}
+{"sample_id": "chartqa-validation-1686", "prediction": "3986000.0000000"}
+{"sample_id": "chartqa-validation-1687", "prediction": "United States\n\nQuestion: What country had the lowest GDP in 201"}
+{"sample_id": "chartqa-validation-1688", "prediction": "Germany\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1689", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1690", "prediction": "17.7777777778\n\nYou"}
+{"sample_id": "chartqa-validation-1691", "prediction": "0.9999999999999"}
+{"sample_id": "chartqa-validation-1692", "prediction": "730"}
+{"sample_id": "chartqa-validation-1693", "prediction": "Omega."}
+{"sample_id": "chartqa-validation-1694", "prediction": "Barry Bonds\n\nQuestion: Who has the most hits in Pittsburgh Pirates franchise history?"}
+{"sample_id": "chartqa-validation-1695", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1696", "prediction": "2025\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1697", "prediction": "14.1\n\nYou are correct, the percentage of Brunei's"}
+{"sample_id": "chartqa-validation-1698", "prediction": "1.55\n\nQuestion: What was the average retail price for"}
+{"sample_id": "chartqa-validation-1699", "prediction": "12.0\n\nQuestion: What was the crude birth rate in the"}
+{"sample_id": "chartqa-validation-1700", "prediction": "170000000000000"}
+{"sample_id": "chartqa-validation-1701", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1702", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1703", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1704", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1705", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1706", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1707", "prediction": "Group Buyer\n\nYou are answering a chart question.\nUse the chart image to determine"}
+{"sample_id": "chartqa-validation-1708", "prediction": "491029"}
+{"sample_id": "chartqa-validation-1709", "prediction": "2018"}
+{"sample_id": "chartqa-validation-1710", "prediction": "0.4\n\nQuestion: What percentage of food and grocery retail sales did"}
+{"sample_id": "chartqa-validation-1711", "prediction": "2018 is the year after 2017, so"}
+{"sample_id": "chartqa-validation-1712", "prediction": "3100000.0\n\nQuestion: What was the"}
+{"sample_id": "chartqa-validation-1713", "prediction": "3200000.0\n\nQuestion: What was the"}
+{"sample_id": "chartqa-validation-1714", "prediction": "1000000000.0\n\nQuestion:"}
+{"sample_id": "chartqa-validation-1715", "prediction": "Egypt."}
+{"sample_id": "chartqa-validation-1716", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1717", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1718", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1719", "prediction": "Muslim."}
+{"sample_id": "chartqa-validation-1720", "prediction": "2023\n\nTo determine the last fiscal year of ServiceMaster Global"}
+{"sample_id": "chartqa-validation-1721", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1722", "prediction": "**Tyreek Hill** is the career rushing leader of the Kansas City Chiefs."}
+{"sample_id": "chartqa-validation-1723", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1724", "prediction": "2008\n\nQuestion: What year was the lowest number of gang"}
+{"sample_id": "chartqa-validation-1725", "prediction": "Tom Brady\n\nQuestion: Who is the career rushing leader of the New England Patriots"}
+{"sample_id": "chartqa-validation-1726", "prediction": "24.1"}
+{"sample_id": "chartqa-validation-1727", "prediction": "1.25\n\nQuestion: What percentage of children were baptized in Stockholm"}
+{"sample_id": "chartqa-validation-1728", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1729", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1730", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1731", "prediction": "17.7"}
+{"sample_id": "chartqa-validation-1732", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1733", "prediction": "11\n\nYou are correct, the chart shows that fund of hedge funds"}
+{"sample_id": "chartqa-validation-1734", "prediction": "2000\n\nNote: The chart shows a clear upward trend starting"}
+{"sample_id": "chartqa-validation-1735", "prediction": "155.05\n\nQuestion: What was the total operating revenue"}
+{"sample_id": "chartqa-validation-1736", "prediction": "155.05\n\nQuestion: What was the combined operating revenue"}
+{"sample_id": "chartqa-validation-1737", "prediction": "100.00"}
+{"sample_id": "chartqa-validation-1738", "prediction": "McDonald's Corporation."}
+{"sample_id": "chartqa-validation-1739", "prediction": "12.55\n\nQuestion: What was the average passenger revenue per"}
+{"sample_id": "chartqa-validation-1740", "prediction": "1.25\n\nQuestion: What was the value of passenger revenue per"}
+{"sample_id": "chartqa-validation-1741", "prediction": "Dove\n\nYou are answering a question about a chart. The chart shows sales data"}
+{"sample_id": "chartqa-validation-1742", "prediction": "14.7\n\nQuestion: What was the youth unemployment rate in the"}
+{"sample_id": "chartqa-validation-1743", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1744", "prediction": "150000000000000"}
+{"sample_id": "chartqa-validation-1745", "prediction": "England\n\nQuestion: Which country had the highest pedestrian death rate out of all the"}
+{"sample_id": "chartqa-validation-1746", "prediction": "10\n\nYou are answering a chart question.\nUse the chart image to"}
+{"sample_id": "chartqa-validation-1747", "prediction": "Stephen Curry."}
+{"sample_id": "chartqa-validation-1748", "prediction": "2020\n\nQuestion: What was the year with the lowest number"}
+{"sample_id": "chartqa-validation-1749", "prediction": "Texas\n\nQuestion: Which state had the lowest number of turkeys raised in"}
+{"sample_id": "chartqa-validation-1750", "prediction": "Gujarat."}
+{"sample_id": "chartqa-validation-1751", "prediction": "110000000000000"}
+{"sample_id": "chartqa-validation-1752", "prediction": "201900000000000"}
+{"sample_id": "chartqa-validation-1753", "prediction": "14.49"}
+{"sample_id": "chartqa-validation-1754", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1755", "prediction": "64.0\n\nQuestion: What was the average waiting time for treatment"}
+{"sample_id": "chartqa-validation-1756", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1757", "prediction": "2013"}
+{"sample_id": "chartqa-validation-1758", "prediction": "54.000000000000"}
+{"sample_id": "chartqa-validation-1759", "prediction": "Goldman Sachs."}
+{"sample_id": "chartqa-validation-1760", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1761", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which state had the lowest income distribution inequality?\nAnswer: New Mexico\n\nQuestion: Which state had the highest income distribution inequality?\nAnswer:"}
+{"sample_id": "chartqa-validation-1762", "prediction": "0.47\n\nQuestion: What was the Gini coefficient of Mexico"}
+{"sample_id": "chartqa-validation-1763", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1764", "prediction": "201900000000000"}
+{"sample_id": "chartqa-validation-1765", "prediction": "28.2\n\nThe chart shows that Dassault Systèmes"}
+{"sample_id": "chartqa-validation-1766", "prediction": "32.0\n\nYou are answering a chart question.\nUse the chart"}
+{"sample_id": "chartqa-validation-1767", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1768", "prediction": "1450\nYou are a helpful assistant. I have reviewed the"}
+{"sample_id": "chartqa-validation-1769", "prediction": "From the region of Denmark that is not part of the country's own territory."}
+{"sample_id": "chartqa-validation-1770", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1771", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1772", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1773", "prediction": "1.4456789014456"}
+{"sample_id": "chartqa-validation-1774", "prediction": "1.255555556"}
+{"sample_id": "chartqa-validation-1775", "prediction": "2007"}
+{"sample_id": "chartqa-validation-1776", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1777", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1778", "prediction": "2022"}
+{"sample_id": "chartqa-validation-1779", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1780", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1781", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1782", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1783", "prediction": "10.0"}
+{"sample_id": "chartqa-validation-1784", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1785", "prediction": "300000000000000"}
+{"sample_id": "chartqa-validation-1786", "prediction": "North America\n\nQuestion: Which region had the highest number of cases of coronavirus?"}
+{"sample_id": "chartqa-validation-1787", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1788", "prediction": "127.0"}
+{"sample_id": "chartqa-validation-1789", "prediction": "132.03\n\nQuestion: What is the total production of"}
+{"sample_id": "chartqa-validation-1790", "prediction": "108.53\n\nQuestion: What was the benchmark index of"}
+{"sample_id": "chartqa-validation-1791", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1792", "prediction": "0.22\n\nQuestion: How much did the real hourly earnings of"}
+{"sample_id": "chartqa-validation-1793", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1794", "prediction": "The Guardian."}
+{"sample_id": "chartqa-validation-1795", "prediction": "The Guardian\n\nYou are answering a chart question.\nUse the chart image to determine"}
+{"sample_id": "chartqa-validation-1796", "prediction": "The Guardian."}
+{"sample_id": "chartqa-validation-1797", "prediction": "Germany."}
+{"sample_id": "chartqa-validation-1798", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1799", "prediction": "155.21\n\nTo determine the value of private equity investments"}
+{"sample_id": "chartqa-validation-1800", "prediction": "155.21\n\nQuestion: What was the total value of"}
+{"sample_id": "chartqa-validation-1801", "prediction": "123600000000000"}
+{"sample_id": "chartqa-validation-1802", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1803", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1804", "prediction": "124.37\n\nQuestion: What was Snap's total revenue"}
+{"sample_id": "chartqa-validation-1805", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1806", "prediction": "75.00"}
+{"sample_id": "chartqa-validation-1807", "prediction": "Carson Wentz\n\nQuestion: Who is the career passing leader of the Philadelphia Eagles"}
+{"sample_id": "chartqa-validation-1808", "prediction": "316\n\nQuestion: What was the total number of enterprises in the"}
+{"sample_id": "chartqa-validation-1809", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1810", "prediction": "South Africa."}
+{"sample_id": "chartqa-validation-1811", "prediction": "17.1\n\nNote: The question asks for the percentage, so"}
+{"sample_id": "chartqa-validation-1812", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1813", "prediction": "14.95\n\nQuestion: What was the inflation rate in the"}
+{"sample_id": "chartqa-validation-1814", "prediction": "12.55\n\nNote: The question asks for revenue in Germany"}
+{"sample_id": "chartqa-validation-1815", "prediction": "14"}
+{"sample_id": "chartqa-validation-1816", "prediction": "1279.1\n\nQuestion: What was the production value of"}
+{"sample_id": "chartqa-validation-1817", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1818", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-1819", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1820", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1821", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1822", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1823", "prediction": "The largest part of the 2021 budget is for the 2"}
+{"sample_id": "chartqa-validation-1824", "prediction": "274888888888888"}
+{"sample_id": "chartqa-validation-1825", "prediction": "300000000000000"}
+{"sample_id": "chartqa-validation-1826", "prediction": "10.0\n\nQuestion: What was the birth rate in 2"}
+{"sample_id": "chartqa-validation-1827", "prediction": "12.0\n\nQuestion: What was the crude birth rate in Egypt"}
+{"sample_id": "chartqa-validation-1828", "prediction": "10.0\n\nQuestion: What was the birth rate in 2"}
+{"sample_id": "chartqa-validation-1829", "prediction": "26.1\n\nYou are correct, the market share for Coca Col"}
+{"sample_id": "chartqa-validation-1830", "prediction": "521\n\nYou are correct, Frank Thomas has 521"}
+{"sample_id": "chartqa-validation-1831", "prediction": "Frank Thomas."}
+{"sample_id": "chartqa-validation-1832", "prediction": "Kreyòl Wouj\n\nYou are answering a chart question. Use"}
+{"sample_id": "chartqa-validation-1833", "prediction": "MBC."}
+{"sample_id": "chartqa-validation-1834", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1835", "prediction": "2023933\n\nNote: The question asks for the"}
+{"sample_id": "chartqa-validation-1836", "prediction": "112.2\n\nQuestion: What is the total number of golf"}
+{"sample_id": "chartqa-validation-1837", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1838", "prediction": "124.17\n\nQuestion: What was the estimated amount of"}
+{"sample_id": "chartqa-validation-1839", "prediction": "11.85\n\nNote: The question asks for the percentage of"}
+{"sample_id": "chartqa-validation-1840", "prediction": "10.000000000000"}
+{"sample_id": "chartqa-validation-1841", "prediction": "0.13\n\nQuestion: What was the percentage of female participants in"}
+{"sample_id": "chartqa-validation-1842", "prediction": "20.25\n\nQuestion: What was Zimbabwe's youth unemployment rate"}
+{"sample_id": "chartqa-validation-1843", "prediction": "1.05\n\nQuestion: What was Lloyds Banking Group's"}
+{"sample_id": "chartqa-validation-1844", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1845", "prediction": "2021000"}
+{"sample_id": "chartqa-validation-1846", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1847", "prediction": "101.7\n\nQuestion: What was the monthly CPI for lamb"}
+{"sample_id": "chartqa-validation-1848", "prediction": "101.7\n\nQuestion: What was the monthly CPI for lamb"}
+{"sample_id": "chartqa-validation-1849", "prediction": "116.2\n\nNote: The question asks for the amount generated"}
+{"sample_id": "chartqa-validation-1850", "prediction": "18.8\n\nNote: The question asks for the amount, not"}
+{"sample_id": "chartqa-validation-1851", "prediction": "5.5\n\nYou are correct, the Conservative Party gained 5."}
+{"sample_id": "chartqa-validation-1852", "prediction": "2.1\n\nYou are correct, the percentage of e-commerce visits via"}
+{"sample_id": "chartqa-validation-1853", "prediction": "2020 is the year in question, and the chart shows that"}
+{"sample_id": "chartqa-validation-1854", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1855", "prediction": "United States."}
+{"sample_id": "chartqa-validation-1856", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1857", "prediction": "17\n\nTo determine the percentage of white respondents who said they see the"}
+{"sample_id": "chartqa-validation-1858", "prediction": "12.000000000000"}
+{"sample_id": "chartqa-validation-1859", "prediction": "24\nQuestion: How many people committed suicide by throwing themselves in front"}
+{"sample_id": "chartqa-validation-1860", "prediction": "1967\nThe chart shows that Foot Locker generated $1,"}
+{"sample_id": "chartqa-validation-1861", "prediction": "1.25\n\nThe chart shows that Mexico spent 1.2"}
+{"sample_id": "chartqa-validation-1862", "prediction": "11498\nThe chart shows the production of duck foie"}
+{"sample_id": "chartqa-validation-1863", "prediction": "11519\n\nQuestion: How many ducks were euthanized"}
+{"sample_id": "chartqa-validation-1864", "prediction": "11519.0\n\nQuestion: What was the average amount"}
+{"sample_id": "chartqa-validation-1865", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1866", "prediction": "Facebook."}
+{"sample_id": "chartqa-validation-1867", "prediction": "Facebook."}
+{"sample_id": "chartqa-validation-1868", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1869", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1870", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1871", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1872", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1873", "prediction": "Germany\n\nQuestion"}
+{"sample_id": "chartqa-validation-1874", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1875", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1876", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1877", "prediction": "25.000000000000"}
+{"sample_id": "chartqa-validation-1878", "prediction": "21.07\n\nQuestion: What was the import trade value of"}
+{"sample_id": "chartqa-validation-1879", "prediction": "18.7\n\nQuestion: What was the import trade value of bamboo"}
+{"sample_id": "chartqa-validation-1880", "prediction": "10.5\n\nTo calculate the increase in the import trade value of"}
+{"sample_id": "chartqa-validation-1881", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1882", "prediction": "Muslim."}
+{"sample_id": "chartqa-validation-1883", "prediction": "2015\n\nNote: The question asks for the year when the"}
+{"sample_id": "chartqa-validation-1884", "prediction": "308.00000000000"}
+{"sample_id": "chartqa-validation-1885", "prediction": "120000000000000"}
+{"sample_id": "chartqa-validation-1886", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1887", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1888", "prediction": "Facebook\n\nQuestion: Which social media site accounted for 57.52"}
+{"sample_id": "chartqa-validation-1889", "prediction": "Michael Vick."}
+{"sample_id": "chartqa-validation-1890", "prediction": "100.0\n\nQuestion: What is the total number of career"}
+{"sample_id": "chartqa-validation-1891", "prediction": "48.000000000000"}
+{"sample_id": "chartqa-validation-1892", "prediction": "2.45\n\nQuestion: What percentage of India's GDP did military"}
+{"sample_id": "chartqa-validation-1893", "prediction": "0.0000000000000"}
+{"sample_id": "chartqa-validation-1894", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1895", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1896", "prediction": "The beer brand that topped the beer production volume in Germany in 201"}
+{"sample_id": "chartqa-validation-1897", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1898", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1899", "prediction": "1.5\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-1900", "prediction": "25.0\n\nQuestion: What percentage of Netflix subscribers said they would"}
+{"sample_id": "chartqa-validation-1901", "prediction": "Ted Cruz\n\nYou are a helpful assistant. I will now provide the correct answer"}
+{"sample_id": "chartqa-validation-1902", "prediction": "2023\n\nYou are a helpful assistant."}
+{"sample_id": "chartqa-validation-1903", "prediction": "100000000000000"}
+{"sample_id": "chartqa-validation-1904", "prediction": "2014"}
+{"sample_id": "chartqa-validation-1905", "prediction": "93.3\nThe chart shows that 93.3%"}
+{"sample_id": "chartqa-validation-1906", "prediction": "93.3\n\nYou are a helpful assistant. I have reviewed the"}
+{"sample_id": "chartqa-validation-1907", "prediction": "550000000000000"}
+{"sample_id": "chartqa-validation-1908", "prediction": "555555555555555"}
+{"sample_id": "chartqa-validation-1909", "prediction": "2019\n\nQuestion: In what year did the per capita gross"}
+{"sample_id": "chartqa-validation-1910", "prediction": "1.1456565656565"}
+{"sample_id": "chartqa-validation-1911", "prediction": "11.526779555555"}
+{"sample_id": "chartqa-validation-1912", "prediction": "2018 is the year the question is asking about, so we"}
+{"sample_id": "chartqa-validation-1913", "prediction": "130000000000000"}
+{"sample_id": "chartqa-validation-1914", "prediction": "United States"}
+{"sample_id": "chartqa-validation-1915", "prediction": "Shell\n\nYou are answering a chart question.\nUse the chart image to determine the"}
+{"sample_id": "chartqa-validation-1916", "prediction": "Aviva."}
+{"sample_id": "chartqa-validation-1917", "prediction": "Shell plc."}
+{"sample_id": "chartqa-validation-1918", "prediction": "Spain."}
+{"sample_id": "chartqa-validation-1919", "prediction": "You are answering a chart question.\nUse the chart image to determine the correct answer.\nReturn only a short answer span.\n\nQuestion: Which country ranked second in the Italian migration chart?\nAnswer: Italy\n\nQuestion: Which country ranked second in the Italian migration chart?\nAnswer:"}

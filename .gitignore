@@ -7,20 +7,13 @@ __pycache__/
 venv/
 env/
 
+# 仅 Final/data/ 内数据与缓存不上传（其余如 logs、outputs 可正常提交）
 data/raw/*
 !data/raw/.gitkeep
 data/cache/*
 !data/cache/.gitkeep
-# 构建后的数据集（不上传）
+data/.cache/
 data/processed/
-
-# 流水线日志与大型产物目录
-logs/
-outputs/___BASELINE_FINAL_RESULTS___/
-outputs/___CHECKPOINT_VALIDATION_RESULTS___/
-outputs/___SELECTION_EXPORT_FINAL_RESULTS___/
-outputs/___TRAINING_FINAL_RESULTS___/
-outputs/___POST_TRAINING_FINAL_RESULTS___/
 
 outputs/checkpoints/*
 !outputs/checkpoints/.gitkeep
@@ -33,5 +26,4 @@ outputs/analysis/*
 outputs/figures/*
 !outputs/figures/.gitkeep
 
-*.log
 *.tmp

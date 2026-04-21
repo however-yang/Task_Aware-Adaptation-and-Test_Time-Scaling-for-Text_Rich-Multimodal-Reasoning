@@ -1,0 +1,9 @@
+CHECKPOINT_VALIDATION_MANIFEST | run_id=20260421_150432
+finished_at=2026-04-21T16:26:31+08:00
+result_dir=/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432
+report_list_file=/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/VALIDATION_REPORT_PATHS__20260421_150432.txt
+combined_validation=/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/combined_validation.jsonl
+
+下一阶段（选优+导出）请设置:
+  REPORT_DIR=/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432
+  bash scripts/pipeline_stage_06_select_best_export.sh

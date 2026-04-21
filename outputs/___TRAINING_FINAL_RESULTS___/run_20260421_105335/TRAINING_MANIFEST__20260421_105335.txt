@@ -1,0 +1,19 @@
+TRAINING_MANIFEST | run_id=20260421_105335
+finished_at=2026-04-21T13:27:24+08:00
+
+命令行:
+  cd /root/Final && python scripts/train_peft.py --train-config configs/train/train_joint.yaml --model-config configs/model/backbone_main.yaml --peft-config configs/model/peft.yaml --seed 42 --resume-from-checkpoint /root/autodl-tmp/outputs/checkpoints/joint_docvqa_chartqa/checkpoint-1000
+
+train_config=configs/train/train_joint.yaml
+model_config=configs/model/backbone_main.yaml
+peft_config=configs/model/peft.yaml
+dry_run=0
+resume_from=/root/autodl-tmp/outputs/checkpoints/joint_docvqa_chartqa/checkpoint-1000
+log_dir=/root/Final/logs/___TRAINING_PIPELINE_LOGS___/run_20260421_105335
+result_dir=/root/Final/outputs/___TRAINING_FINAL_RESULTS___/run_20260421_105335
+
+checkpoint 目录: 若 train yaml 中 output_dir 为相对路径，则实际为 ${TEXT_RICH_MLLM_CHECKPOINT_ROOT}/<output_dir>；Trainer 在其下写入 checkpoint-*。
+
+训练结束后（验证 + 选最优 checkpoint + 导出表格）:
+  bash scripts/run_post_training_pipeline.sh
+  设置 CKPT_ROOT 为 train yaml 里的 output_dir（内含 checkpoint-* 或根目录 adapter）；详见该脚本注释。

@@ -1,0 +1,64 @@
+{
+  "docvqa": 0.7608808194128596,
+  "chartqa": 0.6807291666666667,
+  "overall": 0.7123347079703706,
+  "invalid_output_rate": {},
+  "error_counts": {
+    "text_reading_failure": 609,
+    "correct": 1948,
+    "chart_reasoning_failure": 613
+  },
+  "num_predictions": 3170,
+  "slices": {
+    "by_dataset": {
+      "docvqa": {
+        "count": 1250,
+        "mean_score": 0.7608808194128596
+      },
+      "chartqa": {
+        "count": 1920,
+        "mean_score": 0.6807291666666667
+      }
+    },
+    "by_task_type": {
+      "document_qa": {
+        "count": 1250,
+        "mean_score": 0.7608808194128596
+      },
+      "chart_qa": {
+        "count": 1920,
+        "mean_score": 0.6807291666666667
+      }
+    },
+    "by_answer_type": {
+      "open_text": {
+        "count": 1727,
+        "mean_score": 0.7464395044968585
+      },
+      "numeric": {
+        "count": 1443,
+        "mean_score": 0.6715176715176715
+      }
+    },
+    "by_split": {
+      "validation": {
+        "count": 3170,
+        "mean_score": 0.7123347079703706
+      }
+    },
+    "by_error_type": {
+      "text_reading_failure": {
+        "count": 609,
+        "mean_score": 0.5091970841807456
+      },
+      "correct": {
+        "count": 1948,
+        "mean_score": 1.0
+      },
+      "chart_reasoning_failure": {
+        "count": 613,
+        "mean_score": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# 与 proposal 一致：联合 DocVQA + ChartQA（当前已构建的 processed）
+experiment_name: joint_docvqa_chartqa
+datasets:
+  - docvqa
+  - chartqa
+train_files:
+  - data/processed/docvqa/train.jsonl
+  - data/processed/chartqa/train.jsonl
+validation_files:
+  - data/processed/docvqa/validation.jsonl
+  - data/processed/chartqa/validation.jsonl
+# 关闭 truncation 后序列较长时显存压力大；单卡 ~32GB 建议 train batch=1 + gradient checkpointing
+batch_size: 1
+eval_batch_size: 1
+# 限制单图像素上限，压低视觉 token 数量。默认 HF≈28×28×1280；此处≈一半像素预算，减轻 loss 处 logits 显存峰值
+image_max_pixels: 501760
+# 有效批量 ≈ batch_size × gradient_accumulation_steps（单机）；原为 2×8=16，现为 1×16=16
+gradient_accumulation_steps: 16
+learning_rate: 0.0001
+num_train_epochs: 2
+sampling: balanced
+max_answer_tokens: 16
+# Qwen3-VL 训练 collator 关闭 truncation（避免截断破坏 image token 对齐）；此项保留供后续扩展或筛数据时参考
+max_seq_length: 2048
+prompt_style: structured
+output_dir: outputs/checkpoints/joint_docvqa_chartqa
+save_strategy: steps
+logging_steps: 10
+save_steps: 100
+logging_strategy: steps
+eval_strategy: steps
+eval_steps: 100
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+seed: 42
+# 与 backbone bfloat16 对齐，降低显存；若 GPU 不支持 bf16 可改为 fp16: true + 关闭此项
+bf16: true
+# 以时间换显存（长序列 VL 训练强烈建议开启）
+gradient_checkpointing: true

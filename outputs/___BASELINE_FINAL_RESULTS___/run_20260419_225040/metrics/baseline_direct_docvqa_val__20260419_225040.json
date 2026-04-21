@@ -1,0 +1,47 @@
+{
+  "docvqa": 0.06391541861335387,
+  "overall": 0.06391541861335387,
+  "invalid_output_rate": {},
+  "error_counts": {
+    "text_reading_failure": 1236,
+    "correct": 14
+  },
+  "missing_prediction_count": 0,
+  "num_predictions": 1250,
+  "slices": {
+    "by_dataset": {
+      "docvqa": {
+        "count": 1250,
+        "mean_score": 0.06391541861335387
+      }
+    },
+    "by_task_type": {
+      "document_qa": {
+        "count": 1250,
+        "mean_score": 0.06391541861335387
+      }
+    },
+    "by_answer_type": {
+      "open_text": {
+        "count": 1250,
+        "mean_score": 0.06391541861335387
+      }
+    },
+    "by_split": {
+      "validation": {
+        "count": 1250,
+        "mean_score": 0.06391541861335387
+      }
+    },
+    "by_error_type": {
+      "text_reading_failure": {
+        "count": 1236,
+        "mean_score": 0.05331251882418474
+      },
+      "correct": {
+        "count": 14,
+        "mean_score": 1.0
+      }
+    }
+  }
+}

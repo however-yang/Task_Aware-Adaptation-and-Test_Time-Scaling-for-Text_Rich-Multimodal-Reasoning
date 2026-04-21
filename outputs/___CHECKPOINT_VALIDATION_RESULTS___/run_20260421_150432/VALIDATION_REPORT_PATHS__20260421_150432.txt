@@ -1,0 +1,3 @@
+/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-600.json
+/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-1250.json
+/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_joint_docvqa_chartqa.json

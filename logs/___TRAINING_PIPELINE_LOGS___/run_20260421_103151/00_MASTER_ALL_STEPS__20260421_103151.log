@@ -1,0 +1,57 @@
+================================================================================
+TRAINING PIPELINE 启动 | run_id=20260421_103151
+ISO 时间: 2026-04-21T10:31:51+08:00
+工作目录: /root/Final
+主控日志(全流程): /root/Final/logs/___TRAINING_PIPELINE_LOGS___/run_20260421_103151/00_MASTER_ALL_STEPS__20260421_103151.log
+分步日志目录: /root/Final/logs/___TRAINING_PIPELINE_LOGS___/run_20260421_103151
+训练元数据/配置快照: /root/Final/outputs/___TRAINING_FINAL_RESULTS___/run_20260421_103151
+  |- config_snapshot: /root/Final/outputs/___TRAINING_FINAL_RESULTS___/run_20260421_103151/config_snapshot
+训练配置 TRAIN_CFG=configs/train/train_joint.yaml
+模型配置 MODEL_CFG=configs/model/backbone_main.yaml
+PEFT 配置 PEFT_CFG=configs/model/peft.yaml
+Hugging Face: HF_ENDPOINT=https://hf-mirror.com
+  HF_HOME=/root/autodl-tmp/hf_home
+  HF_HUB_CACHE=/root/autodl-tmp/huggingface_hub
+数据盘: DATA_DISK=/root/autodl-tmp
+  TEXT_RICH_MLLM_CHECKPOINT_ROOT=/root/autodl-tmp（相对 output_dir 将落在此路径下）
+提示: 未检测到 hf token；建议 huggingface-cli login 或 export HF_TOKEN
+模式: 完整训练（将占用 GPU）
+断点续训: RESUME_FROM=/root/autodl-tmp/outputs/checkpoints/joint_docvqa_chartqa/checkpoint-1000
+================================================================================
+
+################################################################################
+# STEP [train_peft] 开始  2026-04-21T10:31:51+08:00
+################################################################################
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:   0%|          | 1/750 [00:00<04:08,  3.01it/s]Loading weights:   2%|▏         | 14/750 [00:00<00:17, 41.15it/s]Loading weights:   4%|▎         | 27/750 [00:00<00:11, 63.15it/s]Loading weights:   5%|▌         | 38/750 [00:00<00:09, 75.63it/s]Loading weights:   7%|▋         | 49/750 [00:00<00:08, 83.76it/s]Loading weights:   8%|▊         | 59/750 [00:00<00:07, 86.63it/s]Loading weights:   9%|▉         | 71/750 [00:00<00:07, 95.07it/s]Loading weights:  11%|█         | 82/750 [00:01<00:07, 89.70it/s]Loading weights:  13%|█▎        | 94/750 [00:01<00:06, 95.09it/s]Loading weights:  14%|█▍        | 105/750 [00:01<00:06, 96.12it/s]Loading weights:  15%|█▌        | 116/750 [00:01<00:06, 97.18it/s]Loading weights:  17%|█▋        | 127/750 [00:01<00:06, 98.26it/s]Loading weights:  18%|█▊        | 138/750 [00:01<00:06, 100.19it/s]Loading weights:  20%|█▉        | 149/750 [00:01<00:06, 99.76it/s] Loading weights:  21%|██▏       | 160/750 [00:01<00:05, 101.63it/s]Loading weights:  23%|██▎       | 171/750 [00:01<00:05, 102.16it/s]Loading weights:  24%|██▍       | 182/750 [00:02<00:05, 102.37it/s]Loading weights:  26%|██▌       | 193/750 [00:02<00:05, 103.12it/s]Loading weights:  28%|██▊       | 208/750 [00:02<00:04, 114.55it/s]Loading weights:  29%|██▉       | 221/750 [00:02<00:04, 116.14it/s]Loading weights:  31%|███       | 233/750 [00:02<00:04, 106.42it/s]Loading weights:  33%|███▎      | 246/750 [00:02<00:04, 111.99it/s]Loading weights:  34%|███▍      | 258/750 [00:02<00:04, 112.98it/s]Loading weights:  36%|███▌      | 270/750 [00:02<00:04, 113.23it/s]Loading weights:  38%|███▊      | 287/750 [00:02<00:03, 127.34it/s]Loading weights:  40%|████      | 300/750 [00:03<00:03, 123.53it/s]Loading weights:  42%|████▏     | 313/750 [00:03<00:04, 102.20it/s]Loading weights:  43%|████▎     | 324/750 [00:03<00:04, 98.41it/s] Loading weights:  45%|████▍     | 335/750 [00:03<00:04, 95.50it/s]Loading weights:  46%|████▌     | 345/750 [00:03<00:04, 90.59it/s]Loading weights:  48%|████▊     | 357/750 [00:03<00:04, 91.62it/s]Loading weights:  49%|████▉     | 368/750 [00:03<00:04, 90.22it/s]Loading weights:  51%|█████     | 379/750 [00:04<00:04, 89.15it/s]Loading weights:  52%|█████▏    | 391/750 [00:04<00:03, 94.55it/s]Loading weights:  66%|██████▌   | 494/750 [00:04<00:00, 337.75it/s]Loading weights:  80%|███████▉  | 597/750 [00:04<00:00, 525.10it/s]Loading weights:  97%|█████████▋| 726/750 [00:04<00:00, 716.53it/s]Loading weights: 100%|██████████| 750/750 [00:04<00:00, 166.21it/s]
+warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+  0%|          | 0/1250 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+ 80%|████████  | 1001/1250 [00:16<00:04, 59.39it/s] 80%|████████  | 1001/1250 [00:29<00:04, 59.39it/s] 80%|████████  | 1002/1250 [00:40<00:12, 19.55it/s] 80%|████████  | 1003/1250 [01:08<00:26,  9.43it/s] 80%|████████  | 1004/1250 [02:03<01:05,  3.74it/s] 80%|████████  | 1005/1250 [02:29<01:31,  2.69it/s] 80%|████████  | 1006/1250 [02:51<02:01,  2.01it/s] 81%|████████  | 1007/1250 [03:13<02:43,  1.48it/s] 81%|████████  | 1008/1250 [03:40<03:58,  1.02it/s] 81%|████████  | 1009/1250 [03:59<05:10,  1.29s/it] 81%|████████  | 1010/1250 [04:24<07:19,  1.83s/it]                                                    81%|████████  | 1010/1250 [04:24<07:19,  1.83s/it] 81%|████████  | 1011/1250 [04:42<09:20,  2.35s/it] 81%|████████  | 1012/1250 [05:04<12:40,  3.20s/it] 81%|████████  | 1013/1250 [05:28<17:15,  4.37s/it] 81%|████████  | 1014/1250 [05:34<17:44,  4.51s/it] 81%|████████  | 1015/1250 [05:52<22:53,  5.84s/it] 81%|████████▏ | 1016/1250 [06:12<29:36,  7.59s/it] 81%|████████▏ | 1017/1250 [06:36<39:19, 10.13s/it] 81%|████████▏ | 1018/1250 [06:55<45:09, 11.68s/it] 82%|████████▏ | 1019/1250 [07:15<51:14, 13.31s/it] 82%|████████▏ | 1020/1250 [07:37<58:22, 15.23s/it]                                                    82%|████████▏ | 1020/1250 [07:37<58:22, 15.23s/it] 82%|████████▏ | 1021/1250 [08:00<1:05:45, 17.23s/it] 82%|████████▏ | 1022/1250 [08:52<1:39:10, 26.10s/it] 82%|████████▏ | 1023/1250 [09:21<1:41:39, 26.87s/it] 82%|████████▏ | 1024/1250 [09:44<1:37:05, 25.78s/it] 82%|████████▏ | 1025/1250 [10:02<1:28:36, 23.63s/it] 82%|████████▏ | 1026/1250 [10:19<1:21:26, 21.81s/it] 82%|████████▏ | 1027/1250 [10:35<1:14:02, 19.92s/it] 82%|████████▏ | 1028/1250 [10:57<1:16:17, 20.62s/it] 82%|████████▏ | 1029/1250 [11:25<1:23:46, 22.74s/it] 82%|████████▏ | 1030/1250 [11:44<1:18:56, 21.53s/it]                                                      82%|████████▏ | 1030/1250 [11:44<1:18:56, 21.53s/it] 82%|████████▏ | 1031/1250 [11:59<1:11:55, 19.71s/it] 83%|████████▎ | 1032/1250 [12:26<1:19:37, 21.91s/it] 83%|████████▎ | 1033/1250 [12:46<1:16:42, 21.21s/it] 83%|████████▎ | 1034/1250 [13:23<1:33:44, 26.04s/it] 83%|████████▎ | 1035/1250 [13:40<1:23:58, 23.44s/it] 83%|████████▎ | 1036/1250 [14:06<1:25:37, 24.01s/it] 83%|████████▎ | 1037/1250 [14:37<1:33:27, 26.33s/it] 83%|████████▎ | 1038/1250 [14:55<1:23:27, 23.62s/it] 83%|████████▎ | 1039/1250 [15:14<1:18:31, 22.33s/it]{'loss': '0.188', 'grad_norm': '1.65', 'learning_rate': '9.443e-06', 'epoch': '1.616'}
+{'loss': '0.1825', 'grad_norm': '0.5782', 'learning_rate': '8.698e-06', 'epoch': '1.632'}
+{'loss': '0.178', 'grad_norm': '1.835', 'learning_rate': '7.982e-06', 'epoch': '1.648'}
+Traceback (most recent call last):
+  File "/root/Final/scripts/train_peft.py", line 98, in <module>
+    main()
+  File "/root/Final/scripts/train_peft.py", line 82, in main
+    model, train_examples, trainer = run_training(
+  File "/root/Final/src/text_rich_mllm/training/trainer.py", line 47, in run_training
+    trainer = train_with_hf_trainer(
+  File "/root/Final/src/text_rich_mllm/training/hf_trainer.py", line 125, in train_with_hf_trainer
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/transformers/trainer.py", line 1425, in train
+    return inner_training_loop(
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/transformers/trainer.py", line 1507, in _inner_training_loop
+    self._run_epoch(
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/transformers/trainer.py", line 1735, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/transformers/trainer.py", line 1935, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/accelerate/accelerator.py", line 2838, in backward
+    loss.backward(**kwargs)
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/root/miniconda3/envs/nlp_final/lib/python3.10/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 18.49 GiB. GPU 0 has a total capacity of 94.97 GiB of which 8.39 GiB is free. Including non-PyTorch memory, this process has 86.58 GiB memory in use. Of the allocated memory 65.47 GiB is allocated by PyTorch, and 20.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+ 83%|████████▎ | 1039/1250 [15:38<03:10,  1.11it/s]  

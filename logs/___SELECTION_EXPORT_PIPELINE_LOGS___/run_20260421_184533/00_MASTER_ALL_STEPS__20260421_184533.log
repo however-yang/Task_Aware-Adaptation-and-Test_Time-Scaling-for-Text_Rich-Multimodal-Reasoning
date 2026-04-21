@@ -1,0 +1,29 @@
+================================================================================
+SELECT BEST + EXPORT（阶段 6）| run_id=20260421_184533
+ISO 时间: 2026-04-21T18:45:33+08:00
+工作目录: /root/Final
+主控日志: /root/Final/logs/___SELECTION_EXPORT_PIPELINE_LOGS___/run_20260421_184533/00_MASTER_ALL_STEPS__20260421_184533.log
+输出目录: /root/Final/outputs/___SELECTION_EXPORT_FINAL_RESULTS___/run_20260421_184533
+================================================================================
+在 REPORT_DIR 发现 3 份报告: /root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432
+
+################################################################################
+# STEP [select_best] 开始  2026-04-21T18:45:33+08:00
+################################################################################
+{'best': {'report_path': '/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-1250.json', 'composite_score': 0.7208049930397631}, 'all_scores': [{'report_path': '/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-600.json', 'composite_score': 0.6360210358877714}, {'report_path': '/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-1250.json', 'composite_score': 0.7208049930397631}, {'report_path': '/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_joint_docvqa_chartqa.json', 'composite_score': 0.6360210358877714}]}
+# STEP [select_best] 结束  2026-04-21T18:45:33+08:00
+
+最佳验证报告: /root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-1250.json
+
+################################################################################
+# STEP [export_markdown] 开始  2026-04-21T18:45:33+08:00
+################################################################################
+Exported markdown tables to /root/Final/outputs/___SELECTION_EXPORT_FINAL_RESULTS___/run_20260421_184533/best_validation.md
+# STEP [export_markdown] 结束  2026-04-21T18:45:33+08:00
+
+
+================================================================================
+SELECT BEST + EXPORT 结束（阶段 6）| run_id=20260421_184533
+清单: /root/Final/outputs/___SELECTION_EXPORT_FINAL_RESULTS___/run_20260421_184533/SELECTION_EXPORT_MANIFEST__20260421_184533.txt
+主控日志: /root/Final/logs/___SELECTION_EXPORT_PIPELINE_LOGS___/run_20260421_184533/00_MASTER_ALL_STEPS__20260421_184533.log
+================================================================================

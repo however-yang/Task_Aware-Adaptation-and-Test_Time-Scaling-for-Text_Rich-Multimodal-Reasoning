@@ -1,0 +1,55 @@
+{
+  "mmmu": 0.21555555555555556,
+  "overall": 0.21555555555555556,
+  "invalid_output_rate": {
+    "mmmu": 0.2388888888888889
+  },
+  "error_counts": {
+    "scientific_figure_reasoning_failure": 491,
+    "correct": 194,
+    "output_mismatch": 215
+  },
+  "missing_prediction_count": 0,
+  "num_predictions": 900,
+  "slices": {
+    "by_dataset": {
+      "mmmu": {
+        "count": 900,
+        "mean_score": 0.21555555555555556
+      }
+    },
+    "by_task_type": {
+      "scientific_qa": {
+        "count": 900,
+        "mean_score": 0.21555555555555556
+      }
+    },
+    "by_answer_type": {
+      "multiple_choice": {
+        "count": 900,
+        "mean_score": 0.21555555555555556
+      }
+    },
+    "by_split": {
+      "validation": {
+        "count": 900,
+        "mean_score": 0.21555555555555556
+      }
+    },
+    "by_error_type": {
+      "scientific_figure_reasoning_failure": {
+        "count": 491,
+        "mean_score": 0.0
+      },
+      "correct": {
+        "count": 194,
+        "mean_score": 1.0
+      },
+      "output_mismatch": {
+        "count": 215,
+        "mean_score": 0.0
+      }
+    },
+    "by_metadata.subject": {}
+  }
+}
