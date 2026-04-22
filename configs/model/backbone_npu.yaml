@@ -1,0 +1,7 @@
+model_name: Qwen/Qwen3-VL-8B-Instruct
+processor_name: null
+trust_remote_code: true
+# NPU 适配：不使用 device_map=auto（accelerate 的 dispatch 逻辑与 torch_npu 有冲突）
+# 改为手动指定 npu:0，由 train_peft.py 的 setup_npu() 初始化后 .to(device) 移动
+device_map: null
+dtype: bfloat16    # 昇腾 910B 原生支持 BF16，推荐使用

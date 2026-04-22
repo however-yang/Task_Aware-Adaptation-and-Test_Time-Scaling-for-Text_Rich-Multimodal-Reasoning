@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 
 def _normalize_torch_dtype(torch_dtype):
@@ -20,6 +23,42 @@ def _normalize_torch_dtype(torch_dtype):
         "fp32": torch.float32,
     }
     return lookup.get(torch_dtype.lower(), torch_dtype)
+
+
+def _resolve_device_map(device_map):
+    """
+    NPU 适配：当 torch_npu 已安装且 NPU 可用时，自动将 device_map='auto' 覆盖为 None。
+    原因：accelerates 的 dispatch_model 与 torch_npu 的内核冲突，会导致 RuntimeError。
+    CPU/CUDA 环境下不受影响。
+    """
+    try:
+        from text_rich_mllm.utils.npu_utils import is_npu_available
+        if is_npu_available() and device_map == "auto":
+            logger.warning(
+                "NPU detected: overriding device_map='auto' → None. "
+                "Model will be moved to NPU device manually after loading."
+            )
+            return None
+    except ImportError:
+        pass
+    return device_map
+
+
+def _move_to_npu_if_needed(model) -> None:
+    """
+    NPU 适配：若 NPU 可用且模型仍在 CPU（device_map=None 时的默认状态），
+    将模型整体移动到 npu:0（单卡）或当前 torch_npu 设置的卡。
+    多卡训练由外层 DDP/accelerate 包装处理，此处只处理单卡情况。
+    """
+    try:
+        from text_rich_mllm.utils.npu_utils import is_npu_available, get_device
+        if not is_npu_available():
+            return
+        device = get_device(local_rank=0)
+        model.to(device)
+        logger.info("Model moved to %s", device)
+    except ImportError:
+        pass
 
 
 def _is_peft_adapter_dir(path: Path) -> bool:
@@ -76,6 +115,10 @@ def load_model_bundle(model_name: str, *, processor_name: str | None = None, tru
         kwargs["dtype"] = norm_dt
     kwargs.setdefault("low_cpu_mem_usage", True)
 
+    # NPU 适配：解决 device_map 冲突
+    if "device_map" in kwargs:
+        kwargs["device_map"] = _resolve_device_map(kwargs["device_map"])
+
     path = Path(model_name)
     if _is_peft_adapter_dir(path):
         cfg_path = path / "adapter_config.json"
@@ -96,12 +139,17 @@ def load_model_bundle(model_name: str, *, processor_name: str | None = None, tru
         base_model = _load_pretrained_model_classes(base_id, trust_remote_code=trust_remote_code, **kwargs)
 
         from peft import PeftModel
-
         model = PeftModel.from_pretrained(base_model, str(path))
+
+        # NPU 适配：若 device_map=None，手动移动到 NPU 设备
+        _move_to_npu_if_needed(model)
         return processor, model
 
     processor = AutoProcessor.from_pretrained(processor_name or model_name, trust_remote_code=trust_remote_code)
     model = _load_pretrained_model_classes(model_name, trust_remote_code=trust_remote_code, **kwargs)
+
+    # NPU 适配：若 device_map=None，手动移动到 NPU 设备
+    _move_to_npu_if_needed(model)
     return processor, model
 
 

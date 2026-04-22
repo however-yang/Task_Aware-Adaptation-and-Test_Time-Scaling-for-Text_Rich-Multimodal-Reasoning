@@ -1,0 +1,31 @@
+name: text_rich_mllm_npu
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      # ── 昇腾 NPU 核心依赖 ─────────────────────────────────────────
+      # torch_npu 版本须与 CANN 版本严格对应，以下对应 CANN 8.0.RC1
+      # 安装方式：从昇腾官方源安装，或由服务器管理员预装
+      - torch==2.1.0
+      - torch_npu==2.1.0          # 昇腾适配层，提供 torch.npu.* API
+      # apex 昇腾优化版（混合精度 / 梯度裁剪优化）
+      # - apex  # 由服务器环境预装，若未预装请联系管理员
+
+      # ── 训练核心依赖（与 main 对齐）────────────────────────────────
+      - transformers>=4.45.0      # 4.45+ 对 Qwen3-VL 支持更完善
+      - peft>=0.11.0
+      - accelerate>=0.34.0
+      - datasets>=2.20.0
+      - numpy>=1.26.0
+      - pandas>=2.2.0
+      - Pillow>=10.4.0
+      - PyYAML>=6.0.1
+      - tqdm>=4.66.0
+      - sentencepiece
+      - einops
+
+      # ── 可视化（可选）──────────────────────────────────────────────
+      - matplotlib>=3.9.0

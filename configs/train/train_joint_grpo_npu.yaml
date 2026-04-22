@@ -1,0 +1,29 @@
+# ── GRPO 训练配置（NPU 版本）─────────────────────────────────────────────
+# 与 train_joint_grpo.yaml 对应，针对昇腾 910B 调整
+
+output_dir: outputs/checkpoints/joint_ts_grpo_npu
+
+# ── 任务列表（与 tra.yaml 保持一致）──────────────────────────────────────
+grpo_task_names:
+  - docvqa
+  - chartqa
+  - scienceqa
+  - mmmu
+  - infographicvqa
+  - textvqa
+
+# ── GRPO 核心超参（与 CUDA 版本相同）────────────────────────────────────
+grpo_group_size: 4
+grpo_kl_coef: 0.01
+grpo_temperature: 0.8
+grpo_max_new_tokens: 32
+grpo_num_steps: 500
+grpo_eval_steps: 100
+grpo_save_steps: 100
+learning_rate: 5.0e-6
+prompt_style: structured
+
+# ── NPU 精度配置 ──────────────────────────────────────────────────────────
+# GRPO 手动训练循环，bf16 由模型权重控制，不依赖 HF TrainingArguments
+bf16: true
+fp16: false
