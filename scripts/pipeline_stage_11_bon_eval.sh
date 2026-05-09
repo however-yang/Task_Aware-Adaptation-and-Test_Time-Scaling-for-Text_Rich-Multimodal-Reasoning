@@ -59,7 +59,7 @@ append_master() { tee -a "$MASTER_LOG"; }
 
 log_step() {
     local msg="$1"
-    echo "[${TS_ISO}] [STAGE-10] ${msg}" | append_master
+    echo "[${TS_ISO}] [STAGE-11] ${msg}" | append_master
 }
 
 # ── 参数解析 ──────────────────────────────────────────────────────────────
@@ -118,23 +118,25 @@ OUTPUT_JSONL="outputs/predictions/${EXP_NAME}_bon_n${N}.jsonl"
 CURVE_JSON="outputs/analysis/${EXP_NAME}_bon_curve.json"
 CURVE_PNG="outputs/figures/${EXP_NAME}_bon_curve.png"
 
-# ── 构建公共参数 ───────────────────────────────────────────────────────────
-COMMON_ARGS="--samples ${SAMPLES} \
-  --model-config ${MODEL_CONFIG} \
-  --peft-config  ${PEFT_CONFIG} \
-  --prompt-style ${PROMPT_STYLE} \
-  --temperature  ${TEMPERATURE} \
-  --max-new-tokens ${MAX_NEW_TOKENS}"
+# ── 构建公共参数（数组形式，防止路径含空格时断开）─────────────────────
+COMMON_ARGS=(
+    --samples       "${SAMPLES}"
+    --model-config  "${MODEL_CONFIG}"
+    --peft-config   "${PEFT_CONFIG}"
+    --prompt-style  "${PROMPT_STYLE}"
+    --temperature   "${TEMPERATURE}"
+    --max-new-tokens "${MAX_NEW_TOKENS}"
+)
 
-[[ -n "${CHECKPOINT}" ]] && COMMON_ARGS="${COMMON_ARGS} --checkpoint ${CHECKPOINT}"
-[[ -n "${TRA_CONFIG}" ]] && COMMON_ARGS="${COMMON_ARGS} --tra-config ${TRA_CONFIG}"
-[[ -n "${LIMIT}" ]]      && COMMON_ARGS="${COMMON_ARGS} --limit ${LIMIT}"
+[[ -n "${CHECKPOINT}" ]] && COMMON_ARGS+=(--checkpoint   "${CHECKPOINT}")
+[[ -n "${TRA_CONFIG}" ]] && COMMON_ARGS+=(--tra-config   "${TRA_CONFIG}")
+[[ -n "${LIMIT}" ]]      && COMMON_ARGS+=(--limit        "${LIMIT}")
 
 # ── 运行推理 ──────────────────────────────────────────────────────────────
 if [[ "${SCALING_CURVE}" = "true" ]]; then
     log_step "Mode: Scaling Curve (N=1,2,4,8)"
     python scripts/inference_best_of_n.py \
-        ${COMMON_ARGS} \
+        "${COMMON_ARGS[@]}" \
         --scaling-curve \
         --curve-output "${CURVE_JSON}" \
         2>&1 | tee "${LOG_DIR}/01_bon_curve.log" | append_master
@@ -152,7 +154,7 @@ if [[ "${SCALING_CURVE}" = "true" ]]; then
 else
     log_step "Mode: Single BoN (N=${N})"
     python scripts/inference_best_of_n.py \
-        ${COMMON_ARGS} \
+        "${COMMON_ARGS[@]}" \
         --N "${N}" \
         --output "${OUTPUT_JSONL}" \
         --evaluate \
@@ -177,3 +179,29 @@ log_step "=== STAGE 10 COMPLETE ==="
 [[ "${SCALING_CURVE}" = "true" ]] && log_step "Curve JSON: ${CURVE_JSON}" \
                                   && log_step "Curve PNG:  ${CURVE_PNG}"
 [[ "${SCALING_CURVE}" != "true" ]] && log_step "Predictions: ${OUTPUT_JSONL}"
+
+# ── Scaling curve 数值汇总：从 JSON 读取并打印到控制台 ────────────────────
+if [[ "${SCALING_CURVE}" = "true" && -f "${CURVE_JSON}" ]]; then
+    log_step "=== BoN Scaling Curve Numerical Summary ==="
+    python - <<PYEOF 2>&1 | tee -a "${MASTER_LOG}"
+import json, sys
+with open("${CURVE_JSON}", encoding="utf-8") as f:
+    data = json.load(f)
+n_values = data.get("n_values", sorted({int(k.split("=")[1]) for k in data.get("overall", {})}))
+datasets = sorted(data.get("dataset_scores", {}).keys())
+col = 12
+header = f"{'N':>4}  " + "  ".join(f"{d[:col]:>{col}}" for d in datasets) + f"  {'overall':>{col}}"
+line = "=" * (len(header) + 4)
+print(line)
+print(f"  BoN Scaling Curve — {sys.argv[0] if False else '${EXP_NAME}'}")
+print(f"  {header}")
+print(f"  {'-' * len(header)}")
+for N in n_values:
+    row_vals = [data["dataset_scores"].get(ds, {}).get(f"n={N}", 0.0) for ds in datasets]
+    ov = data["overall"].get(f"n={N}", 0.0)
+    vals_str = "  ".join(f"{v:{col}.4f}" for v in row_vals)
+    print(f"  {N:>4}  {vals_str}  {ov:{col}.4f}")
+print(line)
+PYEOF
+fi
+

@@ -1,5 +1,5 @@
 # 与 proposal 一致：联合 DocVQA + ChartQA（当前已构建的 processed）
-experiment_name: joint_docvqa_chartqa
+experiment_name: E1_lora_joint_docvqa_chartqa
 datasets:
   - docvqa
   - chartqa
@@ -21,7 +21,7 @@ max_answer_tokens: 16
 # Qwen3-VL 训练 collator 关闭 truncation（避免截断破坏 image token 对齐）；此项保留供后续扩展或筛数据时参考
 max_seq_length: 2048
 prompt_style: structured
-output_dir: outputs/checkpoints/joint_docvqa_chartqa
+output_dir: outputs/checkpoints/E1_lora_joint_docvqa_chartqa
 save_strategy: steps
 logging_steps: 10
 save_steps: 100

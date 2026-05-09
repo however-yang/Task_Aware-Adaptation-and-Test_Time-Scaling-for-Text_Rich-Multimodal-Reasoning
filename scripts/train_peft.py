@@ -57,6 +57,15 @@ def main() -> None:
     logger = get_logger("train_peft")
     set_seed(args.seed)
     train_cfg = load_yaml(args.train_config)
+    # 可选：用环境变量覆盖 yaml 中的 output_dir / experiment_name（便于分阶段独立目录）
+    import os as _os
+
+    _od = _os.environ.get("TEXT_RICH_MLLM_TRAIN_OUTPUT_DIR", "").strip()
+    if _od:
+        train_cfg["output_dir"] = _od
+    _en = _os.environ.get("TEXT_RICH_MLLM_TRAIN_EXPERIMENT_NAME", "").strip()
+    if _en:
+        train_cfg["experiment_name"] = _en
     model_cfg = load_yaml(args.model_config)
     peft_cfg = load_yaml(args.peft_config)
 
@@ -109,10 +118,33 @@ def main() -> None:
             resume_from_checkpoint=args.resume_from_checkpoint,
         )
 
+    from collections import Counter
     logger.info("Prepared training run: %s", train_cfg["experiment_name"])
     logger.info("Loaded %s samples and built %s training examples.", len(train_samples), len(train_examples))
     logger.info("Model bundle: %s, processor: %s", model.__class__.__name__, processor.__class__.__name__)
     logger.info("Training finished. Final checkpoint directory: %s", trainer.args.output_dir)
+
+    # ── 训练结束：控制台指标摘要（论文日志存档） ─────────────────────────
+    line = "=" * 70
+    print(f"\n{line}")
+    print(f"  SFT TRAINING COMPLETE — {train_cfg['experiment_name']}")
+    print(f"  Checkpoint dir : {trainer.args.output_dir}")
+    print(f"  Total train    : {len(train_samples)} samples / {len(train_examples)} examples")
+    print(f"  Total eval     : {len(eval_samples)} samples")
+    # 各数据集样本数
+    ds_counter = Counter(s.dataset_name for s in train_samples)
+    print(f"  {'Dataset':<20} {'Train N':>8}")
+    print(f"  {'-'*20} {'-'*8}")
+    for ds_name, cnt in sorted(ds_counter.items()):
+        print(f"  {ds_name:<20} {cnt:>8}")
+    # 可训练参数量
+    try:
+        tp = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        total_p = sum(p.numel() for p in model.parameters())
+        print(f"  Trainable params : {tp:,} / {total_p:,} ({100*tp/max(total_p,1):.3f}%)")
+    except Exception:
+        pass
+    print(f"{line}\n")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@
 #   logs/___TRA_TRAINING_LOGS___/run_<TS>/
 #
 # 产物：
-#   outputs/checkpoints/joint_tra_light/
+#   outputs/checkpoints/E3_tra_joint_docvqa_chartqa/
 #
 set -euo pipefail
 
@@ -84,14 +84,14 @@ if [[ ! -f "${TRAIN_CONFIG}" ]]; then
     exit 1
 fi
 
-# ── 构建 resume 参数 ───────────────────────────────────────────────────────
-RESUME_ARG=""
+# ── 构建 resume 参数（数组形式，防止路径含空格时断开）────────────────────
+RESUME_ARGS=()
 if [[ -n "${RESUME_CHECKPOINT}" ]]; then
     if [[ ! -d "${RESUME_CHECKPOINT}" ]]; then
         log_step "ERROR: Resume checkpoint not found: ${RESUME_CHECKPOINT}"
         exit 1
     fi
-    RESUME_ARG="--resume-from-checkpoint ${RESUME_CHECKPOINT}"
+    RESUME_ARGS=("--resume-from-checkpoint" "${RESUME_CHECKPOINT}")
     log_step "Resuming from: ${RESUME_CHECKPOINT}"
 else
     log_step "WARNING: No --resume-checkpoint provided. Training from scratch (not Stage 2 behavior)."
@@ -105,9 +105,10 @@ python scripts/train_peft.py \
     --model-config  "${MODEL_CONFIG}"  \
     --peft-config   "${PEFT_CONFIG}"   \
     --tra-config    "${TRA_CONFIG}"    \
-    ${RESUME_ARG}                      \
+    ${RESUME_ARGS[@]+"${RESUME_ARGS[@]}"} \
     ${DRY_RUN_FLAG}                    \
     2>&1 | tee "${LOG_DIR}/01_tra_training.log" | append_master
+
 
 EXIT_CODE=${PIPESTATUS[0]}
 
@@ -123,4 +124,6 @@ else
     exit ${EXIT_CODE}
 fi
 
-log_step "=== STAGE 08 COMPLETE. Checkpoint: outputs/checkpoints/joint_tra_light ==="
+log_step "=== STAGE 09 COMPLETE. Checkpoint: outputs/checkpoints/E3_tra_joint_docvqa_chartqa ==="
+log_step "  Next step: run Stage 05 with CKPT_ROOT=.../outputs/checkpoints/E3_tra_joint_docvqa_chartqa"
+

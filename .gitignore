@@ -11,13 +11,15 @@ build/
 venv/
 env/
 
-# 仅 Final/data/ 内数据与缓存不上传（其余如 logs、outputs 可正常提交）
+# 忽略数据、日志和模型输出
 data/raw/*
 !data/raw/.gitkeep
 data/cache/*
 !data/cache/.gitkeep
 data/.cache/
 data/processed/
+
+logs/
 
 outputs/checkpoints/*
 !outputs/checkpoints/.gitkeep
@@ -27,7 +29,6 @@ outputs/metrics/*
 !outputs/metrics/.gitkeep
 outputs/analysis/*
 !outputs/analysis/.gitkeep
-outputs/figures/*
-!outputs/figures/.gitkeep
+outputs/figures/
 
 *.tmp

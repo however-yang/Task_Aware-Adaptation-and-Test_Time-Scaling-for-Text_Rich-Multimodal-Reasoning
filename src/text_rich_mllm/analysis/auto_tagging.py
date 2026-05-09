@@ -17,6 +17,9 @@ def infer_error_type(record: PredictionRecord) -> str:
         return ErrorType.OUTPUT_MISMATCH.value
     if normalize_answer(record.raw_prediction, record.answer_type) == normalize_answer(record.gold_answer, record.answer_type):
         return ErrorType.OUTPUT_MISMATCH.value
+    # 按数据集分类（论文 error taxonomy）
+    if record.dataset_name == DatasetName.DOCVQA.value:
+        return ErrorType.TEXT_READING_FAILURE.value       # 文档文字理解失败
     if record.dataset_name == DatasetName.CHARTQA.value:
         return ErrorType.CHART_REASONING_FAILURE.value
     if record.dataset_name == DatasetName.INFOGRAPHICVQA.value:

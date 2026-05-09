@@ -117,6 +117,15 @@ def parse_train_val_ratio(spec: str) -> tuple[int, int]:
     return train_part, val_part
 
 
+def _count_jsonl_lines(path) -> int:
+    """快速统计 JSONL 文件行数（断点续传用）。"""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return sum(1 for line in f if line.strip())
+    except FileNotFoundError:
+        return 0
+
+
 def export_hf_split(config_path: str, split: str, *, limit: int | None = None) -> tuple[str, int]:
     from datasets import load_dataset
     from tqdm.auto import tqdm
@@ -129,10 +138,23 @@ def export_hf_split(config_path: str, split: str, *, limit: int | None = None) -
     image_dir = _base_img if config.get("image_flat", False) else (_base_img / split)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     image_dir.mkdir(parents=True, exist_ok=True)
-    records = []
+
+    # ── 断点续传：检查已有条数 ─────────────────────────────────────────────
+    already_done = _count_jsonl_lines(output_path)
+    if already_done > 0:
+        logger.info(
+            "[resume] 发现已有 %d 条记录（%s），将从第 %d 条继续下载。",
+            already_done, output_path, already_done,
+        )
+    if limit is not None and already_done >= limit:
+        logger.info("[resume] 已完成 %d/%d 条，无需重新下载。", already_done, limit)
+        return str(output_path), already_done
+
+    records = []          # 本次新增的记录（追加模式，不含已有条目）
     hf_split = _resolve_hf_split(config, split)
-    remaining_limit = limit
-    global_index = 0
+    # remaining_limit：还需要再下多少条
+    remaining_limit = (limit - already_done) if limit is not None else None
+    global_index = already_done  # 图片文件名从续传位置起编
 
     # 优先使用环境变量 HF_DATASETS_CACHE（与 build_all_datasets.sh / HF 官方约定一致），便于统一落到数据盘
     cache_dir = _resolve_hf_cache_dir(os.environ.get("HF_DATASETS_CACHE") or config.get("hf_cache_dir"))
@@ -176,20 +198,26 @@ def export_hf_split(config_path: str, split: str, *, limit: int | None = None) -
         if use_streaming:
             columns: list[str] | None = None
             row_stream = dataset
+            # 断点续传：streaming 模式下先跳过已下载的条目
+            skipped = 0
             pbar = tqdm(
                 row_stream,
-                total=remaining_limit,
-                desc=f"[{export_desc}] serialize (streaming)",
+                total=(remaining_limit or 0) + already_done,
+                initial=already_done,
+                desc=f"[{export_desc}] serialize (streaming, resume={already_done})",
                 unit="row",
                 leave=True,
                 dynamic_ncols=True,
             )
             for example in pbar:
-                if isinstance(example, dict):
-                    if columns is None:
-                        columns = list(example.keys())
-                else:
+                if not isinstance(example, dict):
                     raise TypeError(f"Streaming example must be dict-like, got {type(example)}")
+                if columns is None:
+                    columns = list(example.keys())
+                # 跳过已经保存的条目（不重复序列化图片，节省时间）
+                if skipped < already_done:
+                    skipped += 1
+                    continue
                 serialized = {}
                 for column in columns:
                     try:
@@ -248,7 +276,9 @@ def export_hf_split(config_path: str, split: str, *, limit: int | None = None) -
             if remaining_limit <= 0:
                 break
     summary = f"{config.get('name', '')} | CLI:{split} | HF:{hf_split}"
-    with output_path.open("w", encoding="utf-8") as handle:
+    # 断点续传：追加写入（'a' 模式），不覆盖已有条目
+    write_mode = "a" if already_done > 0 else "w"
+    with output_path.open(write_mode, encoding="utf-8") as handle:
         for record in tqdm(
             records,
             desc=f"[{summary}] write jsonl",
@@ -257,8 +287,12 @@ def export_hf_split(config_path: str, split: str, *, limit: int | None = None) -
             dynamic_ncols=True,
         ):
             handle.write(json.dumps(record, ensure_ascii=False) + "\n")
-    logger.info("Exported %s records for %s split %s (HF split: %s)", len(records), config["name"], split, hf_split)
-    return str(output_path), len(records)
+    total = already_done + len(records)
+    logger.info(
+        "Exported %s new records (total %s) for %s split %s (HF split: %s)",
+        len(records), total, config["name"], split, hf_split,
+    )
+    return str(output_path), total
 
 
 def main() -> None:

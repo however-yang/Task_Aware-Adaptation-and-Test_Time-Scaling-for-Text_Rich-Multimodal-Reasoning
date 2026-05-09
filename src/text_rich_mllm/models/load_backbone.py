@@ -102,6 +102,18 @@ def load_model_bundle(model_name: str, *, processor_name: str | None = None, tru
 
     processor = AutoProcessor.from_pretrained(processor_name or model_name, trust_remote_code=trust_remote_code)
     model = _load_pretrained_model_classes(model_name, trust_remote_code=trust_remote_code, **kwargs)
+
+    # ── 模型加载确认（推理日志存档）────────────────────────────────────
+    try:
+        total_p = sum(p.numel() for p in model.parameters())
+        print(
+            f"[load_backbone] model={model.__class__.__name__}  "
+            f"source={model_name}  total_params={total_p:,}",
+            flush=True,
+        )
+    except Exception:
+        pass
+
     return processor, model
 
 

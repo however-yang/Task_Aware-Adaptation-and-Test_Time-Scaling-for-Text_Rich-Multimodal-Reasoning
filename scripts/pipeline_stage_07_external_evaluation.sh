@@ -14,7 +14,7 @@
 #   方式 A：自动读取 Stage 06 导出的最优 checkpoint（E3 默认流程）
 #     bash scripts/pipeline_stage_07_external_evaluation.sh
 #
-#   方式 B：手动指定 checkpoint 路径（推荐用于 E4/E5/E8）
+#   方式 B：手动指定 checkpoint 路径（推荐用于 E4/E5/E8；相对路径会优先在数据盘 TEXT_RICH_MLLM_CHECKPOINT_ROOT 下解析）
 #     bash scripts/pipeline_stage_07_external_evaluation.sh \
 #       --checkpoint outputs/checkpoints/joint_dora/checkpoint-best \
 #       --exp-tag E4_dora
@@ -38,13 +38,30 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+# shellcheck disable=SC1091
+source "$(dirname "${BASH_SOURCE[0]}")/pipeline_env_data_disk.sh"
 
-export DATA_DISK="${DATA_DISK:-/root/autodl-tmp}"
-export HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
-export HF_HOME="${HF_HOME:-${DATA_DISK}/hf_home}"
-export HF_HUB_CACHE="${HF_HUB_CACHE:-${DATA_DISK}/huggingface_hub}"
-export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-${DATA_DISK}/transformers_cache}"
-mkdir -p "${HF_HOME}" "${HF_HUB_CACHE}" "${TRANSFORMERS_CACHE}"
+# 相对路径的 checkpoint（如 outputs/checkpoints/...）优先在数据盘解析，与训练时 resolve_training_output_dir 一致
+_resolve_ckpt_dir() {
+    local p="$1"
+    [[ -z "$p" ]] && { echo ""; return; }
+    if [[ -d "$p" ]]; then
+        echo "$p"
+        return
+    fi
+    local base="${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-${DATA_DISK:-}}"
+    if [[ "$p" != /* ]]; then
+        if [[ -n "$base" && -d "${base}/${p}" ]]; then
+            echo "${base}/${p}"
+            return
+        fi
+        if [[ -d "${ROOT}/${p}" ]]; then
+            echo "${ROOT}/${p}"
+            return
+        fi
+    fi
+    echo "$p"
+}
 
 TS="$(date +%Y%m%d_%H%M%S)"
 TS_ISO="$(date -Iseconds)"
@@ -76,6 +93,7 @@ while [[ $# -gt 0 ]]; do
         --checkpoint)  EXPLICIT_CKPT="$2"; shift 2 ;;
         --exp-tag)     EXP_TAG="$2";       shift 2 ;;
         --peft-config) PEFT_CONFIG="$2";   shift 2 ;;
+        --tra-config)  TRA_CONFIG="$2";    shift 2 ;;
         --limit)       LIMIT="$2";         shift 2 ;;
         *) echo "Unknown arg: $1" >&2; exit 1 ;;
     esac
@@ -86,11 +104,13 @@ done
 if [[ -n "${EXPLICIT_CKPT}" ]]; then
     # 方式 B/C：直接使用命令行参数
     CKPT_PATH="${EXPLICIT_CKPT}"
+    CKPT_PATH="$(_resolve_ckpt_dir "${CKPT_PATH}")"
     : "${EXP_TAG:=$(basename "${CKPT_PATH}")}"    # 未指定 exp_tag 时用目录名
     log_step "Checkpoint 来源：命令行参数"
 
 elif [[ -n "${CKPT_PATH:-}" ]]; then
     # 环境变量覆盖
+    CKPT_PATH="$(_resolve_ckpt_dir "${CKPT_PATH}")"
     : "${EXP_TAG:=$(basename "${CKPT_PATH}")}"
     log_step "Checkpoint 来源：环境变量 CKPT_PATH"
 
@@ -104,8 +124,32 @@ else
         BEST_REPORT_PATH=$(python -c \
             "import json; print(json.load(open('${BEST_CHECKPOINT_JSON}'))['best']['report_path'])")
         CKPT_NAME=$(basename "${BEST_REPORT_PATH}" | sed 's/report_//' | sed 's/\.json//')
-        CKPT_PATH="${CKPT_PATH:-${ROOT}/outputs/checkpoints/joint_docvqa_chartqa/${CKPT_NAME}}"
-        [[ ! -d "${CKPT_PATH}" ]] && CKPT_PATH="${ROOT}/outputs/checkpoints/${CKPT_NAME}"
+        _ck_base="${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-${DATA_DISK}}"
+        CKPT_PATH=""
+        for c in \
+            "${_ck_base}/outputs/checkpoints/joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/E1_lora_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/E1_lora_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/E2_dora_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/E2_dora_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/joint_dora/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/joint_dora/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/E3_tra_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/E3_tra_joint_docvqa_chartqa/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/joint_tra_light/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/joint_tra_light/${CKPT_NAME}" \
+            "${_ck_base}/outputs/checkpoints/${CKPT_NAME}" \
+            "${ROOT}/outputs/checkpoints/${CKPT_NAME}"
+        do
+            if [[ -d "$c" ]]; then
+                CKPT_PATH="$c"
+                break
+            fi
+        done
+        if [[ -z "${CKPT_PATH}" ]]; then
+            CKPT_PATH="${_ck_base}/outputs/checkpoints/joint_docvqa_chartqa/${CKPT_NAME}"
+        fi
         : "${EXP_TAG:=E3_lora_${CKPT_NAME}}"
         log_step "Checkpoint 来源：Stage 06 best_checkpoint.json → ${CKPT_PATH}"
     else
@@ -130,6 +174,9 @@ fi
 
 LIMIT_ARGS=()
 [[ -n "${LIMIT}" ]] && LIMIT_ARGS+=(--limit "${LIMIT}")
+
+TRA_ARGS=()
+[[ -n "${TRA_CONFIG:-}" ]] && TRA_ARGS+=(--tra-config "${TRA_CONFIG}")
 
 # ── 工具函数：带日志的命令执行 ────────────────────────────────────────────
 run_cmd() {
@@ -175,7 +222,8 @@ for DS in "${DATASETS[@]}"; do
         --generation-config  "${GENERATION_CFG}" \
         --prompt-style structured \
         --resume \
-        "${LIMIT_ARGS[@]+${LIMIT_ARGS[@]}}"
+        ${LIMIT_ARGS[@]+"${LIMIT_ARGS[@]}"} \
+        ${TRA_ARGS[@]+"${TRA_ARGS[@]}"}
 
     echo "${REPORT_OUT}" >> "${REPORT_LIST_FILE}"
     log_step "Completed: ${DS} → ${REPORT_OUT}"
@@ -197,3 +245,44 @@ log_step "=== STAGE 07 COMPLETE ==="
 log_step "Results   : ${RESULT_DIR}"
 log_step "Exp tag   : ${EXP_TAG}"
 log_step "Checkpoint: ${CKPT_PATH}"
+
+# ── 外部泛化分数汇总（论文 Table 1 外部泛化列）────────────────────────────
+echo "" | append_master
+echo ">>>>>> EXTERNAL GENERALIZATION SUMMARY <<<<<<" | append_master
+python - <<PYEOF 2>&1 | tee -a "${MASTER_LOG}"
+import json, pathlib
+result_dir = pathlib.Path(r"${RESULT_DIR}")
+exp_tag = "${EXP_TAG}"
+datasets = ["scienceqa", "mmmu"]
+
+col = 12
+line_sep = "=" * 60
+print(f"\n{line_sep}")
+print(f"  External Generalization — exp: {exp_tag}")
+print(f"  {'Dataset':<20} {'overall':>{col}}  {'invalid_rate':>{col}}")
+print(f"  {'-'*20} {'-'*col}  {'-'*col}")
+total_scores = []
+for ds in datasets:
+    p = result_dir / f"report_{exp_tag}_{ds}.json"
+    if not p.exists():
+        print(f"  {ds:<20} {'N/A':>{col}}  {'N/A':>{col}}")
+        continue
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+        ov = data.get("overall", 0.0)
+        ior = data.get("invalid_output_rate", {})
+        if isinstance(ior, dict):
+            mean_ior = sum(ior.values()) / max(len(ior), 1) if ior else 0.0
+        else:
+            mean_ior = float(ior) if ior else 0.0
+        total_scores.append(ov)
+        print(f"  {ds:<20} {ov:{col}.4f}  {mean_ior:{col}.4f}")
+    except Exception as e:
+        print(f"  {ds:<20} ERROR: {e}")
+if total_scores:
+    mean_ov = sum(total_scores) / len(total_scores)
+    print(f"  {'-'*20} {'-'*col}  {'-'*col}")
+    print(f"  {'MACRO AVG':<20} {mean_ov:{col}.4f}")
+print(f"{line_sep}\n")
+PYEOF
+

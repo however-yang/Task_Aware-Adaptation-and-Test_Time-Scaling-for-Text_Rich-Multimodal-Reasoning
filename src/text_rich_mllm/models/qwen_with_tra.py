@@ -27,17 +27,29 @@ def _get_decoder_layers(model: "nn.Module") -> "nn.ModuleList":
         lambda m: m.model.layers,
         lambda m: m.base_model.model.model.layers,
         lambda m: m.base_model.model.layers,
+        lambda m: m.model.model.layers,
     ]
     for getter in candidates:
         try:
             layers = getter(model)
-            if layers is not None:
+            if layers is not None and hasattr(layers, "__iter__") and len(layers) > 0:
                 return layers
         except AttributeError:
             continue
+
+    # 如果硬编码路径都失败了，采用递归查找寻找包含 DecoderLayer 的 ModuleList
+    import torch.nn as nn
+    for name, module in model.named_modules():
+        if isinstance(module, nn.ModuleList) and len(module) > 0:
+            first_type_name = module[0].__class__.__name__.lower()
+            # 必须严格匹配 text decoder layer (例如 Qwen2DecoderLayer)，避开 visual.blocks (Qwen2VisionBlock)
+            if "decoderlayer" in first_type_name:
+                print(f"[inject_tra] Dynamically found TEXT decoder layers at: model.{name}")
+                return module
+
     raise AttributeError(
-        "无法找到 decoder layers。请确认模型是 Qwen3-VL 系列，"
-        "且路径为 model.model.layers 或 model.base_model.model.model.layers。"
+        f"无法找到 decoder layers。请确认模型是 Qwen3-VL 系列。\n"
+        f"当前模型的顶层结构为: {[name for name, _ in model.named_children()]}"
     )
 
 
@@ -71,23 +83,45 @@ def inject_tra(model: "nn.Module", tra_config: TRAConfig) -> "nn.Module":
             n_tasks=tra_config.n_tasks,
             dropout=tra_config.dropout,
         )
+        
+        # 将 TRABlock 移动到和它所挂载的 layer 相同的 device 和 dtype
+        try:
+            target_layer_param = next(layers[layer_idx].parameters())
+            block.to(device=target_layer_param.device, dtype=target_layer_param.dtype)
+        except StopIteration:
+            pass
+
         # 将 TRABlock 注册为子模块，使其参数纳入 model.parameters()
         block_name = f"tra_block_{layer_idx}"
+        if hasattr(model, block_name):
+            raise RuntimeError(
+                f"inject_tra 被重复调用：{block_name} 已经存在于模型中！\n"
+                f"如果你是在恢复训练，请不要再次调用 inject_tra。"
+            )
         model.add_module(block_name, block)
 
         # 注册 forward hook（闭包捕获 block 和 block_name）
         def _make_hook(tra_block: TRABlock) -> callable:
             def hook(module, inputs, outputs):  # noqa: ARG001
-                # outputs: tuple，第 0 个元素是 hidden states (B, N, d)
-                # 其余元素是 KV cache 等，原样保留
-                hidden = outputs[0]
+                # outputs 可能是:
+                #   a) tuple(hidden, ...)   — 正常模式
+                #   b) 裸 Tensor            — gradient_checkpointing 模式下 Qwen3-VL 直接返回 hidden
                 task_ids = getattr(model, "_tra_task_ids", None)
                 if task_ids is None:
                     # 推理时如果未设置 task_ids，跳过 TRA（退化为恒等）
                     return outputs
-                task_ids = task_ids.to(hidden.device)
-                hidden_out = tra_block(hidden, task_ids)
-                return (hidden_out,) + outputs[1:]
+
+                import torch
+                if isinstance(outputs, torch.Tensor):
+                    # 裸 Tensor 情况：直接处理并返回裸 Tensor
+                    hidden_out = tra_block(outputs, task_ids.to(outputs.device))
+                    return hidden_out
+                else:
+                    # Tuple 情况：第 0 个元素是 hidden states，其余原样保留
+                    hidden = outputs[0]
+                    task_ids = task_ids.to(hidden.device)
+                    hidden_out = tra_block(hidden, task_ids)
+                    return (hidden_out,) + outputs[1:]
             return hook
 
         layers[layer_idx].register_forward_hook(_make_hook(block))

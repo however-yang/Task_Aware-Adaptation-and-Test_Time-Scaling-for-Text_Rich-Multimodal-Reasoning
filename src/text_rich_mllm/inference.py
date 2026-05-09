@@ -7,6 +7,16 @@ from text_rich_mllm.models.generation_utils import run_generation
 from text_rich_mllm.prompts import PromptBuilder
 
 
+def _append_jsonl(records: list[dict], path: str | Path, *, mode: str = "a") -> None:
+    """mode='w' 就是全量覆写，mode='a' 就是追加。"""
+    import json
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open(mode, encoding="utf-8") as f:
+        for record in records:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
 def generate_predictions(
     *,
     samples,
@@ -59,6 +69,12 @@ def generate_predictions(
         dynamic_ncols=True,
         mininterval=0.5,
     )
+    FLUSH_EVERY = 10   # 每 10 条 append 一次，避免 O(N²) 全量重写
+    pending_records: list[dict] = []
+
+    # 如果是 resume 模式，文件已有内容，用 append 模式继续追加
+    write_mode = "a" if (existing_predictions and output_path and Path(output_path).exists()) else "w"
+
     for i, sample in enumerate(pbar, start=1):
         try:
             prediction = run_generation(
@@ -68,14 +84,21 @@ def generate_predictions(
                 builder.build(sample),
                 generation_config,
             )
-        except Exception:
+        except Exception as exc:
             if not continue_on_error:
                 raise
+            print(f"[inference] WARNING: sample_id={sample.sample_id!r} error={exc}", flush=True)
             prediction = ""
         prediction_map[sample.sample_id] = prediction
-        output_records.append({"sample_id": sample.sample_id, "prediction": prediction})
-        if output_path:
-            write_jsonl(output_records, output_path)
+        new_record = {"sample_id": sample.sample_id, "prediction": prediction}
+        output_records.append(new_record)
+        pending_records.append(new_record)
+
+        # 增量 append，每 10 条 flush 一次
+        if output_path and (len(pending_records) >= FLUSH_EVERY or i == len(to_process)):
+            _append_jsonl(pending_records, output_path, mode=write_mode)
+            pending_records.clear()
+            write_mode = "a"   # 首次写完后后续都是 append
 
         elapsed = time.perf_counter() - t0
         if elapsed > 0:

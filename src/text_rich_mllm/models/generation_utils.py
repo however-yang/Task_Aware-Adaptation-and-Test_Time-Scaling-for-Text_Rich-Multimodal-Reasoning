@@ -51,11 +51,17 @@ def run_generation(model, processor, image_path: str, prompt: str, generation_co
     image = open_image_as_rgb(image_path)
     prompt_for_model = ensure_image_placeholders_in_text(processor, prompt, num_images=1)
     inputs = processor(images=image, text=prompt_for_model, return_tensors="pt")
-    model_device = getattr(model, "device", None)
+    # 使用 next(model.parameters()).device 替代 getattr(model, "device")
+    # 后者对 PeftModel / multi-GPU 模型可能返回 None 或 cpu
+    try:
+        model_device = next(model.parameters()).device
+    except StopIteration:
+        model_device = None
     if model_device is not None:
         inputs = _move_to_device(inputs, model_device)
     if hasattr(model, "eval"):
         model.eval()
+
     try:
         import torch
 

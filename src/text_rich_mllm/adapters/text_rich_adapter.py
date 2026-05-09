@@ -79,14 +79,27 @@ class TRABlock(nn.Module):
     def forward(self, H: "Tensor", task_ids: "Tensor") -> "Tensor":
         """
         Args:
-            H:        (B, N, d_model)  当前层的 hidden states
-            task_ids: (B,)             每个样本的 task_id（int）
+            H:        (B, N, d_model) 或 (N, d_model)
+            task_ids: (B,) 每个样本的 task_id（int）
 
         Returns:
-            H':       (B, N, d_model)  经 TRA 调整后的 hidden states
+            H':       与 H 形状相同，经 TRA 调整后的 hidden states
         """
+        # 统一将 H 转化为 3D: (B, N, d_model)
+        orig_ndim = H.ndim
+        orig_shape = H.shape
+        B = task_ids.shape[0]
+        
+        if orig_ndim == 2:
+            # H: (B * seq_len, d_model) -> (B, seq_len, d_model)
+            if H.shape[0] % B != 0:
+                raise ValueError(f"H.shape[0] ({H.shape[0]}) is not divisible by batch_size ({B})")
+            seq_len = H.shape[0] // B
+            H = H.view(B, seq_len, H.shape[-1])
+            
         # 1. Task Conditioning
         t = self.task_emb(task_ids)          # (B, d_model)
+        # 如果 t 是 (B, d_model)，t.unsqueeze(1) 是 (B, 1, d_model)
         Z = H + t.unsqueeze(1)               # broadcast → (B, N, d_model)
 
         # 2. Bottleneck Adapter
@@ -95,4 +108,10 @@ class TRABlock(nn.Module):
         # 3. Gated Residual（门控基于序列均值，避免受序列长度影响）
         H_mean = H.mean(dim=1, keepdim=True)          # (B, 1, d_model)
         g = torch.sigmoid(self.W_gate(H_mean))         # (B, 1, 1)
-        return H + g * A
+        
+        H_out = H + g * A
+        
+        if orig_ndim == 2:
+            H_out = H_out.view(orig_shape)
+            
+        return H_out

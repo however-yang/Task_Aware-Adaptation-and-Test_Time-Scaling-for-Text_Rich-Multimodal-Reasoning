@@ -40,11 +40,10 @@ def _bootstrap_hf_cache_env() -> None:
         ("TRANSFORMERS_CACHE", "transformers_cache"),
     )
     for env_key, sub in pairs:
-        import os
         os.environ.setdefault(env_key, os.path.join(base, sub))
     for _, sub in pairs:
-        import os
         os.makedirs(os.path.join(base, sub), exist_ok=True)
+
 
 
 _bootstrap_hf_cache_env()
@@ -112,22 +111,17 @@ def main() -> None:
     logger.info("Loading model bundle...")
     processor, model = load_model_bundle(**model_cfg)
 
-    # ── 挂载 PEFT adapter（LoRA / DoRA）──────────────────────────────────
-    logger.info("Attaching PEFT adapter: %s", args.peft_config)
-    model = attach_lora_adapter(model, peft_cfg)
-
-    # ── 从 SFT checkpoint 恢复权重（若提供）──────────────────────────────
+    # ── 挂载 PEFT adapter 或是从 SFT checkpoint 恢复 ──────────────────────
     if args.checkpoint:
         ckpt_path = Path(args.checkpoint)
         if not ckpt_path.exists():
             raise FileNotFoundError(f"Checkpoint not found: {ckpt_path}")
         logger.info("Loading SFT checkpoint weights from: %s", ckpt_path)
-        # PeftModel.from_pretrained 或直接 load_adapter
-        if hasattr(model, "load_adapter"):
-            model.load_adapter(str(ckpt_path), adapter_name="default")
-        else:
-            from peft import PeftModel
-            model = PeftModel.from_pretrained(model.base_model.model, str(ckpt_path))
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, str(ckpt_path), is_trainable=True)
+    else:
+        logger.info("Attaching PEFT adapter: %s", args.peft_config)
+        model = attach_lora_adapter(model, peft_cfg)
 
     # ── 注入 TRA hooks（若提供 tra-config）───────────────────────────────
     if args.tra_config:
@@ -158,6 +152,27 @@ def main() -> None:
     logger.info("=== TS-GRPO Training Complete ===")
     logger.info("Output dir: %s", train_cfg.get("output_dir"))
 
+    # ── 超参配置摘要（论文附录可重现性记录）──────────────────────────────────
+    line = "=" * 70
+    print(f"\n{line}")
+    print("  GRPO EXPERIMENT CONFIG SUMMARY")
+    print(f"  Experiment   : {train_cfg.get('experiment_name', 'N/A')}")
+    print(f"  Checkpoint   : {args.checkpoint or '<none>'}")
+    print(f"  TRA config   : {args.tra_config or '<none>'}")
+    print(f"  Seed         : {args.seed}")
+    print(f"  G (group)    : {train_cfg.get('grpo_group_size', 4)}")
+    print(f"  β (KL coef)  : {train_cfg.get('grpo_kl_coef', 0.01)}")
+    print(f"  ε (clip)     : {train_cfg.get('grpo_clip_eps', 0.2)}")
+    print(f"  Temperature  : {train_cfg.get('grpo_temperature', 0.8)}")
+    print(f"  Steps        : {train_cfg.get('grpo_num_steps', 500)}")
+    print(f"  Eval steps   : {train_cfg.get('grpo_eval_steps', 100)}")
+    print(f"  Save steps   : {train_cfg.get('grpo_save_steps', 100)}")
+    print(f"  LR           : {train_cfg.get('learning_rate', 5e-6):.2e}")
+    print(f"  Output dir   : {train_cfg.get('output_dir')}")
+    print(f"  Tasks        : {train_cfg.get('grpo_task_names', [])}")
+    print(f"{line}\n")
+
 
 if __name__ == "__main__":
     main()
+

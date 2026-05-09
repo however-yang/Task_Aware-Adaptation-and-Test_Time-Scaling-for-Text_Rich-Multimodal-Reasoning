@@ -1,5 +1,0 @@
-model_name: Qwen/Qwen3-VL-8B-Instruct
-processor_name: null
-trust_remote_code: true
-device_map: auto
-dtype: bfloat16

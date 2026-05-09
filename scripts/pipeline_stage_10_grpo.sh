@@ -23,8 +23,8 @@
 #   logs/___GRPO_TRAINING_LOGS___/run_<TS>/
 #
 # 产物：
-#   outputs/checkpoints/joint_ts_grpo/
-#   outputs/checkpoints/joint_ts_grpo/grpo_step_log.json
+#   outputs/checkpoints/E4_grpo_joint_docvqa_chartqa/
+#   outputs/checkpoints/E4_grpo_joint_docvqa_chartqa/grpo_step_log.json
 #
 set -euo pipefail
 
@@ -33,6 +33,7 @@ cd "$ROOT"
 
 # ── 环境变量 ──────────────────────────────────────────────────────────────
 export DATA_DISK="${DATA_DISK:-/root/autodl-tmp}"
+export TEXT_RICH_MLLM_CHECKPOINT_ROOT="${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-${DATA_DISK}}"
 export HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
 export HF_HOME="${HF_HOME:-${DATA_DISK}/hf_home}"
 export HF_HUB_CACHE="${HF_HUB_CACHE:-${DATA_DISK}/huggingface_hub}"
@@ -51,7 +52,7 @@ append_master() { tee -a "$MASTER_LOG"; }
 
 log_step() {
     local msg="$1"
-    echo "[${TS_ISO}] [STAGE-09] ${msg}" | append_master
+    echo "[${TS_ISO}] [STAGE-10] ${msg}" | append_master
 }
 
 # ── 参数解析 ──────────────────────────────────────────────────────────────
@@ -94,21 +95,21 @@ if [[ ! -f "${TRAIN_CONFIG}" ]]; then
     exit 1
 fi
 
-# ── 构建 TRA 参数 ──────────────────────────────────────────────────────────
-TRA_ARG=""
+# ── 构建 TRA 参数（数组形式，防止路径含空格时断开）────────────────────
+TRA_ARGS=()
 if [[ -n "${TRA_CONFIG}" ]]; then
     if [[ ! -f "${TRA_CONFIG}" ]]; then
         log_step "ERROR: TRA config not found: ${TRA_CONFIG}"
         exit 1
     fi
-    TRA_ARG="--tra-config ${TRA_CONFIG}"
+    TRA_ARGS=("--tra-config" "${TRA_CONFIG}")
     log_step "TRA mode: hooks will be re-injected from ${TRA_CONFIG}"
 fi
 
-# ── 构建 checkpoint 参数 ───────────────────────────────────────────────────
-CKPT_ARG=""
+# ── 构建 checkpoint 参数（数组形式）──────────────────────────────────────
+CKPT_ARGS=()
 if [[ -n "${CHECKPOINT}" ]]; then
-    CKPT_ARG="--checkpoint ${CHECKPOINT}"
+    CKPT_ARGS=("--checkpoint" "${CHECKPOINT}")
 fi
 
 # ── 运行 GRPO 训练 ────────────────────────────────────────────────────────
@@ -118,8 +119,8 @@ python scripts/train_grpo.py \
     --train-config "${TRAIN_CONFIG}"  \
     --model-config "${MODEL_CONFIG}"  \
     --peft-config  "${PEFT_CONFIG}"   \
-    ${CKPT_ARG}                       \
-    ${TRA_ARG}                        \
+    ${CKPT_ARGS[@]+"${CKPT_ARGS[@]}"} \
+    ${TRA_ARGS[@]+"${TRA_ARGS[@]}"}   \
     ${DRY_RUN_FLAG}                   \
     2>&1 | tee "${LOG_DIR}/01_grpo_training.log" | append_master
 
@@ -137,5 +138,34 @@ else
     exit ${EXIT_CODE}
 fi
 
-log_step "=== STAGE 09 COMPLETE. Output: outputs/checkpoints/joint_ts_grpo ==="
-log_step "Step log: outputs/checkpoints/joint_ts_grpo/grpo_step_log.json"
+log_step "=== STAGE 10 COMPLETE. Output: outputs/checkpoints/E4_grpo_joint_docvqa_chartqa ==="
+log_step "Step log: outputs/checkpoints/E4_grpo_joint_docvqa_chartqa/grpo_step_log.json"
+
+# ── GRPO step log 数值摘要（论文日志存档）────────────────────────────────
+STEP_LOG="${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-${DATA_DISK}}/outputs/checkpoints/E4_grpo_joint_docvqa_chartqa/grpo_step_log.json"
+if [[ -f "${STEP_LOG}" ]]; then
+    log_step "=== GRPO Reward Trend Summary ==="
+    python - <<PYEOF 2>&1 | tee -a "${MASTER_LOG}"
+import json, pathlib
+data = json.loads(pathlib.Path("${STEP_LOG}").read_text(encoding="utf-8"))
+if not data:
+    print("[grpo_summary] No step data found.")
+else:
+    # 每 50 步打印一次均值（窗口大小=50）
+    WINDOW = 50
+    print(f"  {'Step range':<20} {'mean_reward':>12}  {'std_reward':>12}  {'mean_loss':>10}")
+    print(f"  {'-'*20} {'-'*12}  {'-'*12}  {'-'*10}")
+    for i in range(0, len(data), WINDOW):
+        chunk = data[i:i+WINDOW]
+        mean_r = sum(e["mean_reward"] for e in chunk) / len(chunk)
+        std_r = (sum((e["mean_reward"] - mean_r)**2 for e in chunk) / max(len(chunk)-1, 1))**0.5
+        mean_l = sum(e["loss"] for e in chunk) / len(chunk)
+        s_start = chunk[0]["step"]
+        s_end = chunk[-1]["step"]
+        print(f"  step {s_start:>4}-{s_end:<4}           {mean_r:>12.4f}  {std_r:>12.4f}  {mean_l:>10.4f}")
+    # 最终 overall
+    all_r = [e["mean_reward"] for e in data]
+    print(f"\n  Total steps: {len(data)}  Overall mean_reward: {sum(all_r)/len(all_r):.4f}")
+PYEOF
+fi
+

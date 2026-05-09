@@ -15,7 +15,10 @@
 #     - CHECKPOINT_VALIDATION_MANIFEST__<TS>.txt
 #
 # 环境变量（与 run_post_training_pipeline.sh 对齐）:
-#   CKPT_ROOT MODEL_CFG GENERATION_CFG VAL_DOC VAL_CHART EVAL_LIMIT EXTRA_CHECKPOINTS
+#   CKPT_ROOT              若已设置则直接使用（验证指定实验目录）
+#   未设置时：在 TEXT_RICH_MLLM_CHECKPOINT_ROOT（默认 DATA_DISK）下按顺序选用第一个存在的目录：
+#     joint_docvqa_chartqa（旧路径）→ E1_lora_joint_docvqa_chartqa → E2_dora_* → joint_dora → E3_tra_* → joint_tra_light
+#   MODEL_CFG GENERATION_CFG VAL_DOC VAL_CHART EVAL_LIMIT EXTRA_CHECKPOINTS
 #
 set -euo pipefail
 
@@ -43,16 +46,27 @@ touch "$MASTER_LOG"
 
 append_master() { tee -a "$MASTER_LOG"; }
 
-_REL_CKPT_DEF="outputs/checkpoints/joint_docvqa_chartqa"
+_base_ck="${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-${DATA_DISK}}"
 if [[ -z "${CKPT_ROOT:-}" ]]; then
-  if [[ -n "${TEXT_RICH_MLLM_CHECKPOINT_ROOT:-}" ]]; then
-    CKPT_ROOT="${TEXT_RICH_MLLM_CHECKPOINT_ROOT}/${_REL_CKPT_DEF}"
-  elif [[ -n "${DATA_DISK:-}" ]]; then
-    CKPT_ROOT="${DATA_DISK}/${_REL_CKPT_DEF}"
-  else
-    CKPT_ROOT="${_REL_CKPT_DEF}"
-  fi
+  CKPT_ROOT=""
+  for _rel in \
+    "outputs/checkpoints/joint_docvqa_chartqa" \
+    "outputs/checkpoints/E1_lora_joint_docvqa_chartqa" \
+    "outputs/checkpoints/E2_dora_joint_docvqa_chartqa" \
+    "outputs/checkpoints/joint_dora" \
+    "outputs/checkpoints/E3_tra_joint_docvqa_chartqa" \
+    "outputs/checkpoints/joint_tra_light"
+  do
+    if [[ -d "${_base_ck}/${_rel}" ]]; then
+      CKPT_ROOT="${_base_ck}/${_rel}"
+      break
+    fi
+  done
 fi
+if [[ -z "${CKPT_ROOT:-}" ]]; then
+  CKPT_ROOT="${_base_ck}/outputs/checkpoints/E1_lora_joint_docvqa_chartqa"
+fi
+
 MODEL_CFG="${MODEL_CFG:-configs/model/backbone_main.yaml}"
 GENERATION_CFG="${GENERATION_CFG:-configs/model/generation.yaml}"
 VAL_DOC="${VAL_DOC:-data/processed/docvqa/validation.jsonl}"
@@ -129,6 +143,11 @@ if [[ -n "${EVAL_LIMIT:-}" ]]; then
   LIMIT_ARGS+=(--limit "${EVAL_LIMIT}")
 fi
 
+TRA_ARGS=()
+if [[ -n "${TRA_CONFIG:-}" ]]; then
+  TRA_ARGS+=(--tra-config "${TRA_CONFIG}")
+fi
+
 : > "${REPORT_LIST_FILE}"
 
 for ck in "${CANDIDATES[@]}"; do
@@ -147,7 +166,8 @@ for ck in "${CANDIDATES[@]}"; do
     --generation-config "$GENERATION_CFG" \
     --prompt-style structured \
     --resume \
-    ${LIMIT_ARGS[@]+"${LIMIT_ARGS[@]}"}
+    ${LIMIT_ARGS[@]+"${LIMIT_ARGS[@]}"} \
+    ${TRA_ARGS[@]+"${TRA_ARGS[@]}"}
 
   echo "$rep" >> "${REPORT_LIST_FILE}"
 done
@@ -166,6 +186,53 @@ done
 
 cp -f "$MANIFEST" "${LOG_DIR}/CHECKPOINT_VALIDATION_MANIFEST__${TS}.copy.txt" 2>/dev/null || true
 
+# ── 所有 checkpoint 对比汇总表（论文日志存档）────────────────────────────
+echo "" | append_master
+echo ">>>>>> ALL CHECKPOINT SCORES SUMMARY <<<<<<" | append_master
+python - <<PYEOF 2>&1 | tee -a "${MASTER_LOG}"
+import json, pathlib, sys
+
+report_list = pathlib.Path(r"${REPORT_LIST_FILE}")
+if not report_list.exists():
+    print("[summary] VALIDATION_REPORT_PATHS file not found; skipping summary.")
+    sys.exit(0)
+
+rows = []
+for line in report_list.read_text(encoding="utf-8").splitlines():
+    line = line.strip()
+    if not line or not pathlib.Path(line).exists():
+        continue
+    try:
+        report = json.loads(pathlib.Path(line).read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"[summary] Failed to parse {line}: {e}")
+        continue
+    name = pathlib.Path(line).stem.replace("report_", "")
+    overall = report.get("overall", 0.0)
+    slices = report.get("slices", {}).get("by_dataset", {})
+    rows.append({"name": name, "overall": overall, "slices": slices, "path": line})
+
+if not rows:
+    print("[summary] No valid reports found.")
+    sys.exit(0)
+
+rows.sort(key=lambda r: -r["overall"])
+all_ds = sorted({ds for r in rows for ds in r["slices"]})
+
+col = 10
+header = f"  {'Checkpoint':<35} {'overall':>{col}}" + "".join(f"  {ds[:col]:>{col}}" for ds in all_ds)
+line_sep = "=" * (len(header) + 2)
+print(f"\n{line_sep}")
+print("  CHECKPOINT VALIDATION SUMMARY (sorted by overall)")
+print(header)
+print(f"  {'-'*35} {'-'*col}" + "".join(f"  {'-'*col}" for _ in all_ds))
+for i, r in enumerate(rows):
+    tag = " <-- BEST" if i == 0 else ""
+    ds_cols = "".join(f"  {r['slices'].get(ds, {}).get('mean_score', 0.0):{col}.4f}" for ds in all_ds)
+    print(f"  {r['name'][:35]:<35} {r['overall']:{col}.4f}{ds_cols}{tag}")
+print(line_sep + "\n")
+PYEOF
+
 {
   echo ""
   echo "================================================================================"
@@ -176,3 +243,4 @@ cp -f "$MANIFEST" "${LOG_DIR}/CHECKPOINT_VALIDATION_MANIFEST__${TS}.copy.txt" 2>
 } | append_master
 
 exit 0
+

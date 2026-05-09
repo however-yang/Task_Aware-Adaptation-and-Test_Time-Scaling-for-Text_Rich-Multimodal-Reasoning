@@ -127,6 +127,27 @@ def plot_bon_scaling(
     print(f"[plot_bon_curve] Saved to: {output_path}")
     plt.close(fig)
 
+    # ── 数字表格输出（论文数字存档） ─────────────────────────────────────────────
+    line = "=" * 70
+    col_w = 12
+    header = f"{'N':>4}  " + "  ".join(f"{ds[:col_w]:>{col_w}}" for ds in datasets) + f"  {'overall':>{col_w}}"
+    print(f"\n{line}")
+    print("  BoN SCALING CURVE — Numerical Summary")
+    print(f"  {header}")
+    print(f"  {'-'*len(header)}")
+    for N_val in n_values:
+        # 如果有多个实验则分行打印，单个实验则直接输出
+        for exp_idx, (data, label) in enumerate(zip(all_data, labels)):
+            row_vals = []
+            for ds in datasets:
+                ds_scores = data["dataset_scores"].get(ds, {})
+                row_vals.append(ds_scores.get(f"n={N_val}", 0.0))
+            overall_val = data["overall"].get(f"n={N_val}", 0.0)
+            label_tag = f"[{label[:8]}]" if len(all_data) > 1 else ""
+            row_str = f"{N_val:>4}{label_tag}  " + "  ".join(f"{v:{col_w}.4f}" for v in row_vals) + f"  {overall_val:{col_w}.4f}"
+            print(f"  {row_str}")
+    print(f"{line}\n")
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Plot BoN Scaling Curve (Figure 3)")

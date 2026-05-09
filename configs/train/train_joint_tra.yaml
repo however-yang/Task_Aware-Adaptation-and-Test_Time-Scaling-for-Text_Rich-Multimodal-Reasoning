@@ -1,7 +1,7 @@
 # Stage 2 训练配置：从 LoRA checkpoint 续训，加入 TRA-light
 # 对应实验 E5：LoRA + TRA-light
 
-experiment_name: joint_tra_light
+experiment_name: E3_tra_joint_docvqa_chartqa
 datasets:
   - docvqa
   - chartqa
@@ -23,7 +23,7 @@ sampling: balanced
 max_answer_tokens: 16
 max_seq_length: 2048
 prompt_style: structured
-output_dir: outputs/checkpoints/joint_tra_light
+output_dir: outputs/checkpoints/E3_tra_joint_docvqa_chartqa
 
 save_strategy: steps
 logging_steps: 10

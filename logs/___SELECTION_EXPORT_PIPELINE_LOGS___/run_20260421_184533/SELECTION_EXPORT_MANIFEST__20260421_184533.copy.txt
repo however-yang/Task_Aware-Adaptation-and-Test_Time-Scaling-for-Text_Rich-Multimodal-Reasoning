@@ -1,7 +1,0 @@
-SELECTION_EXPORT_MANIFEST | run_id=20260421_184533
-finished_at=2026-04-21T18:45:33+08:00
-best_checkpoint_meta=/root/Final/outputs/___SELECTION_EXPORT_FINAL_RESULTS___/run_20260421_184533/best_checkpoint.json
-best_report=/root/Final/outputs/___CHECKPOINT_VALIDATION_RESULTS___/run_20260421_150432/report_checkpoint-1250.json
-best_markdown=/root/Final/outputs/___SELECTION_EXPORT_FINAL_RESULTS___/run_20260421_184533/best_validation.md
-report_count=3
-log_dir=/root/Final/logs/___SELECTION_EXPORT_PIPELINE_LOGS___/run_20260421_184533

@@ -120,4 +120,47 @@ done
   echo "================================================================================"
 } | append_master
 
+# ── Baseline 对比汇总表（direct vs. structured，论文 Table 1）──────────────
+echo "" | append_master
+echo ">>>>>> BASELINE COMPARISON SUMMARY (direct vs. structured) <<<<<<" | append_master
+python - <<PYEOF 2>&1 | tee -a "${MASTER_LOG}"
+import json, pathlib, sys
+result_dir = pathlib.Path(r"${RESULT_DIR}")
+datasets = ["docvqa", "chartqa", "scienceqa", "mmmu"]
+styles = ["direct", "structured"]
+
+col = 12
+header = f"  {'Dataset':<15}" + "".join(f"  {s:>{col}}" for s in styles) + f"  {'delta':>{col}}"
+line_sep = "=" * (len(header) + 2)
+print(f"\n{line_sep}")
+print("  BASELINE: zero-shot direct vs. structured prompt")
+print(header)
+print(f"  {'-'*15}" + "".join(f"  {'-'*col}" for _ in styles) + f"  {'-'*col}")
+for ds in datasets:
+    scores = {}
+    for style in styles:
+        p = result_dir / f"report_baseline_{style}_{ds}.json"
+        if p.exists():
+            try:
+                data = json.loads(p.read_text(encoding="utf-8"))
+                scores[style] = data.get("overall", 0.0)
+            except Exception:
+                scores[style] = None
+        else:
+            scores[style] = None
+    row = f"  {ds:<15}"
+    vals = []
+    for style in styles:
+        v = scores.get(style)
+        row += f"  {v:{col}.4f}" if isinstance(v, float) else f"  {'N/A':>{col}}"
+        if isinstance(v, float):
+            vals.append(v)
+    if len(vals) == 2:
+        delta = vals[1] - vals[0]
+        row += f"  {delta:+{col}.4f}"
+    print(row)
+print(line_sep + "\n")
+PYEOF
+
 exit 0
+

@@ -1,0 +1,441 @@
+# CSC5051 Final Project Proposal
+
+## Build a Unified Text-Rich Multimodal Reasoning Pipeline for Documents, Charts, and Scientific Figures
+
+## 1. Project Overview
+
+This project aims to build a unified multimodal reasoning pipeline for text-rich visual understanding. The target inputs are not ordinary natural images, but information-dense visual artifacts such as document pages, charts, tables, and scientific figures. These inputs require the model to jointly process visual structure, textual content, spatial layout, symbolic relations, and numerical information. The core objective of the project is not to train a fully general-purpose multimodal foundation model, but to design a practical and reproducible system that can support multiple related text-rich reasoning tasks within one consistent framework.
+
+Following the design direction of the current simplified proposal, the project uses DocVQA and ChartQA as the main adaptation benchmarks, while ScienceQA and MMMU are treated as external evaluation benchmarks for testing cross-task generalization. The emphasis is placed on building a complete pipeline that includes unified dataset conversion, task-conditioned prompting, parameter-efficient model adaptation, benchmark-specific evaluation, and systematic failure analysis. The final outcome is expected to be not only a set of scores, but also a reusable codebase and a clear technical story about what transfers across text-rich multimodal tasks and what does not. 
+
+## 2. Background and Motivation
+
+Text-rich multimodal reasoning differs substantially from classical image captioning and standard VQA. In document images, the answer may depend on reading a small text region, disambiguating multiple columns, and understanding the relation between headings and content blocks. In charts, the answer often requires recognizing legends, reading axes, locating bars or lines, and performing numerical comparison or aggregation. In scientific figures, the model may need to interpret diagrams, match labels to components, and connect visual structure with question semantics.
+
+These properties make text-rich reasoning a particularly meaningful course project topic. First, it is application-oriented. The same technical challenges appear in business documents, educational material, financial reports, and scientific communication. Second, it is methodologically coherent. Although document QA, chart QA, and science figure understanding are not identical tasks, they share a common dependency on reading and reasoning over visually structured text. Third, the project is feasible within a course timeline because the key datasets are public, the training objective can be implemented with parameter-efficient fine-tuning, and the engineering complexity can be controlled through a unified schema and evaluator. This directly matches the motivation already stated in your existing proposal: the project is attractive because it is both practically relevant and naturally suited to a “unified training plus external generalization evaluation” design. 
+
+## 3. Research Questions and Main Hypotheses
+
+The project is organized around three research questions.
+
+The first question is whether a single open-source multimodal model, combined with a unified prompt schema and unified data interface, can support multiple text-rich reasoning tasks without relying on heavily benchmark-specific pipelines.
+
+The second question is whether lightweight adaptation on DocVQA and ChartQA can improve the model’s downstream performance on ScienceQA and MMMU. This is the central transfer question of the project and reflects the original proposal’s emphasis on cross-benchmark generalization. 
+
+The third question is what kinds of errors dominate in text-rich multimodal settings. More concretely, the project seeks to distinguish among text reading failures, layout grounding failures, chart-specific reasoning failures, scientific figure reasoning failures, and output-format mismatches, which again follows the error-analysis direction in the simplified proposal. 
+
+From these questions, three working hypotheses are derived.
+
+First, a unified pipeline should be feasible if the input schema, prompt format, and answer normalization are designed carefully enough.
+
+Second, adaptation on document and chart tasks should improve not only in-domain performance but also some out-of-domain capabilities, especially those related to reading dense visual text and following answer constraints.
+
+Third, the largest remaining bottlenecks will not be purely linguistic. Instead, many errors will arise from visually grounded reasoning failures, such as attending to the wrong chart region, misreading small text, or confusing one visual entity with another.
+
+## 4. Scope and Positioning of the Project
+
+The project is positioned as a systems-oriented research prototype rather than a full-scale model-development effort. The intention is not to compete with the strongest closed or large-scale multimodal models on absolute benchmark scores, but to answer a narrower and more controllable question: what can be achieved by building a coherent text-rich reasoning pipeline around one open-source model and a small set of carefully selected datasets?
+
+Accordingly, the project scope includes five technical deliverables.
+
+The first is a unified dataset layer that converts several public benchmarks into one common internal representation.
+
+The second is a baseline evaluation suite that measures zero-shot and structured-prompt performance before adaptation.
+
+The third is a parameter-efficient fine-tuning pipeline on DocVQA and ChartQA.
+
+The fourth is a unified evaluator that supports dataset-specific metrics under one framework.
+
+The fifth is an error-analysis toolkit for qualitative and categorical inspection of failure cases.
+
+This framing is also consistent with the simplified proposal’s claim that the real “system value” of the project lies not in a single benchmark score but in a complete pipeline made of interface design, lightweight adaptation, generalized evaluation, and analysis. 
+
+## 5. Datasets and Task Roles
+
+The project uses four public datasets, each with a distinct role in the experimental design.
+
+DocVQA is used as the primary document question answering dataset. It mainly tests whether the model can read document text, understand layout structure, and extract short answers from dense page images. In the pipeline, it serves as one of the two core training domains. 
+
+ChartQA is used as the primary chart reasoning dataset. It introduces chart-specific structure, including axes, legends, visual marks, and numerical comparison. It serves as the second core training domain and complements DocVQA by stressing quantitative reasoning rather than pure text extraction. 
+
+ScienceQA is used as an external generalization benchmark. Because it contains scientific diagrams and multiple-choice questions, it is suitable for testing whether the adapted model can transfer beyond the two training datasets into broader educational visual reasoning. 
+
+MMMU is used as a more challenging out-of-domain benchmark covering many academic subjects and more diverse visual materials. It is intended to serve as the strongest stress test for generalization under the unified inference framework. 
+
+These four datasets are not homogeneous. DocVQA usually uses short open-form answers, ChartQA may require either textual or numerical answers, and ScienceQA and MMMU frequently take multiple-choice form. Therefore, the project will not treat them as interchangeable raw data sources. Instead, each dataset will be converted into a shared internal schema so that the downstream training, prompting, inference, and evaluation logic remain modular rather than benchmark-bound.
+
+## 6. Unified Data Schema and Data Processing
+
+A major implementation step of the project is the construction of a unified schema. Each sample, regardless of source dataset, will be represented as a dictionary with the following fields:
+
+`sample_id`, `dataset_name`, `task_type`, `image_path`, `question`, `choices`, `gold_answer`, `answer_type`, `split`, and `metadata`.
+
+Here, `task_type` distinguishes whether the sample belongs to document QA, chart QA, or scientific multimodal QA. `choices` is empty for open-ended tasks and populated for multiple-choice tasks. `answer_type` is set to one of `open_text`, `numeric`, or `multiple_choice`. `metadata` stores dataset-specific information such as page ID, chart type, subject category, or original annotation format.
+
+The data processing pipeline contains four stages.
+
+In the first stage, raw benchmark files are downloaded and parsed into intermediate JSON objects. Each dataset has its own loader because the raw formats differ. DocVQA loaders read image-question-answer triples; ChartQA loaders additionally normalize numeric forms; ScienceQA and MMMU loaders parse options and answer indices.
+
+In the second stage, the raw fields are converted to the unified schema. The purpose is to move benchmark-specific complexity to the ingestion layer and keep the rest of the system consistent.
+
+In the third stage, samples are cleaned. This includes removing broken image paths, converting answer strings to canonical forms, trimming whitespace, mapping option indices to letters, and resolving duplicated annotations where necessary.
+
+In the fourth stage, the processed outputs are saved as normalized JSONL or parquet files so that both training and evaluation can read the same standardized representation.
+
+This schema unification step is absolutely central because your current proposal already points out that the four datasets differ in task formulation and therefore require a unified data view at the preprocessing layer.
+
+## 7. Overall Technical Pipeline
+
+The complete system is designed as a multi-stage pipeline.
+
+The first stage is dataset ingestion and schema standardization. Raw dataset examples are converted into unified structured samples.
+
+The second stage is prompt generation. Each structured sample is transformed into a model input based on its task type and answer constraint.
+
+The third stage is baseline inference. The base model is evaluated in zero-shot direct-answer mode and in structured-prompt mode.
+
+The fourth stage is parameter-efficient fine-tuning. The model is lightly adapted on DocVQA and ChartQA.
+
+The fifth stage is external evaluation. The adapted model is tested on ScienceQA and MMMU without additional fine-tuning.
+
+The sixth stage is post-hoc analysis. Predictions are normalized, scored, categorized, and sampled for qualitative inspection.
+
+This six-stage decomposition is useful for two reasons. It gives the project a clean engineering skeleton, and it also makes the ablation design straightforward. Each stage can be replaced or modified independently without collapsing the rest of the system.
+
+## 8. Model Choice and Rationale
+
+The project will start from an open-source multimodal model that satisfies three criteria: it must support image-text input, it must have a reasonably mature open-source ecosystem, and it must be compatible with parameter-efficient adaptation techniques such as LoRA. This aligns with the simplified proposal’s suggestion that the model should be easy to use with PEFT and that the project should first establish a robust small-to-medium-scale pipeline rather than jump immediately to oversized models. 
+
+A practical choice is to use one main backbone, such as a Qwen-VL style or InternVL-style open multimodal model, and keep the rest of the engineering fixed. The goal is to prevent the project from drifting into model comparison and to keep the main variable of interest on the training and transfer side.
+
+In implementation terms, the model is treated as a pretrained multimodal conditional generator. The image is encoded by the visual encoder, the question and optional answer choices are tokenized by the text tokenizer, and the system generates a textual answer sequence. For training, only the answer portion of the sequence contributes to the language modeling loss. For inference, generation settings are controlled to reduce verbosity and improve answer stability, for example by using low temperature and short maximum output length.
+
+## 9. Prompt Design and Task Interface
+
+Prompt design is one of the key mechanisms through which benchmark heterogeneity is controlled. The project will implement one shared prompt framework with three task-specific variants.
+
+For open-text document QA, the prompt instructs the model to answer the question using the document image and to return only a concise answer. The answer should exclude explanation unless the experiment explicitly studies reasoning traces.
+
+For chart QA, the prompt adds an instruction emphasizing numerical precision and short-format output. If the expected answer is numeric, the model is explicitly told to return only a number or a short numerical expression.
+
+For multiple-choice tasks such as ScienceQA and MMMU, the prompt includes the candidate options in canonical lettered form and instructs the model to return only the selected option letter, optionally followed by a short explanation in a separate ablation setting.
+
+This unified prompting framework serves two purposes. First, it makes the training and inference interface consistent across benchmarks. Second, it makes it possible to study whether constrained output formatting alone can produce measurable gains even before adaptation, which corresponds to the “structured prompt baseline” proposed in your current draft. 
+
+## 10. Baseline Systems
+
+The proposal includes two baseline systems before any training is performed.
+
+The first baseline is the zero-shot direct-answer baseline. In this setting, the pretrained model receives the image and question with minimal instruction and generates an answer directly. This baseline measures how much capability is already present in the pretrained model and provides the true starting point of the project.
+
+The second baseline is the structured-prompt baseline. In this setting, the model is given more explicit output instructions, such as “answer with one short span,” “answer with one number,” or “answer with only the option letter.” The purpose of this baseline is to separate prompt-formatting effects from learning effects. Your simplified proposal already explicitly includes both direct-answer and structured-prompt baselines, and this separation should remain in the detailed version because it is methodologically clean. 
+
+These two baselines will be run on all four datasets before training. Their outputs will also be used as the first batch of error cases so that the analysis pipeline can be debugged early rather than only after fine-tuning.
+
+## 11. Main Training Method: Parameter-Efficient Adaptation
+
+The main training algorithm of the project is parameter-efficient fine-tuning, implemented through LoRA or a similar PEFT mechanism. This choice follows directly from your current proposal, which identifies PEFT and LoRA-level lightweight adaptation as the main training route. 
+
+### 11.1 Why PEFT
+
+PEFT is appropriate because it keeps GPU memory requirements manageable, reduces training time, and makes it easier to save and compare multiple adaptation variants. In a course project setting, it is often more useful to run several controlled experiments with a stable backbone than to spend most of the budget on one expensive full fine-tune.
+
+### 11.2 LoRA Injection Strategy
+
+The default training configuration will insert LoRA adapters into the main transformer projection layers of the language model block, such as query, key, value, and output projections, and optionally into selected feed-forward projections if memory allows. The visual backbone will initially be frozen to stabilize training and reduce complexity. If later experiments suggest that chart-specific perception remains weak, a small follow-up ablation may partially unfreeze the vision-language bridge or selected cross-modal layers.
+
+### 11.3 Training Objective
+
+The training objective is supervised next-token prediction on the answer sequence conditioned on the image and prompt. Concretely, the input consists of the image plus a textual prompt containing the task instruction, question, and optional answer candidates. The target is the canonical gold answer. Prompt tokens are masked from the loss, so only answer tokens contribute to optimization. This avoids wasting gradient budget on reproducing instructions and makes the model focus on answer behavior.
+
+### 11.4 Training Data Mixing Strategy
+
+Three training settings are proposed.
+
+The first is DocVQA-only adaptation. This isolates the effect of document-oriented supervision.
+
+The second is ChartQA-only adaptation. This isolates the effect of chart-oriented supervision.
+
+The third is joint adaptation on DocVQA and ChartQA. This is the main setting of interest because it tests whether a combined text-rich training signal yields broader transfer.
+
+For joint training, two sampling strategies are possible. The simpler and more robust option is balanced interleaving, where mini-batches alternate between the two datasets or are sampled with equal probability. The slightly more refined option is square-root proportion sampling, which avoids letting the larger dataset dominate while still reflecting dataset size. For the course project, balanced interleaving is preferable because it is simpler to implement and easier to interpret.
+
+### 11.5 Optimization Settings
+
+The training loop will use AdamW, linear warmup, and cosine or linear decay learning-rate scheduling. Mixed precision will be enabled to reduce memory cost. Gradient accumulation will be used when batch size is limited by VRAM. Early stopping or checkpoint selection will rely on validation performance rather than training loss alone. Because the project focuses on answer quality rather than long free-form generation, output lengths during training and validation can be kept short.
+
+### 11.6 Checkpoint Selection
+
+Checkpoint selection will be based on the validation metric most aligned with the target task. For DocVQA-heavy runs, validation ANLS or normalized exact match can be used. For ChartQA-heavy runs, a combination of exact match and numeric-aware accuracy is more appropriate. For joint training, a composite validation score can be constructed as the mean of normalized dataset-specific metrics. The best checkpoint will be selected automatically and used for external evaluation.
+
+## 12. External Evaluation Strategy
+
+After training on DocVQA and ChartQA, the model will be evaluated on ScienceQA and MMMU without further task-specific adaptation. This is the primary transfer test in the project and directly reflects the central question posed in your original proposal: whether lightweight adaptation on text-rich visual tasks improves cross-dataset generalization. 
+
+The external evaluation uses the same model, same decoding code, and same unified prompt interface, with only task-specific prompt templates changing where necessary. This consistency is important. If the evaluation pipeline itself becomes benchmark-specific, then it becomes much harder to interpret whether gains come from learned transfer or from hand-tuned evaluation logic.
+
+For multiple-choice tasks, the model output will be normalized into one of the candidate labels. If the model outputs a full sentence instead of a label, a deterministic postprocessor will extract the option letter when possible. This reduces unfair score loss caused by formatting rather than reasoning.
+
+## 13. Unified Evaluator and Metrics
+
+Your simplified proposal already emphasizes that the evaluator is one of the most important parts of the project and that benchmark-specific logic should be unified under one framework. That point should be retained and expanded in the detailed proposal. 
+
+The evaluator will consist of one common driver and several metric heads.
+
+For DocVQA, the main metric is ANLS. Since document QA often contains minor character variation and OCR-related near matches, ANLS is more appropriate than strict exact match.
+
+For ChartQA, exact match will be retained where applicable, but a numeric-aware evaluator will also be implemented. This evaluator will first canonicalize numbers, handle commas and percentages, and then apply exact or tolerance-based comparison depending on the question type. This is important because chart answers may differ superficially while remaining semantically correct.
+
+For ScienceQA and MMMU, the primary metric is accuracy. However, the evaluator will also record invalid-output rate, that is, the proportion of responses that cannot be mapped cleanly to one of the multiple-choice options.
+
+In addition to total scores, the evaluator will generate sliced result tables by dataset, task type, answer type, and selected metadata fields. This slicing is not cosmetic. It is necessary for understanding whether a model is improving on reading-heavy cases, reasoning-heavy cases, numeric cases, or multiple-choice cases.
+
+## 14. Answer Normalization Module
+
+The normalization module is a core engineering component because text-rich multimodal systems frequently lose points for superficial format mismatches. Your simplified proposal already identifies answer normalization as a critical piece of the system. 
+
+The normalization logic will include the following operations:
+
+text lowercasing where semantics are case-insensitive;
+leading and trailing whitespace removal;
+duplicate space collapse;
+punctuation normalization;
+number canonicalization, such as converting “1,200” and “1200” into a shared form;
+percentage normalization, such as mapping “50 percent” and “50%”;
+unit stripping or controlled unit normalization when evaluation rules allow it;
+multiple-choice label extraction;
+string-to-number conversion for decimal and integer values.
+
+This module will be applied both to predictions and to ground truth where appropriate. The goal is not to inflate scores artificially, but to ensure that the reported performance reflects actual reasoning ability rather than brittle output formatting.
+
+## 15. Error Analysis Methodology
+
+The project includes an explicit failure taxonomy, which is again consistent with the current proposal’s design. 
+
+The analysis stage will divide model errors into at least five categories.
+
+The first category is text reading failure. Here the model simply fails to read the relevant token or phrase from the image.
+
+The second category is layout or grounding failure. Here the model may read some text correctly but attend to the wrong region, confuse two nearby fields, or associate the wrong legend item with the wrong mark.
+
+The third category is chart reasoning failure. Here the necessary visual elements are likely recognized, but the model fails to compare values, aggregate quantities, or infer the correct trend or relation.
+
+The fourth category is scientific figure reasoning failure. In these cases, the model struggles with symbolic or structural interpretation, such as diagram part relationships or scientific notation.
+
+The fifth category is output mismatch. The semantic content of the answer is approximately correct, but the response is scored incorrect because it is not properly normalized, uses the wrong unit expression, or returns explanation text when only a label is expected.
+
+To implement this analysis, the project will combine automatic heuristics with manual review. For example, invalid multiple-choice outputs can be detected automatically, while nuanced grounding failures will need manual annotation on a smaller sample of cases. A representative subset of false predictions from each benchmark will be sampled and categorized. The final report will include both quantitative error distributions and a small set of qualitative examples.
+
+## 16. Proposed Algorithmic Workflow by Stage
+
+### Stage 1: Dataset Construction
+
+At this stage, separate preprocessing scripts are written for DocVQA, ChartQA, ScienceQA, and MMMU. Each script reads the raw benchmark format and converts it into the shared schema. The output is saved into dataset-specific processed files.
+
+### Stage 2: Prompt and Inference Sanity Check
+
+A prompt builder takes the unified samples and constructs model-ready input strings. A lightweight inference script then runs a small sample from each dataset to verify that images load correctly, prompts are formatted correctly, and outputs can be decoded and parsed.
+
+### Stage 3: Baseline Evaluation
+
+The zero-shot direct-answer baseline is run first. Then the structured-prompt baseline is run using the same evaluation framework. Results from this stage establish the pre-adaptation performance and reveal where prompt constraints already help.
+
+### Stage 4: PEFT Training
+
+A training driver reads the processed DocVQA and ChartQA data, builds batches, inserts LoRA adapters into the selected model layers, and optimizes the answer-generation objective. Separate runs are performed for DocVQA-only, ChartQA-only, and joint training.
+
+### Stage 5: Checkpoint Validation and Selection
+
+Validation is performed periodically on held-out splits. Dataset-specific metrics are computed, and the best checkpoint is selected according to the chosen validation criterion.
+
+### Stage 6: External Evaluation
+
+The selected checkpoint is run on ScienceQA and MMMU using the same prompt builder and evaluator. Outputs are normalized and scored automatically.
+
+### Stage 7: Error Analysis and Visualization
+
+Predictions, references, and metadata are aggregated into a structured table. Automatic tags are applied first, after which representative failure cases are manually inspected. Finally, plots and qualitative examples are generated for the report and poster.
+
+## 17. Detailed Code Structure
+
+下面这一部分你可以直接放进 proposal 里，作为“系统设计与实现计划”的一部分。相比上一版，这里把每个目录的职责进一步展开。
+
+```text
+text-rich-mllm-project/
+├── README.md
+├── requirements.txt
+├── environment.yml
+├── setup.py
+├── .gitignore
+│
+├── configs/
+│   ├── model/
+│   │   ├── backbone_main.yaml
+│   │   ├── generation.yaml
+│   │   └── peft.yaml
+│   ├── data/
+│   │   ├── docvqa.yaml
+│   │   ├── chartqa.yaml
+│   │   ├── scienceqa.yaml
+│   │   └── mmmu.yaml
+│   ├── train/
+│   │   ├── train_docvqa.yaml
+│   │   ├── train_chartqa.yaml
+│   │   └── train_joint.yaml
+│   └── eval/
+│       ├── eval_docvqa.yaml
+│       ├── eval_chartqa.yaml
+│       ├── eval_scienceqa.yaml
+│       └── eval_mmmu.yaml
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── cache/
+│
+├── scripts/
+│   ├── download_data.py
+│   ├── preprocess_docvqa.py
+│   ├── preprocess_chartqa.py
+│   ├── preprocess_scienceqa.py
+│   ├── preprocess_mmmu.py
+│   ├── build_unified_data.py
+│   ├── run_zero_shot.py
+│   ├── run_structured_prompt.py
+│   ├── train_peft.py
+│   ├── evaluate_model.py
+│   ├── analyze_errors.py
+│   └── export_tables_figures.py
+│
+├── src/
+│   ├── datasets/
+│   │   ├── base_dataset.py
+│   │   ├── docvqa_dataset.py
+│   │   ├── chartqa_dataset.py
+│   │   ├── scienceqa_dataset.py
+│   │   ├── mmmu_dataset.py
+│   │   ├── dataset_registry.py
+│   │   └── collator.py
+│   │
+│   ├── prompts/
+│   │   ├── prompt_builder.py
+│   │   ├── templates_docqa.py
+│   │   ├── templates_chartqa.py
+│   │   ├── templates_mcq.py
+│   │   └── answer_constraints.py
+│   │
+│   ├── models/
+│   │   ├── load_backbone.py
+│   │   ├── peft_adapter.py
+│   │   ├── generation_utils.py
+│   │   └── checkpoint_manager.py
+│   │
+│   ├── training/
+│   │   ├── trainer.py
+│   │   ├── optim.py
+│   │   ├── scheduler.py
+│   │   ├── loss_masking.py
+│   │   └── validation.py
+│   │
+│   ├── evaluation/
+│   │   ├── evaluator.py
+│   │   ├── metrics_docvqa.py
+│   │   ├── metrics_chartqa.py
+│   │   ├── metrics_mcq.py
+│   │   ├── normalization.py
+│   │   ├── parsing.py
+│   │   └── slicing.py
+│   │
+│   ├── analysis/
+│   │   ├── error_taxonomy.py
+│   │   ├── auto_tagging.py
+│   │   ├── case_sampling.py
+│   │   ├── visualization.py
+│   │   └── report_export.py
+│   │
+│   └── utils/
+│       ├── io.py
+│       ├── logger.py
+│       ├── seed.py
+│       ├── config.py
+│       └── constants.py
+│
+├── experiments/
+│   ├── exp_zero_shot/
+│   ├── exp_structured_prompt/
+│   ├── exp_docvqa_only/
+│   ├── exp_chartqa_only/
+│   └── exp_joint_training/
+│
+├── outputs/
+│   ├── checkpoints/
+│   ├── predictions/
+│   ├── metrics/
+│   ├── analysis/
+│   └── figures/
+│
+└── docs/
+    ├── proposal/
+    ├── poster/
+    └── final_report/
+```
+
+在这套结构里，`datasets/` 负责 benchmark-specific loader 与统一 schema；`prompts/` 负责任务提示模板与输出约束；`models/` 负责 backbone 加载、LoRA 注入和解码；`training/` 负责训练控制逻辑；`evaluation/` 负责统一 evaluator 与 benchmark-specific metrics；`analysis/` 负责错误归类、案例抽样与图表生成。这样划分后，每个模块的边界都比较清楚，后续扩展新 benchmark 时也不需要重构整个项目。
+
+## 18. Planned Experiments
+
+实验部分建议至少包含以下五组。
+
+第一组是 zero-shot direct-answer baseline，用来建立最原始的性能参考。
+
+第二组是 structured-prompt baseline，用来衡量提示约束本身的贡献。
+
+第三组是 DocVQA-only adaptation，用来观察 document-style supervision 的作用。
+
+第四组是 ChartQA-only adaptation，用来观察 chart-style supervision 的作用。
+
+第五组是 joint adaptation on DocVQA + ChartQA，这是本项目最核心的一组实验，用来测试混合 text-rich supervision 是否更利于外部泛化。
+
+若时间允许，还可以增加三个消融方向。第一是是否加入 task tag，例如在 prompt 开头显式声明当前是 document QA、chart QA 或 scientific QA。第二是是否启用更严格的 answer constraint。第三是是否加入 numeric normalization tolerance 作为 ChartQA 评测的补充机制。
+
+## 19. Expected Results and Interpretation
+
+预期上，structured prompt 相比 direct-answer baseline 应该能够带来一定提升，主要体现在输出更稳定、无关解释更少、multiple-choice 映射更准确。
+
+在训练之后，DocVQA-only 模型预计会在文档类任务上有明显提升，并可能对 ScienceQA 中涉及阅读图文说明的题目有一定帮助。ChartQA-only 模型预计会更明显地改善数值相关问题和图表解析能力。Joint training 则最有可能带来最均衡的迁移效果，尤其是在外部 benchmark 中那些既依赖读取又依赖结构化推理的样本上。
+
+但这个项目并不预设 joint training 一定全面胜出。一个值得关注的可能现象是，不同训练数据对不同能力模块有选择性影响。例如，DocVQA 可能更多增强 OCR-like extraction 和版面定位，而 ChartQA 更可能增强数值结构理解。这种差异本身就是结果分析中非常有价值的一部分。
+
+## 20. Risks and Mitigation
+
+你原 proposal 中已经把主要风险说得比较清楚了，详细版可以进一步写实一些。
+
+第一个风险是任务异质性。不同 benchmark 的格式和评价标准不同，容易导致前期工程混乱。对应策略是尽早统一 schema 与 evaluator，而不是先分别跑四套脚本。
+
+第二个风险是 OCR 与答案格式噪声。很多错误实际上不是 reasoning failure，而是 normalization 不足。对应策略是在 Week 1 就完成 prediction parsing 和 normalization，而不是等到实验结束后再补。
+
+第三个风险是训练资源不足。对应策略是坚持 PEFT 路线，并优先完成 zero-shot 和 structured-prompt baseline，保证即使训练效果有限，项目仍然有完整结果可报告。
+
+第四个风险是时间被数据和环境问题消耗。对应策略是把每一周的任务切成可以独立验收的模块，例如第一周只要求跑通统一数据与 baseline，不把所有目标绑定在最后一周一起完成。
+
+## 21. Timeline
+
+Week 1 focuses on data standardization and baseline construction. During this week, all four datasets are downloaded, converted into the unified schema, and verified through prompt-debugging runs. The zero-shot baseline and structured-prompt baseline are completed by the end of the week.
+
+Week 2 focuses on the training pipeline. LoRA-based PEFT is implemented and tested first on one dataset, then extended to the remaining setting. By the end of Week 2, DocVQA-only and ChartQA-only runs should be available, and joint training should at least be launched.
+
+Week 3 focuses on evaluation and analysis. The best checkpoints are selected and run on ScienceQA and MMMU. The evaluator produces aggregate and sliced metrics. Error categories are defined and a representative case pool is collected.
+
+Week 4 focuses on final integration. Result tables, qualitative examples, pipeline figures, and report text are consolidated. The repository is cleaned, and the final poster and paper are prepared.
+
+这条时间线和你原来的四周安排是一致的，但现在被细化成了真正可执行的工程目标。
+
+## 22. Deliverables
+
+The final deliverables include a written proposal, a poster, a final report, a reproducible codebase, trained PEFT checkpoints or adapters, benchmark prediction files, evaluation scripts, and a curated set of qualitative analysis cases. This is fully aligned with the delivery logic in your current proposal, where the project is expected to include proposal, poster, paper, repository, and optionally an adapter or demo. 
+
+## 23. Conclusion
+
+This project is a strong and feasible course-project topic because it is simultaneously application-relevant, experimentally structured, and technically modular. Its main contribution is not the pursuit of one isolated benchmark score, but the construction of a unified text-rich multimodal reasoning pipeline that connects data standardization, prompt design, lightweight adaptation, benchmark-aware evaluation, and error analysis into one coherent research workflow. By training on DocVQA and ChartQA and evaluating on ScienceQA and MMMU, the project can meaningfully study whether text-rich multimodal supervision transfers across related but non-identical tasks. At the same time, the modular code structure ensures that the project can continue beyond the course if stronger models, more datasets, or deeper analysis are later desired.
+
+

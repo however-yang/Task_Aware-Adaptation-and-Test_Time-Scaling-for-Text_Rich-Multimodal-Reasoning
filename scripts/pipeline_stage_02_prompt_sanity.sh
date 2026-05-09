@@ -16,14 +16,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-
-export DATA_DISK="${DATA_DISK:-/root/autodl-tmp}"
-export HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
-export HF_HOME="${HF_HOME:-${DATA_DISK}/hf_home}"
-export HF_DATASETS_CACHE="${HF_DATASETS_CACHE:-${DATA_DISK}/huggingface_cache}"
-export HF_HUB_CACHE="${HF_HUB_CACHE:-${DATA_DISK}/huggingface_hub}"
-export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-${DATA_DISK}/transformers_cache}"
-mkdir -p "${HF_HOME}" "${HF_DATASETS_CACHE}" "${HF_HUB_CACHE}" "${TRANSFORMERS_CACHE}"
+# shellcheck disable=SC1091
+source "$(dirname "${BASH_SOURCE[0]}")/pipeline_env_data_disk.sh"
 
 TS="$(date +%Y%m%d_%H%M%S)"
 TS_ISO="$(date -Iseconds)"

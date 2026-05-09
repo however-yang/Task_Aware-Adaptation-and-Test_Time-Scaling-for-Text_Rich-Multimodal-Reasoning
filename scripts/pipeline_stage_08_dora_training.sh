@@ -14,7 +14,7 @@
 #   logs/___DORA_TRAINING_LOGS___/run_<TS>/
 #
 # 产物：
-#   outputs/checkpoints/joint_dora/  （train_config 中的 output_dir）
+#   outputs/checkpoints/E2_dora_joint_docvqa_chartqa/  （临时 train yaml 中的 output_dir）
 #
 set -euo pipefail
 
@@ -41,7 +41,7 @@ append_master() { tee -a "$MASTER_LOG"; }
 
 log_step() {
     local msg="$1"
-    echo "[${TS_ISO}] [STAGE-07] ${msg}" | append_master
+    echo "[${TS_ISO}] [STAGE-08] ${msg}" | append_master
 }
 
 # ── 参数解析 ──────────────────────────────────────────────────────────────
@@ -68,16 +68,16 @@ if [[ ! -f "${PEFT_CONFIG}" ]]; then
     exit 1
 fi
 
-# ── 临时覆盖 output_dir（区分 E3 和 E4 的 checkpoint 目录）──────────────
-# 将 train_joint.yaml 的 output_dir 覆盖为 joint_dora
+# ── 临时覆盖 output_dir（DoRA 与 LoRA 分目录保存）──────────────────────
+# 将 train_joint.yaml 的 output_dir 覆盖为 E2_dora_joint_docvqa_chartqa
 # 方案：用临时 yaml，避免修改原文件
 TMP_TRAIN_CFG="${LOG_DIR}/train_joint_dora_tmp.yaml"
 python - <<PYEOF
 import yaml, pathlib
 src = pathlib.Path("${TRAIN_CONFIG}").read_text()
 cfg = yaml.safe_load(src)
-cfg["output_dir"] = "outputs/checkpoints/joint_dora"
-cfg["experiment_name"] = "joint_dora"
+cfg["output_dir"] = "outputs/checkpoints/E2_dora_joint_docvqa_chartqa"
+cfg["experiment_name"] = "E2_dora_joint_docvqa_chartqa"
 pathlib.Path("${TMP_TRAIN_CFG}").write_text(yaml.dump(cfg))
 print("Temporary DoRA train config written to: ${TMP_TRAIN_CFG}")
 PYEOF
@@ -108,4 +108,5 @@ else
     exit ${EXIT_CODE}
 fi
 
-log_step "=== STAGE 07 COMPLETE. Checkpoint: outputs/checkpoints/joint_dora ==="
+log_step "=== STAGE 08 COMPLETE. Checkpoint: outputs/checkpoints/E2_dora_joint_docvqa_chartqa ==="
+log_step "  Next step: run Stage 05 with CKPT_ROOT=.../outputs/checkpoints/E2_dora_joint_docvqa_chartqa"

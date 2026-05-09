@@ -118,32 +118,33 @@ def generate_n_completions(
     )
     device = next(model.parameters()).device
     inputs = {k: v.to(device) if hasattr(v, "to") else v for k, v in inputs.items()}
+    input_len = inputs["input_ids"].shape[-1]
 
+    completions = []
     with torch.inference_mode():
         if N == 1:
+            # Greedy decoding
             gen_ids = model.generate(
                 **inputs,
                 do_sample=False,
                 max_new_tokens=max_new_tokens,
                 pad_token_id=processor.tokenizer.eos_token_id,
             )
+            decoded = processor.decode(gen_ids[0, input_len:], skip_special_tokens=True)
+            completions.append(take_answer_tail_after_marker(decoded.strip()))
         else:
-            gen_ids = model.generate(
-                **inputs,
-                do_sample=True,
-                temperature=temperature,
-                max_new_tokens=max_new_tokens,
-                num_return_sequences=N,
-                pad_token_id=processor.tokenizer.eos_token_id,
-            )
+            # Qwen3-VL 不支持 num_return_sequences > 1，改为循环 N 次独立采样
+            for _ in range(N):
+                gen_ids = model.generate(
+                    **inputs,
+                    do_sample=True,
+                    temperature=temperature,
+                    max_new_tokens=max_new_tokens,
+                    pad_token_id=processor.tokenizer.eos_token_id,
+                )
+                decoded = processor.decode(gen_ids[0, input_len:], skip_special_tokens=True)
+                completions.append(take_answer_tail_after_marker(decoded.strip()))
 
-    decoded_list = processor.batch_decode(gen_ids, skip_special_tokens=True)
-    completions = []
-    for decoded in decoded_list:
-        raw = decoded.strip()
-        if raw.startswith(prompt_for_model.strip()):
-            raw = raw[len(prompt_for_model.strip()):].strip()
-        completions.append(take_answer_tail_after_marker(raw))
     return completions
 
 
@@ -305,18 +306,61 @@ def run_bon_scaling_curve(
 
     logger.info("BoN Scaling Curve: N=%s, N_max=%d, n_samples=%d", n_values, N_max, len(samples))
 
-    # Step 1：一次性生成 N_max 个候选
-    logger.info("Step 1: Generating N_max=%d completions per sample...", N_max)
-    all_completions: dict[str, list[str]] = {}
+    # Step 1：并行 batch 推理，为每道题生成 N_max 个候选
+    # 策略：每轮对 batch_size 道题同时 generate 1次，循环 N_max 轮
+    # 相比串行（每题 N 次），显存利用率从 19GB → 60GB+，速度提升约 4-8x
+    logger.info("Step 1: Generating N_max=%d completions per sample (batched)...", N_max)
+    all_completions: dict[str, list[str]] = {sid: [] for sid in (s.sample_id for s in samples)}
 
-    pbar = tqdm(samples, desc=f"gen(N={N_max})", unit="sample", dynamic_ncols=True)
-    for sample in pbar:
-        prompt = builder.build(sample)
-        completions = generate_n_completions(
-            model, processor, sample, prompt,
-            N=N_max, temperature=temperature, max_new_tokens=max_new_tokens,
-        )
-        all_completions[sample.sample_id] = completions
+    # 构建所有 prompt（只做一次）
+    builder_local = PromptBuilder(style=prompt_style)
+    prompts = [builder_local.build(s) for s in samples]
+
+    BATCH_SIZE = 32   # 根据显存调整：95GB 卡可以用 8-16
+    device = next(model.parameters()).device
+
+    for round_idx in range(N_max):
+        is_greedy = (round_idx == 0)  # 第 0 轮用 greedy 作为 N=1 的基线
+        desc = f"gen round {round_idx+1}/{N_max}"
+        for batch_start in tqdm(range(0, len(samples), BATCH_SIZE), desc=desc, unit="batch", dynamic_ncols=True):
+            batch_samples = samples[batch_start: batch_start + BATCH_SIZE]
+            batch_prompts = prompts[batch_start: batch_start + BATCH_SIZE]
+
+            # 批量编码（padding 对齐）
+            batch_images = [open_image_as_rgb(s.image_path) for s in batch_samples]
+            batch_texts  = [
+                ensure_image_placeholders_in_text(processor, p, num_images=1)
+                for p in batch_prompts
+            ]
+            processor.tokenizer.padding_side = "left"  # generate 时 left-pad
+            batch_inputs = processor(
+                images=batch_images,
+                text=batch_texts,
+                return_tensors="pt",
+                padding=True,
+                truncation=False,
+            )
+            batch_inputs = {k: v.to(device) if hasattr(v, "to") else v
+                            for k, v in batch_inputs.items()}
+            input_len = batch_inputs["input_ids"].shape[-1]
+
+            with torch.inference_mode():
+                gen_ids = model.generate(
+                    **batch_inputs,
+                    do_sample=(not is_greedy),
+                    temperature=(1.0 if is_greedy else temperature),
+                    max_new_tokens=max_new_tokens,
+                    pad_token_id=processor.tokenizer.eos_token_id,
+                )
+
+            decoded_list = processor.batch_decode(
+                gen_ids[:, input_len:], skip_special_tokens=True
+            )
+            for s, decoded in zip(batch_samples, decoded_list):
+                comp = take_answer_tail_after_marker(decoded.strip())
+                all_completions[s.sample_id].append(comp)
+
+    processor.tokenizer.padding_side = "right"  # 恢复默认
 
     # Step 2：对每个 N 值计算 best-of-N 分数
     logger.info("Step 2: Computing best-of-N scores for N=%s...", n_values)
@@ -351,22 +395,31 @@ def run_bon_scaling_curve(
         "temperature": temperature,
     }
 
-    # 打印曲线摘要
-    logger.info("=== BoN Scaling Curve Results ===")
+    # ── 控制台数字表格（论文 Figure 3 数字存档）────────────────────────────────
+    datasets_sorted = sorted(result["dataset_scores"].keys())
+    col = 10
+    header = f"  {'N':>4}  {'overall':>{col}}" + "".join(f"  {ds[:col]:>{col}}" for ds in datasets_sorted)
+    line_sep = "=" * (len(header) + 2)
+    print(f"\n{line_sep}")
+    print(f"  BoN Scaling Curve — n_samples={len(samples)}  N_max={N_max}  T={temperature}")
+    print(header)
+    print(f"  {'-'*4}  {'-'*col}" + "".join(f"  {'-'*col}" for _ in datasets_sorted))
     for N in n_values:
         key = f"n={N}"
-        overall = result["overall"].get(key, 0.0)
-        logger.info("  N=%-2d  overall=%.4f", N, overall)
-    for ds, ns in result["dataset_scores"].items():
-        scores_str = "  ".join(f"N={N}:{ns.get(f'n={N}', 0):.4f}" for N in n_values)
-        logger.info("  [%s] %s", ds, scores_str)
+        ov = result["overall"].get(key, 0.0)
+        ds_cols = "".join(
+            f"  {result['dataset_scores'].get(ds, {}).get(key, 0.0):{col}.4f}"
+            for ds in datasets_sorted
+        )
+        print(f"  {N:>4}  {ov:{col}.4f}{ds_cols}")
+    print(f"{line_sep}\n")
 
     # 保存
     if curve_output:
         Path(curve_output).parent.mkdir(parents=True, exist_ok=True)
         with open(curve_output, "w", encoding="utf-8") as f:
             json.dump(result, f, ensure_ascii=False, indent=2)
-        logger.info("Curve data saved to: %s", curve_output)
+        print(f"[BoN] Curve data saved to: {curve_output}", flush=True)
 
     return result
 
@@ -501,14 +554,21 @@ def main() -> None:
         )
 
         if args.evaluate:
+            from text_rich_mllm.analysis import tag_prediction_records
+            from text_rich_mllm.evaluation import build_evaluation_report
+            from text_rich_mllm.evaluation.console_summary import print_evaluation_report_summary
             # 直接评测
             evaluator = UnifiedEvaluator()
             active_samples = samples[:args.limit] if args.limit else samples
             records, summary = evaluator.evaluate(active_samples, prediction_map)
-            print("\n=== BoN Evaluation Summary ===")
-            for k, v in summary.items():
-                if k != "invalid_output_rate":
-                    print(f"  {k}: {v:.4f}" if isinstance(v, float) else f"  {k}: {v}")
+            tagged_records, error_counts = tag_prediction_records(records)
+            summary["error_counts"] = error_counts
+            report = build_evaluation_report(tagged_records, summary)
+            # 打印完整指标（by_dataset / by_answer_type / invalid_output_rate / error_counts）
+            print_evaluation_report_summary(
+                report,
+                title=f"BoN(N={args.N}) EVALUATION SUMMARY",
+            )
             # 保存 metrics（output 路径旁边）
             metrics_path = str(args.output).replace(".jsonl", "_metrics.json")
             write_json({"n": args.N, "summary": summary}, metrics_path)

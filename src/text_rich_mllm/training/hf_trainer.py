@@ -6,6 +6,27 @@ from text_rich_mllm.models.generation_utils import open_image_as_rgb
 from text_rich_mllm.utils.paths import resolve_training_output_dir
 from text_rich_mllm.models.vision_prompt import ensure_image_placeholders_in_text
 from text_rich_mllm.training.hf_dataset import SupervisedTrainingDataset
+from transformers import TrainerCallback
+import gc
+
+
+class _CudaCacheClearCallback(TrainerCallback):
+    """
+    每次 evaluate 结束后做一次 gc + empty_cache，缓解碎片类 OOM 风险。
+    去掉了多卡阻塞的 synchronize 逻辑以保证性能。
+    """
+
+    def on_evaluate(self, args, state, control, **kwargs):
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                gc.collect()
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
+        return control
+
 
 
 class MultimodalSupervisedCollator:
@@ -22,6 +43,10 @@ class MultimodalSupervisedCollator:
         self.ignore_index = ignore_index
         # Qwen2/3-VL：大图会产生极长视觉 token；loss 处要对整段 logits 做 float，显存 ~ O(seq×vocab)
         self.image_max_pixels = image_max_pixels
+
+        # 强制设置右填充，否则 `labels[index, :prompt_length] = ignore_index` 会屏蔽掉后面的真实序列
+        if hasattr(self.processor, "tokenizer") and self.processor.tokenizer is not None:
+            self.processor.tokenizer.padding_side = "right"
 
     def __call__(self, examples):
         images = [open_image_as_rgb(example.image_path) for example in examples]
@@ -121,6 +146,7 @@ def train_with_hf_trainer(
         train_dataset=SupervisedTrainingDataset(train_examples),
         eval_dataset=SupervisedTrainingDataset(eval_examples) if eval_examples else None,
         data_collator=collator,
+        callbacks=[_CudaCacheClearCallback()],
     )
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(output_dir)
@@ -172,7 +198,8 @@ class TRATrainer:
             def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
                 import torch
 
-                task_ids_raw = inputs.pop("_task_ids", None)
+                inputs_copy = dict(inputs)
+                task_ids_raw = inputs_copy.pop("_task_ids", None)
                 if task_ids_raw is not None:
                     device = next(model.parameters()).device
                     model._tra_task_ids = torch.tensor(
@@ -181,11 +208,26 @@ class TRATrainer:
                 else:
                     model._tra_task_ids = None
 
-                result = super().compute_loss(model, inputs, return_outputs, **kwargs)
-
-                # 清理，防止下一个 batch 错误复用
-                model._tra_task_ids = None
+                # ⚠️ 注意：不要在 super().compute_loss() 返回后立即清空 _tra_task_ids！
+                # gradient_checkpointing 的 recomputation 发生在 loss.backward() 内部，
+                # 即 super().compute_loss() 返回之后。如果在这里清空，
+                # recomputation 时 hook 看到 None 会跳过 TRA，导致两次 forward
+                # 保存的 tensor 数量不同，触发 CheckpointError。
+                # _tra_task_ids 会在下一个 batch 的 compute_loss 开头被正确覆盖，
+                # 不存在跨 batch 污染风险。
+                result = super().compute_loss(model, inputs_copy, return_outputs, **kwargs)
                 return result
+
+            def save_model(self, output_dir: str | None = None, _internal_call: bool = False):
+                import os
+                # 先让 HF 官方逻辑保存 Peft Adapter (比如 DoRA)
+                super().save_model(output_dir, _internal_call)
+                # 确定保存路径
+                if output_dir is None:
+                    output_dir = self.args.output_dir
+                # 强制保存 TRA 参数到同一个 checkpoint 目录下
+                from text_rich_mllm.models.qwen_with_tra import save_tra_state
+                save_tra_state(self.model, os.path.join(output_dir, "tra_state.pt"))
 
         collator = _TRACollator(
             processor,
@@ -199,6 +241,7 @@ class TRATrainer:
             train_dataset=SupervisedTrainingDataset(train_examples),
             eval_dataset=SupervisedTrainingDataset(eval_examples) if eval_examples else None,
             data_collator=collator,
+            callbacks=[_CudaCacheClearCallback()],
         )
 
 
@@ -235,6 +278,11 @@ def train_with_hf_trainer_tra(
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(output_dir)
+    
+    # 额外保存 TRA 参数，因为 PeftModel.save_pretrained 不会保存挂载在外面的 hook 参数
+    from text_rich_mllm.models.qwen_with_tra import save_tra_state
+    save_tra_state(model, f"{output_dir}/tra_state.pt")
+
     if hasattr(processor, "save_pretrained"):
         processor.save_pretrained(output_dir)
     return trainer

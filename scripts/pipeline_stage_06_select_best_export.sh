@@ -119,7 +119,8 @@ else
 fi
 
 BEST_REPORT="$(python -c "import json; print(json.load(open('${BEST_JSON}'))['best']['report_path'])")"
-echo "最佳验证报告: ${BEST_REPORT}" | append_master
+BEST_SCORE="$(python -c "import json; print(json.load(open('${BEST_JSON}'))['best'].get('composite_score', 'N/A'))")"
+echo "最佳验证报告: ${BEST_REPORT} (score: ${BEST_SCORE})" | append_master
 
 if [[ "${SKIP_EXPORT:-0}" != "1" ]]; then
   run_cmd "export_markdown" python scripts/export_tables_figures.py --report "$BEST_REPORT" --output "$BEST_MD"

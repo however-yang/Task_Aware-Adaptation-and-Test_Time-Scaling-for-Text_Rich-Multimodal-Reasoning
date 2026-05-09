@@ -38,7 +38,11 @@ def square_root_interleave(samples: list[UnifiedSample]) -> list[UnifiedSample]:
         weighted.append((name, repeat))
     expanded_groups: list[list[UnifiedSample]] = []
     for name, repeat in weighted:
-        expanded_groups.extend([grouped[name]] * repeat)
+        # 关键修复：每次生成独立副本，而非 [list_ref] * repeat（引用复制）
+        # 若用引用复制，zip_longest 会并行遍历同一对象，square_root 加权失效
+        for _ in range(repeat):
+            expanded_groups.append(list(grouped[name]))
+
     mixed: list[UnifiedSample] = []
     for chunk in zip_longest(*expanded_groups):
         for sample in chunk:

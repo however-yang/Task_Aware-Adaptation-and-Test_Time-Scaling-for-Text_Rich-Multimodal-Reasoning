@@ -39,7 +39,20 @@ def main() -> None:
     payload = {"best": best, "all_scores": scored}
     if args.output:
         write_json(payload, args.output)
-    print(payload)
+
+    # ── 格式化输出（论文日志存档） ───────────────────────────────────────
+    line = "=" * 70
+    print(f"\n{line}")
+    print("  BEST CHECKPOINT SELECTION")
+    print(line)
+    print(f"  Best  : {Path(best['report_path']).name}")
+    print(f"  Score : {best['composite_score']:.6f}")
+    print(f"  Path  : {best['report_path']}")
+    print("  --- All checkpoints (sorted by score) ---")
+    for item in sorted(scored, key=lambda x: -x["composite_score"]):
+        marker = " <-- BEST" if item["report_path"] == best["report_path"] else ""
+        print(f"    {item['composite_score']:.6f}  {Path(item['report_path']).name}{marker}")
+    print(f"{line}\n")
 
 
 if __name__ == "__main__":

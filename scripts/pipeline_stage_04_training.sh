@@ -5,7 +5,12 @@
 #   logs/___TRAINING_PIPELINE_LOGS___/run_<TS>/
 #
 # 产物:
-#   通过配置文件中指定的 output_dir 存储 checkpoint (默认 outputs/checkpoints/)
+#   默认写入 configs/train/train_joint.yaml 中的 output_dir：
+#   outputs/checkpoints/E1_lora_joint_docvqa_chartqa/（解析到数据盘时见 DATA_DISK）
+#
+# 可选环境变量（覆盖 yaml 中的目录名，便于自定义实验名）:
+#   TEXT_RICH_MLLM_TRAIN_OUTPUT_DIR
+#   TEXT_RICH_MLLM_TRAIN_EXPERIMENT_NAME
 #
 set -euo pipefail
 
@@ -85,8 +90,13 @@ run_cmd "run_peft_training" "${TRAIN_ARGS[@]}"
   echo ""
   echo "================================================================================"
   echo "TRAINING PIPELINE 结束（阶段 4）| run_id=${TS}"
-  echo "主控日志: ${MASTER_LOG}"
+  echo "  TRAIN_CFG   : ${TRAIN_CFG}"
+  echo "  PEFT_CFG    : ${PEFT_CFG}"
+  echo "  SEED        : ${SEED}"
+  echo "  主控日志    : ${MASTER_LOG}"
+  echo "  [请运行 Stage 05 进行 checkpoint 验证和选优]"
   echo "================================================================================"
 } | append_master
 
 exit 0
+
