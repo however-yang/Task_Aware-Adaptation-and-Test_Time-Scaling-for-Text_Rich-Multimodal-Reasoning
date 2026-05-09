@@ -1,112 +1,112 @@
-# Text-Rich MLLM Project
+# Task-Aware Adaptation and Test-Time Scaling for Text-Rich Multimodal Reasoning
 
-Unified pipeline scaffold for document QA, chart QA, and scientific figure reasoning.
+This repository houses the official implementation of a complete training, alignment, and evaluation framework for enhancing Multimodal Large Language Models (specifically Qwen-VL) on text-dense and structurally complex tasks (e.g., Document QA, Chart QA, and Scientific Figure Reasoning).
 
-## Scope
+By integrating **Parameter-Efficient Adapters (TRA/DoRA)**, **Task-Stratified Reinforcement Learning (TS-GRPO)**, and **Test-Time Compute Scaling (Best-of-N)**, this project provides a robust pipeline to improve in-domain expert reasoning while preserving cross-domain generalization.
 
-This repository matches the proposal structure:
+---
 
-- `DocVQA` and `ChartQA` as training/adaptation domains
-- `ScienceQA` and `MMMU` as external evaluation domains
-- unified data schema
-- task-conditioned prompt builder
-- answer normalization and benchmark-aware evaluator
-- PEFT-oriented training entrypoints
-- error analysis utilities
+## 🌟 Core Technical Contributions
 
-## Layout
+### 1. Text-Rich Adapter (TRA)
+Located in `src/text_rich_mllm/adapters/text_rich_adapter.py`. 
+Unlike standard LoRA, TRA is an intermediate adaptation module injected into the middle-to-late layers of the Transformer backbone. It integrates:
+- **Task Embeddings**: Conditions the model on task-specific priors (e.g., `DocVQA` vs `ChartQA`).
+- **Layout Embeddings**: (Optional) Utilizes OCR bounding boxes to provide explicit spatial and structural context.
+- **Gated Residual Updates**: Learns to balance the injected task-specific signals against the pretrained VLM representations.
+
+### 2. Task-Stratified GRPO (TS-GRPO)
+Located in `src/text_rich_mllm/training/ts_grpo_trainer.py`.
+Standard RLHF/GRPO struggles when applied jointly to highly heterogeneous datasets. We implemented a custom **Task-Stratified GRPO Trainer** that:
+- Groups generated rollouts strictly by task.
+- Computes the Advantage function (Reward scaling) within task-homogeneous batches, preventing reward-scale domination by easier tasks.
+- Directly optimizes reasoning steps and answer formatting.
+
+### 3. Best-of-N (BoN) Test-Time Scaling
+Located in `scripts/inference_best_of_n.py` & `scripts/pipeline_stage_11_bon_eval.sh`.
+Systematically investigates how allocating more inference compute improves multi-step reasoning accuracy. The pipeline supports:
+- High-throughput batched sampling for $N \in \{1, 2, 4, 8\}$.
+- Automatic extraction of scaling curves across datasets.
+- Verification of test-time scaling performance on top of SFT (LoRA) vs. RL (TS-GRPO) checkpoints.
+
+---
+
+## 📁 Repository Architecture
 
 ```text
-configs/         experiment, model, data, and eval yaml files
-data/            raw, processed, and cache directories
-scripts/         CLI entrypoints
-src/             package source code
-tests/           lightweight unit tests
-outputs/         predictions, metrics, analysis, figures, checkpoints
-docs/            proposal, poster, final report assets
+├── configs/                  # YAML configs for PEFT, TRA, Models, Data, and Training
+├── data/                     # Raw, cached, and processed datasets (DocVQA, ChartQA, ScienceQA, MMMU)
+├── docs/                     # Project proposals and academic documentation
+├── outputs/                  # Checkpoints, predictions, metrics, and generated figures
+├── scripts/                  # Shell pipelines (01-11) and CLI entry points
+└── src/text_rich_mllm/       # Core Library
+    ├── adapters/             # TRA module implementation (text_rich_adapter.py)
+    ├── datasets/             # Unified schema loaders and dataset formatters
+    ├── evaluation/           # Benchmark-aware metrics (ANLS, exact match, numeric eval)
+    ├── models/               # Qwen-VL architecture wrapper and checkpoint loading
+    ├── prompts/              # Structured prompt builders
+    ├── training/             # Custom trainers (ts_grpo_trainer.py, hf_trainer.py, mixing.py)
+    └── utils/                # Utilities for loss masking, collators, etc.
 ```
 
-## Quick Start
+---
+
+## 🚀 Execution Pipelines
+
+The experimental workflow is highly reproducible, divided into distinct shell pipelines in the `scripts/` directory:
+
+### Phase 1: Data & Baselines
+- **`pipeline_stage_01_*`**: Downloads datasets and normalizes them into a unified JSONL schema (e.g., Doc10k, Chart15k).
+- **`pipeline_stage_02/03`**: Prompt sanity checking and zero-shot baseline evaluation.
+
+### Phase 2: Supervised Fine-Tuning (SFT)
+- **`pipeline_stage_04_training.sh`**: Standard LoRA fine-tuning.
+- **`pipeline_stage_08_dora_training.sh`**: Weight-Decomposed Low-Rank Adaptation (DoRA).
+- **`pipeline_stage_09_tra_training.sh`**: Training with the custom Text-Rich Adapter (TRA).
+
+### Phase 3: RL Alignment & Test-Time Scaling
+- **`pipeline_stage_10_grpo.sh`**: Launches the TS-GRPO reinforcement learning phase on top of SFT checkpoints.
+- **`pipeline_stage_11_bon_eval.sh`**: Evaluates checkpoints using Best-of-N inference, auto-generating numerical summaries and scaling curve plots.
+
+---
+
+## 💻 Quick Start
+
+### Installation
+Ensure you have a modern GPU with CUDA support.
 
 ```bash
 conda env create -f environment.yml
 conda activate nlp_final
 pip install -e .
+
+# Verify the environment and PyTorch/CUDA setup
 python scripts/check_runtime.py
 ```
 
-CPU-only fallback:
+### Reproducing an Experiment
+To run the Task-Stratified GRPO alignment and generate Best-of-N curves:
 
 ```bash
-conda env create -f environment.cpu.yml
-conda activate text-rich-mllm-cpu
-pip install -e .
-python scripts/check_runtime.py
+# 1. Run GRPO alignment on a pretrained/SFT checkpoint
+bash scripts/pipeline_stage_10_grpo.sh \
+    --checkpoint outputs/checkpoints/my_sft_model \
+    --train-config configs/train/train_joint_grpo.yaml
+
+# 2. Run BoN Scaling Curve Evaluation
+bash scripts/pipeline_stage_11_bon_eval.sh \
+    --checkpoint outputs/checkpoints/grpo_final \
+    --samples data/processed/docvqa/validation.jsonl \
+    --scaling-curve \
+    --exp-name E10_grpo_bon_curve
 ```
 
-Build unified samples from a raw JSON/JSONL file:
-
+### Plotting & Reports
+Extract academic tables and visualizations from generated metrics:
 ```bash
-python scripts/build_unified_data.py --dataset docvqa --input data/raw/docvqa/train.jsonl --output data/processed/docvqa/train.jsonl --split train
+python scripts/generate_report_figures.py
+python scripts/export_tables_figures.py
 ```
 
-Pull a split directly from Hugging Face and materialize image fields:
-
-```bash
-python scripts/download_data.py --config configs/data/docvqa.yaml --split train
-```
-
-Preview prompts without loading a model:
-
-```bash
-python scripts/run_zero_shot.py --input data/processed/docvqa/train.jsonl --preview-count 3
-python scripts/run_structured_prompt.py --input data/processed/docvqa/train.jsonl --preview-count 3
-```
-
-Evaluate an existing prediction file:
-
-```bash
-python scripts/evaluate_model.py --samples data/processed/scienceqa/validation.jsonl --predictions outputs/predictions/scienceqa.jsonl --output outputs/metrics/scienceqa_eval.json
-python scripts/export_tables_figures.py --report outputs/metrics/scienceqa_eval.json --output outputs/figures/scienceqa_eval.md
-```
-
-Dataset-specific preprocessing entrypoints:
-
-```bash
-python scripts/preprocess_docvqa.py --split train
-python scripts/preprocess_chartqa.py --split validation
-python scripts/preprocess_scienceqa.py --split validation
-python scripts/preprocess_mmmu.py --split validation
-```
-
-Prepare or launch PEFT training:
-
-```bash
-python scripts/train_peft.py --train-config configs/train/train_joint.yaml --dry-run
-python scripts/train_peft.py --train-config configs/train/train_joint.yaml
-```
-
-Run checkpoint inference and validation:
-
-```bash
-python scripts/run_inference.py --samples data/processed/scienceqa/validation.jsonl --checkpoint outputs/checkpoints/joint_docvqa_chartqa --output outputs/predictions/scienceqa_validation.jsonl --prompt-style structured --resume
-python scripts/validate_checkpoint.py --samples data/processed/mmmu/validation.jsonl --checkpoint outputs/checkpoints/joint_docvqa_chartqa --predictions-output outputs/predictions/mmmu_validation.jsonl --report-output outputs/metrics/mmmu_validation_eval.json --tagged-output outputs/analysis/mmmu_validation_tagged.jsonl --metadata-keys subject --prompt-style structured --resume
-python scripts/select_best_checkpoint.py --reports outputs/metrics/docvqa_validation_eval.json outputs/metrics/chartqa_validation_eval.json --weights docvqa=1.0 chartqa=1.0
-```
-
-## What Exists Now
-
-This is the first architecture pass. The following pieces are already usable:
-
-- unified sample schema
-- dataset adapter registry
-- direct-answer and structured-prompt baselines
-- prompt builder
-- answer normalization
-- ANLS / numeric-aware / MCQ evaluation
-- sliced evaluation summaries and invalid-output rate tracking
-- balanced or square-root joint training sample mixing
-- simple heuristic error tagging
-- CLI scripts for data conversion, prompt preview, evaluation, and analysis
-
-The model-specific training and inference path is intentionally thin. It is wired for Hugging Face + PEFT, but still expects you to pick the exact backbone and dataset field mapping.
+---
+*Developed for research in multi-modal text-rich reasoning.*
