@@ -1,112 +1,74 @@
-# Task-Aware Adaptation and Test-Time Scaling for Text-Rich Multimodal Reasoning
+# Task-Aware Adaptation and Validation-Time Oracle Analysis for Text-Rich Multimodal Reasoning
 
-This repository houses the official implementation of a complete training, alignment, and evaluation framework for enhancing Multimodal Large Language Models (specifically Qwen-VL) on text-dense and structurally complex tasks (e.g., Document QA, Chart QA, and Scientific Figure Reasoning).
+[![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](NLP_final.pdf)
 
-By integrating **Parameter-Efficient Adapters (TRA/DoRA)**, **Task-Stratified Reinforcement Learning (TS-GRPO)**, and **Test-Time Compute Scaling (Best-of-N)**, this project provides a robust pipeline to improve in-domain expert reasoning while preserving cross-domain generalization.
-
----
+This repository houses the official implementation for the paper **"Task-Aware Adaptation and Validation-Time Oracle Analysis for Text-Rich Multimodal Reasoning"**. It provides a complete training, alignment, and evaluation framework for enhancing Multimodal Large Language Models (specifically Qwen3-VL-8B-Instruct) on text-dense and structurally complex tasks.
 
 ## 🌟 Core Technical Contributions
 
-### 1. Text-Rich Adapter (TRA)
+### 1. Progressive Supervised Adaptation (DoRA)
+The adaptation starts with Weight-Decomposed Low-Rank Adaptation (DoRA) applied to `q_proj, k_proj, v_proj, o_proj` (rank 48, alpha 96) to establish a strong foundational model for text-rich tasks.
+
+### 2. Text-Rich Adapter (TRA)
 Located in `src/text_rich_mllm/adapters/text_rich_adapter.py`. 
-Unlike standard LoRA, TRA is an intermediate adaptation module injected into the middle-to-late layers of the Transformer backbone. It integrates:
-- **Task Embeddings**: Conditions the model on task-specific priors (e.g., `DocVQA` vs `ChartQA`).
-- **Layout Embeddings**: (Optional) Utilizes OCR bounding boxes to provide explicit spatial and structural context.
-- **Gated Residual Updates**: Learns to balance the injected task-specific signals against the pretrained VLM representations.
+An intermediate adaptation module injected after decoder layers 16, 20, 24, and 28 (hidden size 4096, bottleneck rank 64). It integrates task embeddings to explicitly condition the model on task-specific priors.
 
-### 2. Task-Stratified GRPO (TS-GRPO)
+### 3. Task-Stratified GRPO (TS-GRPO)
 Located in `src/text_rich_mllm/training/ts_grpo_trainer.py`.
-Standard RLHF/GRPO struggles when applied jointly to highly heterogeneous datasets. We implemented a custom **Task-Stratified GRPO Trainer** that:
-- Groups generated rollouts strictly by task.
-- Computes the Advantage function (Reward scaling) within task-homogeneous batches, preventing reward-scale domination by easier tasks.
-- Directly optimizes reasoning steps and answer formatting.
+To align predictions with target-task metrics, we use a Task-Stratified GRPO Trainer that groups generated rollouts strictly by task. It computes the Advantage function within task-homogeneous batches, ensuring stable optimization across different metrics (e.g., ANLS for DocVQA, Exact Match for ChartQA).
 
-### 3. Best-of-N (BoN) Test-Time Scaling
-Located in `scripts/inference_best_of_n.py` & `scripts/pipeline_stage_11_bon_eval.sh`.
-Systematically investigates how allocating more inference compute improves multi-step reasoning accuracy. The pipeline supports:
-- High-throughput batched sampling for $N \in \{1, 2, 4, 8\}$.
-- Automatic extraction of scaling curves across datasets.
-- Verification of test-time scaling performance on top of SFT (LoRA) vs. RL (TS-GRPO) checkpoints.
+### 4. Validation-Time Oracle Best-of-N Analysis
+Located in `scripts/inference_best_of_n.py`.
+Rather than a deployable test-time verifier, this is an **oracle upper-bound analysis** evaluating the headroom of candidate diversity. It samples $N \in \{1, 2, 4, 8\}$ candidate answers and selects the best one using gold-reference task rewards on the validation set.
 
----
+## 📊 Main Results
+All models were trained and evaluated using a fixed random seed (`42`) to ensure reproducibility.
+
+| Stage | DocVQA (ANLS) | ChartQA (EM) | In-Domain Avg | ScienceQA (Acc) | MMMU (Acc) | External Avg |
+|-------|---------------|--------------|---------------|-----------------|------------|--------------|
+| Qwen3-VL + prompt | 0.1218 | 0.0760 | 0.1019 | 0.6822 | 0.2900 | 0.4861 |
+| LoRA SFT | 0.7096 | 0.6792 | 0.6964 | **0.7980** | **0.4411** | **0.6195** |
+| DoRA SFT | 0.7389 | 0.7313 | 0.7356 | 0.7888 | 0.4300 | 0.6094 |
+| DoRA SFT + TRA | 0.8100 | 0.7427 | 0.7808 | 0.7893 | 0.4256 | 0.6074 |
+| DoRA SFT + TRA + GRPO | **0.9190** | **0.7682** | **0.8535** | 0.7871 | 0.4156 | 0.6013 |
+
+**Oracle Best-of-N Analysis (N=8)** on the final model further improves DocVQA to **0.9339** and ChartQA to **0.7896**.
 
 ## 📁 Repository Architecture
 
 ```text
-├── configs/                  # YAML configs for PEFT, TRA, Models, Data, and Training
-├── data/                     # Raw, cached, and processed datasets (DocVQA, ChartQA, ScienceQA, MMMU)
-├── docs/                     # Project proposals and academic documentation
-├── outputs/                  # Checkpoints, predictions, metrics, and generated figures
+├── configs/                  # YAML configs (Seed 42 is fixed here)
+├── data/                     # Data directory (DocVQA, ChartQA, ScienceQA, MMMU)
+├── docs/                     # Project report and proposals
+├── outputs/                  # Checkpoints, predictions, and metrics
 ├── scripts/                  # Shell pipelines (01-11) and CLI entry points
-└── src/text_rich_mllm/       # Core Library
-    ├── adapters/             # TRA module implementation (text_rich_adapter.py)
-    ├── datasets/             # Unified schema loaders and dataset formatters
-    ├── evaluation/           # Benchmark-aware metrics (ANLS, exact match, numeric eval)
-    ├── models/               # Qwen-VL architecture wrapper and checkpoint loading
-    ├── prompts/              # Structured prompt builders
-    ├── training/             # Custom trainers (ts_grpo_trainer.py, hf_trainer.py, mixing.py)
-    └── utils/                # Utilities for loss masking, collators, etc.
+└── src/text_rich_mllm/       # Core Library (TRA, TS-GRPO, etc.)
 ```
 
----
+## 🚀 Reproducibility Guide
 
-## 🚀 Execution Pipelines
+### Hardware Requirements
+The main experiments were validated on a single **NVIDIA RTX PRO 6000 GPU (96GB memory)**. Max recorded VRAM usage is ~61.8GB during GRPO training.
 
-The experimental workflow is highly reproducible, divided into distinct shell pipelines in the `scripts/` directory:
-
-### Phase 1: Data & Baselines
-- **`pipeline_stage_01_*`**: Downloads datasets and normalizes them into a unified JSONL schema (e.g., Doc10k, Chart15k).
-- **`pipeline_stage_02/03`**: Prompt sanity checking and zero-shot baseline evaluation.
-
-### Phase 2: Supervised Fine-Tuning (SFT)
-- **`pipeline_stage_04_training.sh`**: Standard LoRA fine-tuning.
-- **`pipeline_stage_08_dora_training.sh`**: Weight-Decomposed Low-Rank Adaptation (DoRA).
-- **`pipeline_stage_09_tra_training.sh`**: Training with the custom Text-Rich Adapter (TRA).
-
-### Phase 3: RL Alignment & Test-Time Scaling
-- **`pipeline_stage_10_grpo.sh`**: Launches the TS-GRPO reinforcement learning phase on top of SFT checkpoints.
-- **`pipeline_stage_11_bon_eval.sh`**: Evaluates checkpoints using Best-of-N inference, auto-generating numerical summaries and scaling curve plots.
-
----
-
-## 💻 Quick Start
-
-### Installation
-Ensure you have a modern GPU with CUDA support.
-
+### Environment Setup
 ```bash
 conda env create -f environment.yml
 conda activate nlp_final
 pip install -e .
-
-# Verify the environment and PyTorch/CUDA setup
 python scripts/check_runtime.py
 ```
 
-### Reproducing an Experiment
-To run the Task-Stratified GRPO alignment and generate Best-of-N curves:
+### End-to-End Execution
+The reproducible workflow is divided into bash pipelines:
+1. **Data Preparation**: `bash scripts/pipeline_stage_01_build_datasets_chart15k_doc10k.sh`
+2. **DoRA SFT Training**: `bash scripts/pipeline_stage_08_dora_training.sh`
+3. **TRA Training**: `bash scripts/pipeline_stage_09_tra_training.sh`
+4. **TS-GRPO Alignment**: `bash scripts/pipeline_stage_10_grpo.sh`
+5. **Best-of-N Oracle Analysis**: `bash scripts/pipeline_stage_11_bon_eval.sh` (Use `--scaling-curve` flag to reproduce Figure 4).
 
-```bash
-# 1. Run GRPO alignment on a pretrained/SFT checkpoint
-bash scripts/pipeline_stage_10_grpo.sh \
-    --checkpoint outputs/checkpoints/my_sft_model \
-    --train-config configs/train/train_joint_grpo.yaml
-
-# 2. Run BoN Scaling Curve Evaluation
-bash scripts/pipeline_stage_11_bon_eval.sh \
-    --checkpoint outputs/checkpoints/grpo_final \
-    --samples data/processed/docvqa/validation.jsonl \
-    --scaling-curve \
-    --exp-name E10_grpo_bon_curve
-```
-
-### Plotting & Reports
-Extract academic tables and visualizations from generated metrics:
+### Evaluation & Plotting
+To reproduce the exact metrics and figures reported in the paper:
 ```bash
 python scripts/generate_report_figures.py
 python scripts/export_tables_figures.py
 ```
-
----
-*Developed for research in multi-modal text-rich reasoning.*
